@@ -37,6 +37,7 @@ xdebug.idekey= PHPSTORM
 xdebug.remote_autostart=1
 xdebug.remote_enable=1
 EOF
+
 cat << EOF | sudo tee -a /etc/apache2/conf.d/xdebug.conf
 ServerName localhost
 EOF
