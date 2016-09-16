@@ -1,0 +1,23 @@
+.container
+    .register
+        .reset-password
+            h1
+                strong
+                    if hasToken
+                        | Reset Password
+                    else
+                        | Forgot your password?
+            fieldset
+                if hasToken
+                    label for="reg01" Choose a password
+                    .hold
+                        input.required-text.password1 type="password" id="reg01" placeholder="Password" name="password1"
+                    label for="reg02" Confirm password
+                    .hold
+                        input.required-text.password2 type="password" id="reg02" placeholder="Password" name="password2"
+                    input.button.btn.btn-primary.update-password type="submit" value="Update Password" click="updatePassword"
+                else
+                    label for="reg01" Your Email
+                    .hold
+                        input.required-text.email type="text" id="reg01" placeholder="Email" name="email"
+                    input.button.btn.btn-primary.send-password-reset type="submit" value="Reset password" click="sendPasswordReset"

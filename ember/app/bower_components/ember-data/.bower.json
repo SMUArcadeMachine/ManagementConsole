@@ -1,0 +1,15 @@
+{
+  "name": "ember-data.js",
+  "_cacheHeaders": {
+    "ETag": "\"ae9f59542c852ed09e59e19823a367e7\"",
+    "Last-Modified": "Thu, 05 Sep 2013 18:37:53 GMT",
+    "Content-Length": "192010",
+    "Content-Type": "text/javascript"
+  },
+  "_release": "e-tag:ae9f59542",
+  "main": "index.js",
+  "_source": "http://builds.emberjs.com/beta/ember-data.js",
+  "_target": "*",
+  "_originalSource": "http://builds.emberjs.com/beta/ember-data.js",
+  "_direct": true
+}

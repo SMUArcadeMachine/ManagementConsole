@@ -1,0 +1,39 @@
+.container
+    section.register
+        h1
+            strong Login to Virtuals IO
+        .two-columns
+            form.register-form submit="submit bubbles=false"
+                fieldset
+                    h2 Login
+                    .row
+                        label Username
+                        .hold
+                            input#login-username.required-text.username.input-error type="text"
+                            span.error-label error
+                            span.successful-label successful
+                    .row
+                        label Password
+                        .hold
+                            input#login-password.required-text.password.input-error type="password" data-confirm="password"
+                            span.error-label error
+                            span.successful-label successful
+                    .row
+                        .method-holder
+                            label
+                                Ember.Checkbox classNames="custom-checkbox remember" checked="checked"
+                                span Remember me
+                    input.button type="submit" value="login"
+                    linkTo 'password.reset' classNames="forgot-password"
+                        | Forgot password?
+            .using-box
+                h2 Login by using
+                ul.signin-list
+                    li
+                        a.facebook.pointer click="oauthSubmit 'facebook' bubbles=false" Sign in with Facebook
+                    li
+                        div#google
+                            a.google.pointer click="oauthSubmit 'google' bubbles=false" Sign in with Google+
+
+
+

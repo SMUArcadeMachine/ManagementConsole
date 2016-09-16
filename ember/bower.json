@@ -1,0 +1,26 @@
+{
+  "name": "SMU Arcade Machine Management Console",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "purl": "~2.3.1",
+    "modernizr": "~2.6.2",
+    "handlebars": "*",
+    "underscore": "~1.5.2",
+    "ember-auth": "~8.0.0",
+    "momentjs": "~2.1.0",
+    "loglevel": "~0.3.1",
+    "jquery-timeago": "~1.3.0",
+    "ember-animated-outlet": "https://github.com/billysbilling/ember-animated-outlet.git",
+    "jquery-autosize": "~1.18.0",
+    "typeahead.js": "https://github.com/algolia/typeahead.js.git#~0.9.3"
+  },
+  "devDependencies": {
+    "ember-mocha-adapter": "0.1.1",
+    "emblem": "~0.3.2"
+  },
+  "description": "SMU Arcade Machine Management Console",
+  "license": "MIT",
+  "homepage": "smu.edu",
+  "private": true
+}

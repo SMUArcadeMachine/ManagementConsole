@@ -1,0 +1,47 @@
+.dashboard-head
+    h1.dashboard-category-title
+        = controllers.nav-main.categoryHeader
+    .dashboard-header
+        .dashboard-wallet
+            span.dashboard-wallet-label
+                | VIO Balance:&nbsp;
+                linkTo 'wallet' classNames="dashboard-wallet-link"
+                    price_format controllers.wallet.amount true
+        #msg-icon
+            .counter
+                if controllers.application.messages_total
+                    price_format controllers.application.messages_total false false false false
+                else
+                    | 0
+            linkTo 'messaging' messaging classNames="dashboard-wallet-link"
+                i.glyphicons.envelope
+        .dashboard-username
+            linkTo 'profile' controllers.application.username classNames="dashboard-username-link"
+                if controllers.application.username
+                    = controllers.application.username
+                else
+                    | Error
+            span &nbsp;(&nbsp;
+            linkTo 'feedback' feedback classNames="dashboard-username-ratings"
+                if controllers.application.feedback_total
+                    price_format controllers.application.feedback_total false false false false
+                else
+                    | 0
+            if controllers.application.feedback_total
+                App.FeedbackRatingView size="small" count=controllers.application.feedback_total
+            span &nbsp;)&nbsp;
+.main-content-dashboard.container
+
+    render nav/main
+    .dashboard-main-content-wrapper
+        render nav/sub
+        .dashboard-content-wrapper
+            .dashboard-content-header
+                = controllers.nav-sub.categoryHeader
+                if controllers.nav-sub.categoryHelp
+                    App.TooltipInfoView title=controllers.nav-sub.categoryHelpTitle href=controllers.nav-sub.categoryHelp placement="left"
+                if controllers.nav-sub.categoryHelpRoute
+                    linkTo controllers.nav-sub.categoryHelpRoute
+                        App.TooltipInfoView title=controllers.nav-sub.categoryHelpTitle placement="left" tagName="i"
+            .dashboard-content
+                outlet

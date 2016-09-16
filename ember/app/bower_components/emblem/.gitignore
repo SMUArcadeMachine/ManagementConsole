@@ -1,0 +1,14 @@
+
+examples
+node_modules
+.sw[po]
+.*.sw[po]
+
+lib/coffee-script/bootstrap
+lib/coffee-script/*.tmp
+
+*gem
+
+.DS_Store
+
+tmp

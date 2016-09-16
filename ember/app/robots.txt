@@ -1,0 +1,29 @@
+# Robots.txt file for https://www.virtuals.io
+#
+
+User-agent: *
+
+Disallow: /listings*
+Disallow: /listing/create
+Disallow: /listing/edit*
+Disallow: /messaging*
+Disallow: /account
+Disallow: /contacts*
+Disallow: /settings
+Disallow: /subscriptions
+Disallow: /banners*
+Disallow: /alerts*
+Disallow: /invoices*
+Disallow: /ewallets*
+Disallow: /wallet*
+Disallow: /bitcoin
+Disallow: /transactions*
+Disallow: /deliveries*
+Disallow: /feedback*
+Disallow: /delivery*
+Disallow: /invoice/*
+Disallow: /order/*
+Disallow: /error
+Disallow: /search*
+
+Sitemap: https://www.virtuals.io/sitemap.xml

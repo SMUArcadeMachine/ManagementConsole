@@ -1,0 +1,15 @@
+{
+  "name": "bootstrap.js",
+  "_cacheHeaders": {
+    "ETag": "\"40e9e-ed02-4e1b3b94bf0c0\"",
+    "Last-Modified": "Wed, 17 Jul 2013 11:52:11 GMT",
+    "Content-Length": "60674",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:40e9e-ed0",
+  "main": "index.js",
+  "_source": "http://107.21.93.76/js/vendor/bootstrap.js",
+  "_target": "*",
+  "_originalSource": "http://107.21.93.76/js/vendor/bootstrap.js",
+  "_direct": true
+}

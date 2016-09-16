@@ -1,0 +1,13 @@
+{
+  "name": "ember-animated-outlet",
+  "homepage": "https://github.com/billysbilling/ember-animated-outlet",
+  "_release": "master",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8dc116941d5b48f5e75810cc438478cdda878b3d"
+  },
+  "_source": "https://github.com/billysbilling/ember-animated-outlet.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/billysbilling/ember-animated-outlet.git"
+}

@@ -1,0 +1,10 @@
+.container
+    meta name="prerender-status-code" content="404"
+    .error-icon-wrapper
+        i.icon-remove
+    .error-header 404 - Page not found.
+    .error-description
+        ' Click
+        a.pointer onclick="history.go(-1)"
+            | here
+        |  to go back.

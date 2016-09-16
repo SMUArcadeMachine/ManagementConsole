@@ -1,0 +1,17 @@
+App.IndexContentView
+if isAdmin
+    render 'admin'
+else
+    if isFullPage
+        render 'full'
+    else
+        #wrapper
+            render 'header'
+            #main
+                if isDashboardPage
+                    render 'dashboard'
+                else
+                    render 'main'
+            render 'footer'
+
+
