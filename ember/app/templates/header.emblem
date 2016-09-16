@@ -1,100 +1,20 @@
 header#header
     strong.logo
-        linkTo 'index' | Virtuals IO
+        linkTo 'index'
+            = App.BASE_NAME
                 
-    if App.Auth.signedIn
-        nav.panel
-            ul
+    nav.panel
+        ul
+            if App.Auth.signedIn
                 li
-                    .select-how
-                        a.pointer.opener.how How it works
-                        ul.slide.click-close
-                            li
-                                linkTo 'sell'
-                                    span Sell
-                            li
-                                linkTo 'buy'
-                                    span Buy
-                            li
-                                linkTo 'pricing'
-                                    span Pricing
-                li click="createListingClicked"
-                    linkTo 'listing.create'
-                        img{bindIMG url="/img/ico05.png"} style="width: 16px; height: 16px"
-                        | Create Listing
-                li.my-store-wrapper
-                    linkTo 'store' title
+                    span = title
+            li
+                if App.Auth.signedIn
+                    a.pointer click="logout" Log Out
+                else
+                    linkTo 'login'
+                        button.button.btn.btn-inverse Login
 
-                        i.icon-shopping-cart style="width: 15px; height: 16px"
-                        span My Store
-                li
-                    linkTo 'listings' listing
-                        img{bindIMG url="/img/ico07.png"} style="width: 15px; height: 16px"
-                        | Dashboard
-                li
-                    linkTo 'transactions' 1 q=false
-                        img{bindIMG url="/img/ico06.png"} style="width: 13px; height: 16px"
-                        | Transactions
-                li
-                    img{bindIMG url="/img/ico08.png"} alt="image description" style="width: 17px; height: 15px"
-                    .drop-block
-                        a.name.opener.pointer = title
-                        ul.slide.click-close
-                            li
-                                linkTo 'settings'
-                                    span Settings
-                            if isAdmin
-                                li
-                                    linkTo 'admin'
-                                        span Admin Panel
-                                if is_search_route
-                                    li click="bulkDeleteToggle"
-                                        a.pointer
-                                            span
-                                                | Bulk Delete
-                                                if controllers.application.bulk_delete_enabled
-                                                    |  On
-                                                else
-                                                    |  Off
-                                    if controllers.application.bulk_delete_enabled
-                                        li click="bulkDeleteConfirm"
-                                            a.pointer
-                                                span
-                                                    | Delete Confirm
-                            if isSupport
-                                li
-                                    a href=support_panel_link target="_blank"
-                                        span Support Panel
-                            li
-                                a.pointer click="logout" Log Out
-    else
-        form.login-form submit="submit"
-            fieldset
-                .box
-                    .select-how
-                        a.pointer.opener.how How it works
-                        ul.slide.click-close
-                            li
-                                linkTo 'sell'
-                                    span Sell
-                            li
-                                linkTo 'buy'
-                                    span Buy
-                            li
-                                linkTo 'pricing'
-                                    span Pricing
-
-
-                .hold
-                    input.username type="text" placeholder="Username" autocomplete="off"
-
-                .hold
-                    input.password type="password" placeholder="Password" autocomplete="off"
-
-                input.button.signIn.btn.btn-info type="submit" value="login"
-                linkTo 'register'
-                    button.button.btn.btn-inverse register
-        
     
 
 

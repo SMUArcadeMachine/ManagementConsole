@@ -8,8 +8,11 @@ sudo apt-get -y update
 sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password rootpass'
 sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password rootpass'
 
+# Essentials
+sudo apt-get install -y curl wget build-essential python-software-properties python g++ make git-core libkrb5-dev
+
 # Main lamp
-sudo apt-get install -y curl lamp-server^
+sudo apt-get install -y lamp-server^
 
 # Set root Apache folder to a Vagrant-isk style
 if ! [ -L /var/www ]; then
@@ -59,3 +62,9 @@ sudo service apache2 restart
 # PHP package manager
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+
+# Run database_setup.sql
+
+# Run npm install in ember root folder
+cd /vagrant/ember
+sudo npm install --no-bin-links

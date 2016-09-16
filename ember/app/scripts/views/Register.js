@@ -65,9 +65,7 @@ App.RegisterView = Em.PageView.extend({
         window.scrollTo(0,0);
         var self = this;
         var controller = this.controller;
-        controller.send('loadOauth');
         var isBusy = false;
-        initDesigns();
         $('#wrapper').on({
             'click' : function(e){
                 e.preventDefault();
@@ -85,7 +83,6 @@ App.RegisterView = Em.PageView.extend({
                     url: '/login/create',
                     data: {
                         user: {
-                            username: $form.find('.username').val(),
                             email1: $form.find('.email1').val(),
                             email2: $form.find('.email2').val(),
                             password1: $form.find('.password1').val(),
@@ -110,7 +107,9 @@ App.RegisterView = Em.PageView.extend({
         },'.register-form input[type="submit"]');
         var callback = function (value) {
             var elem = this;
-            var data = elem === $('.register-form .username')[0] ? {username:value} : {email:value};
+            var data = {
+                email: value
+            };
             App.Auth.send({
                 type: 'GET',
                 url: '/register',
@@ -124,7 +123,7 @@ App.RegisterView = Em.PageView.extend({
                 }).always(function(){
                 });
         };
-        $('.register-form .username,.register-form .email1').typeWatch({
+        $('.register-form .email1').typeWatch({
             callback: callback,
             wait: 750,
             highlight: true,
@@ -152,9 +151,7 @@ App.RegisterView = Em.PageView.extend({
         var error_type = App.Utils.get_error_message(return_data,'type');
         var input;
         var event = 'focus';
-        if(error_type == 'username'){
-            input = $('.username');
-        }else if(error_type == 'email'){
+        if(error_type == 'email'){
             input = $('.email1' + ($('.email2').val() ? ',.email2' : ''));
         }else if(error_type == 'password'){
             input = $('.password1,.password2');

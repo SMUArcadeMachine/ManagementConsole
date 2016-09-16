@@ -1,3 +1,4 @@
 TODO items
 
 Vagrant run database_setup.sql
+Check the rest of ember

@@ -1,4 +1,3 @@
-
 App.SingleAlertMixin = Ember.Mixin.create({
     openAlert: false,
     showImageAlert: function(){

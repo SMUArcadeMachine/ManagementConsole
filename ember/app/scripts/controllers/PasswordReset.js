@@ -72,8 +72,6 @@ App.PasswordResetController = Em.ObjectController.extend({
                     hideLoader();
                     $submit.removeAttr('disabled');
                 });
-
         }
-
     }
 });

@@ -1,5 +1,5 @@
 App.ApplicationAdapter = DS.RESTAdapter.extend({
-    host: App.VIRTUALS.API,
+    host: App.API,
     updateRecord: function(store, type, record) {
         log.debug('App.ApplicationAdapter.updateRecord');
         var data = {};

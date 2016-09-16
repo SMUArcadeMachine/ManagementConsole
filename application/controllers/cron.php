@@ -3,14 +3,13 @@ class Cron extends CI_Controller {
 
     public function test(){
     }
-    public function update_expired_listings(){
+    public function do_something(){
         if($this->input->is_cli_request() || ENVIRONMENT == 'development'){
             try{
                 q('BEGIN');
-//                $this->load->model('cron_model');
-//                $this->cron_model->update_expired_listings();
+                //Do something here
                 q('COMMIT');
-                echo 'update_expired_listings' . "\n";
+                echo 'do_something' . "\n";
             }catch(Exception $e){
                 q('ROLLBACK');
                 backend_log(array(

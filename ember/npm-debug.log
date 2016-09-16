@@ -1,0 +1,675 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'contextify',
+1 verbose cli   '--verbose' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose install initial load of /vagrant/ember/package.json
+5 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/connect-livereload/package.json
+6 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/ember-template-compiler/package.json
+7 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt/package.json
+8 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-concurrent/package.json
+9 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-clean/package.json
+10 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-coffee/package.json
+11 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-concat/package.json
+12 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-connect/package.json
+13 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-copy/package.json
+14 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-jshint/package.json
+15 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-less/package.json
+16 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-contrib-watch/package.json
+17 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-ember-templates/package.json
+18 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-emblem/package.json
+19 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-mocha/package.json
+20 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-neuter/package.json
+21 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-open/package.json
+22 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/grunt-preprocess/package.json
+23 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/handlebars/package.json
+24 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/load-grunt-tasks/package.json
+25 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/node-gyp/package.json
+26 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/node.extend/package.json
+27 verbose installManyTop reading scoped package data from /vagrant/ember/node_modules/time-grunt/package.json
+28 info package.json connect-livereload@0.2.0 No license field.
+29 info package.json grunt-contrib-clean@0.5.0 No license field.
+30 info package.json ember-template-compiler@1.8.0 No license field.
+31 info package.json grunt-concurrent@0.3.1 No license field.
+32 info package.json grunt-contrib-coffee@0.7.0 No license field.
+33 info package.json grunt-contrib-concat@0.3.0 No license field.
+34 info package.json grunt-contrib-copy@0.4.1 No license field.
+35 info package.json grunt-contrib-connect@0.3.0 No license field.
+36 info package.json grunt-contrib-watch@0.5.3 No license field.
+37 info package.json grunt@0.4.5 No license field.
+38 info package.json grunt-emblem@0.1.0 No license field.
+39 info package.json grunt-mocha@0.4.15 No license field.
+40 info package.json grunt-open@0.2.3 No license field.
+41 info package.json grunt-contrib-jshint@0.6.5 No license field.
+42 info package.json grunt-ember-templates@0.4.23 No license field.
+43 info package.json grunt-contrib-less@0.8.3 No license field.
+44 info package.json grunt-preprocess@3.0.1 No license field.
+45 verbose readDependencies loading dependencies from /vagrant/ember/package.json
+46 silly cache add args [ 'contextify', null ]
+47 verbose cache add spec contextify
+48 silly cache add parsed spec Result {
+48 silly cache add   raw: 'contextify',
+48 silly cache add   scope: null,
+48 silly cache add   name: 'contextify',
+48 silly cache add   rawSpec: '',
+48 silly cache add   spec: 'latest',
+48 silly cache add   type: 'tag' }
+49 silly addNamed contextify@latest
+50 verbose addNamed "latest" is being treated as a dist-tag for contextify
+51 info addNameTag [ 'contextify', 'latest' ]
+52 silly mapToRegistry name contextify
+53 silly mapToRegistry using default registry
+54 silly mapToRegistry registry https://registry.npmjs.org/
+55 silly mapToRegistry data Result {
+55 silly mapToRegistry   raw: 'contextify',
+55 silly mapToRegistry   scope: null,
+55 silly mapToRegistry   name: 'contextify',
+55 silly mapToRegistry   rawSpec: '',
+55 silly mapToRegistry   spec: 'latest',
+55 silly mapToRegistry   type: 'tag' }
+56 silly mapToRegistry uri https://registry.npmjs.org/contextify
+57 verbose addNameTag registry:https://registry.npmjs.org/contextify not in flight; fetching
+58 verbose request uri https://registry.npmjs.org/contextify
+59 verbose request no auth needed
+60 info attempt registry request try #1 at 9:54:24 AM
+61 verbose request id 096f9a3a61b4e689
+62 verbose etag "29DTT4NN7JEGUNKCLT4JM9WG1"
+63 http request GET https://registry.npmjs.org/contextify
+64 http 200 https://registry.npmjs.org/contextify
+65 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+65 verbose headers   etag: '"4A06HCEN9ASTAKJ8ZD092BAFH"',
+65 verbose headers   'content-type': 'application/json',
+65 verbose headers   'content-encoding': 'gzip',
+65 verbose headers   'cache-control': 'max-age=300',
+65 verbose headers   'content-length': '6076',
+65 verbose headers   'accept-ranges': 'bytes',
+65 verbose headers   date: 'Fri, 16 Sep 2016 09:54:24 GMT',
+65 verbose headers   via: '1.1 varnish',
+65 verbose headers   age: '263',
+65 verbose headers   connection: 'keep-alive',
+65 verbose headers   'x-served-by': 'cache-dfw1830-DFW',
+65 verbose headers   'x-cache': 'HIT',
+65 verbose headers   'x-cache-hits': '1',
+65 verbose headers   'x-timer': 'S1474019664.893108,VS0,VE0',
+65 verbose headers   vary: 'Accept-Encoding' }
+66 silly get cb [ 200,
+66 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+66 silly get     etag: '"4A06HCEN9ASTAKJ8ZD092BAFH"',
+66 silly get     'content-type': 'application/json',
+66 silly get     'content-encoding': 'gzip',
+66 silly get     'cache-control': 'max-age=300',
+66 silly get     'content-length': '6076',
+66 silly get     'accept-ranges': 'bytes',
+66 silly get     date: 'Fri, 16 Sep 2016 09:54:24 GMT',
+66 silly get     via: '1.1 varnish',
+66 silly get     age: '263',
+66 silly get     connection: 'keep-alive',
+66 silly get     'x-served-by': 'cache-dfw1830-DFW',
+66 silly get     'x-cache': 'HIT',
+66 silly get     'x-cache-hits': '1',
+66 silly get     'x-timer': 'S1474019664.893108,VS0,VE0',
+66 silly get     vary: 'Accept-Encoding' } ]
+67 verbose get saving contextify to /home/vagrant/.npm/registry.npmjs.org/contextify/.cache.json
+68 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+69 silly addNameTag next cb for contextify with tag latest
+70 silly addNamed contextify@0.1.15
+71 verbose addNamed "0.1.15" is a plain semver version for contextify
+72 silly cache afterAdd contextify@0.1.15
+73 verbose afterAdd /home/vagrant/.npm/contextify/0.1.15/package/package.json not in flight; writing
+74 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+75 verbose afterAdd /home/vagrant/.npm/contextify/0.1.15/package/package.json written
+76 silly install resolved [ { name: 'contextify',
+76 silly install resolved     version: '0.1.15',
+76 silly install resolved     description: 'Turn an object into a persistent execution context.',
+76 silly install resolved     author: { name: 'Brian McDaniel', email: 'brianmcd05@gmail.com' },
+76 silly install resolved     contributors:
+76 silly install resolved      [ [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object],
+76 silly install resolved        [Object] ],
+76 silly install resolved     keywords: [ 'context', 'vm' ],
+76 silly install resolved     repository:
+76 silly install resolved      { type: 'git',
+76 silly install resolved        url: 'git+https://github.com/brianmcd/contextify.git' },
+76 silly install resolved     main: './lib/contextify',
+76 silly install resolved     scripts: { test: 'nodeunit test/', install: 'node-gyp rebuild' },
+76 silly install resolved     engines: { node: '>=0.10.11' },
+76 silly install resolved     licenses: [ [Object] ],
+76 silly install resolved     dependencies: { bindings: '^1.2.1', nan: '^2.1.0' },
+76 silly install resolved     devDependencies: { nodeunit: '>=0.5.x' },
+76 silly install resolved     gypfile: true,
+76 silly install resolved     gitHead: '8929cf6150033bf5e811be5f5c0f385ce960c821',
+76 silly install resolved     bugs: { url: 'https://github.com/brianmcd/contextify/issues' },
+76 silly install resolved     homepage: 'https://github.com/brianmcd/contextify#readme',
+76 silly install resolved     _id: 'contextify@0.1.15',
+76 silly install resolved     _shasum: '3d34681d14a5ccbbe609c9ee11eda206b8cf266f',
+76 silly install resolved     _from: 'contextify@latest',
+76 silly install resolved     _npmVersion: '3.3.6',
+76 silly install resolved     _nodeVersion: '5.0.0',
+76 silly install resolved     _npmUser: { name: 'brianmcd', email: 'brianmcd05@gmail.com' },
+76 silly install resolved     maintainers: [ [Object] ],
+76 silly install resolved     dist:
+76 silly install resolved      { shasum: '3d34681d14a5ccbbe609c9ee11eda206b8cf266f',
+76 silly install resolved        tarball: 'https://registry.npmjs.org/contextify/-/contextify-0.1.15.tgz' },
+76 silly install resolved     directories: {},
+76 silly install resolved     _resolved: 'https://registry.npmjs.org/contextify/-/contextify-0.1.15.tgz',
+76 silly install resolved     readme: 'ERROR: No README data found!' } ]
+77 info install contextify@0.1.15 into /vagrant/ember
+78 info installOne contextify@0.1.15
+79 verbose installOne of contextify to /vagrant/ember not in flight; installing
+80 verbose correctMkdir /home/vagrant/.npm/_locks correctMkdir not in flight; initializing
+81 verbose lock using /home/vagrant/.npm/_locks/contextify-3f1ff4ffb72411aa.lock for /vagrant/ember/node_modules/contextify
+82 silly install write writing contextify 0.1.15 to /vagrant/ember/node_modules/contextify
+83 verbose unbuild node_modules/contextify
+84 silly gentlyRm /vagrant/ember/node_modules/contextify is being purged from base /vagrant/ember
+85 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify
+86 verbose tar unpack /home/vagrant/.npm/contextify/0.1.15/package.tgz
+87 verbose tar unpacking to /vagrant/ember/node_modules/contextify
+88 silly gentlyRm /vagrant/ember/node_modules/contextify is being purged
+89 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify
+90 silly gunzTarPerm modes [ '755', '644' ]
+91 silly gunzTarPerm extractEntry package.json
+92 silly gunzTarPerm extractEntry .npmignore
+93 silly gunzTarPerm extractEntry README.md
+94 silly gunzTarPerm extractEntry .travis.yml
+95 silly gunzTarPerm extractEntry LICENSE.txt
+96 silly gunzTarPerm extractEntry .dntrc
+97 silly gunzTarPerm extractEntry binding.gyp
+98 silly gunzTarPerm extractEntry changelog
+99 silly gunzTarPerm extractEntry lib/contextify.js
+100 silly gunzTarPerm extractEntry test/contextify.js
+101 silly gunzTarPerm extractEntry src/contextify.cc
+102 silly gunzTarPerm extractEntry wscript
+103 verbose write writing to /vagrant/ember/node_modules/contextify/package.json
+104 info preinstall contextify@0.1.15
+105 verbose readDependencies loading dependencies from /vagrant/ember/node_modules/contextify/package.json
+106 silly prepareForInstallMany adding bindings@^1.2.1 from contextify dependencies
+107 silly prepareForInstallMany adding nan@^2.1.0 from contextify dependencies
+108 verbose readDependencies loading dependencies from /vagrant/ember/node_modules/contextify/package.json
+109 silly cache add args [ 'bindings@^1.2.1', null ]
+110 verbose cache add spec bindings@^1.2.1
+111 silly cache add args [ 'nan@^2.1.0', null ]
+112 verbose cache add spec nan@^2.1.0
+113 silly cache add parsed spec Result {
+113 silly cache add   raw: 'bindings@^1.2.1',
+113 silly cache add   scope: null,
+113 silly cache add   name: 'bindings',
+113 silly cache add   rawSpec: '^1.2.1',
+113 silly cache add   spec: '>=1.2.1 <2.0.0',
+113 silly cache add   type: 'range' }
+114 silly addNamed bindings@>=1.2.1 <2.0.0
+115 verbose addNamed ">=1.2.1 <2.0.0" is a valid semver range for bindings
+116 silly addNameRange { name: 'bindings', range: '>=1.2.1 <2.0.0', hasData: false }
+117 silly mapToRegistry name bindings
+118 silly mapToRegistry using default registry
+119 silly mapToRegistry registry https://registry.npmjs.org/
+120 silly mapToRegistry data Result {
+120 silly mapToRegistry   raw: 'bindings',
+120 silly mapToRegistry   scope: null,
+120 silly mapToRegistry   name: 'bindings',
+120 silly mapToRegistry   rawSpec: '',
+120 silly mapToRegistry   spec: 'latest',
+120 silly mapToRegistry   type: 'tag' }
+121 silly mapToRegistry uri https://registry.npmjs.org/bindings
+122 verbose addNameRange registry:https://registry.npmjs.org/bindings not in flight; fetching
+123 silly cache add parsed spec Result {
+123 silly cache add   raw: 'nan@^2.1.0',
+123 silly cache add   scope: null,
+123 silly cache add   name: 'nan',
+123 silly cache add   rawSpec: '^2.1.0',
+123 silly cache add   spec: '>=2.1.0 <3.0.0',
+123 silly cache add   type: 'range' }
+124 silly addNamed nan@>=2.1.0 <3.0.0
+125 verbose addNamed ">=2.1.0 <3.0.0" is a valid semver range for nan
+126 silly addNameRange { name: 'nan', range: '>=2.1.0 <3.0.0', hasData: false }
+127 silly mapToRegistry name nan
+128 silly mapToRegistry using default registry
+129 silly mapToRegistry registry https://registry.npmjs.org/
+130 silly mapToRegistry data Result {
+130 silly mapToRegistry   raw: 'nan',
+130 silly mapToRegistry   scope: null,
+130 silly mapToRegistry   name: 'nan',
+130 silly mapToRegistry   rawSpec: '',
+130 silly mapToRegistry   spec: 'latest',
+130 silly mapToRegistry   type: 'tag' }
+131 silly mapToRegistry uri https://registry.npmjs.org/nan
+132 verbose addNameRange registry:https://registry.npmjs.org/nan not in flight; fetching
+133 verbose request uri https://registry.npmjs.org/bindings
+134 verbose request no auth needed
+135 info attempt registry request try #1 at 9:54:25 AM
+136 verbose etag "C1AW6UVQGY4VZQGFC1WTIGMDV"
+137 http request GET https://registry.npmjs.org/bindings
+138 verbose request uri https://registry.npmjs.org/nan
+139 verbose request no auth needed
+140 info attempt registry request try #1 at 9:54:25 AM
+141 verbose etag "59HOMY3HCQTCA404BD525JWB3"
+142 http request GET https://registry.npmjs.org/nan
+143 http 304 https://registry.npmjs.org/bindings
+144 verbose headers { date: 'Fri, 16 Sep 2016 09:54:25 GMT',
+144 verbose headers   via: '1.1 varnish',
+144 verbose headers   'cache-control': 'max-age=300',
+144 verbose headers   etag: '"C1AW6UVQGY4VZQGFC1WTIGMDV"',
+144 verbose headers   age: '107',
+144 verbose headers   connection: 'keep-alive',
+144 verbose headers   'x-served-by': 'cache-dfw1830-DFW',
+144 verbose headers   'x-cache': 'HIT',
+144 verbose headers   'x-cache-hits': '1',
+144 verbose headers   'x-timer': 'S1474019665.345627,VS0,VE0',
+144 verbose headers   vary: 'Accept-Encoding' }
+145 silly get cb [ 304,
+145 silly get   { date: 'Fri, 16 Sep 2016 09:54:25 GMT',
+145 silly get     via: '1.1 varnish',
+145 silly get     'cache-control': 'max-age=300',
+145 silly get     etag: '"C1AW6UVQGY4VZQGFC1WTIGMDV"',
+145 silly get     age: '107',
+145 silly get     connection: 'keep-alive',
+145 silly get     'x-served-by': 'cache-dfw1830-DFW',
+145 silly get     'x-cache': 'HIT',
+145 silly get     'x-cache-hits': '1',
+145 silly get     'x-timer': 'S1474019665.345627,VS0,VE0',
+145 silly get     vary: 'Accept-Encoding' } ]
+146 verbose etag https://registry.npmjs.org/bindings from cache
+147 verbose get saving bindings to /home/vagrant/.npm/registry.npmjs.org/bindings/.cache.json
+148 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+149 silly addNameRange number 2 { name: 'bindings', range: '>=1.2.1 <2.0.0', hasData: true }
+150 silly addNameRange versions [ 'bindings',
+150 silly addNameRange   [ '0.0.1',
+150 silly addNameRange     '0.1.0',
+150 silly addNameRange     '0.1.1',
+150 silly addNameRange     '0.2.0',
+150 silly addNameRange     '0.2.1',
+150 silly addNameRange     '0.2.2',
+150 silly addNameRange     '0.2.3',
+150 silly addNameRange     '0.2.4',
+150 silly addNameRange     '0.3.0',
+150 silly addNameRange     '0.4.0',
+150 silly addNameRange     '1.0.0',
+150 silly addNameRange     '1.1.0',
+150 silly addNameRange     '1.1.1',
+150 silly addNameRange     '1.2.0',
+150 silly addNameRange     '1.2.1' ] ]
+151 silly addNamed bindings@1.2.1
+152 verbose addNamed "1.2.1" is a plain semver version for bindings
+153 silly cache afterAdd bindings@1.2.1
+154 verbose afterAdd /home/vagrant/.npm/bindings/1.2.1/package/package.json not in flight; writing
+155 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+156 verbose afterAdd /home/vagrant/.npm/bindings/1.2.1/package/package.json written
+157 http 304 https://registry.npmjs.org/nan
+158 verbose headers { date: 'Fri, 16 Sep 2016 09:54:25 GMT',
+158 verbose headers   via: '1.1 varnish',
+158 verbose headers   'cache-control': 'max-age=300',
+158 verbose headers   etag: '"59HOMY3HCQTCA404BD525JWB3"',
+158 verbose headers   age: '141',
+158 verbose headers   connection: 'keep-alive',
+158 verbose headers   'x-served-by': 'cache-dfw1844-DFW',
+158 verbose headers   'x-cache': 'HIT',
+158 verbose headers   'x-cache-hits': '2',
+158 verbose headers   'x-timer': 'S1474019665.475751,VS0,VE0',
+158 verbose headers   vary: 'Accept-Encoding' }
+159 silly get cb [ 304,
+159 silly get   { date: 'Fri, 16 Sep 2016 09:54:25 GMT',
+159 silly get     via: '1.1 varnish',
+159 silly get     'cache-control': 'max-age=300',
+159 silly get     etag: '"59HOMY3HCQTCA404BD525JWB3"',
+159 silly get     age: '141',
+159 silly get     connection: 'keep-alive',
+159 silly get     'x-served-by': 'cache-dfw1844-DFW',
+159 silly get     'x-cache': 'HIT',
+159 silly get     'x-cache-hits': '2',
+159 silly get     'x-timer': 'S1474019665.475751,VS0,VE0',
+159 silly get     vary: 'Accept-Encoding' } ]
+160 verbose etag https://registry.npmjs.org/nan from cache
+161 verbose get saving nan to /home/vagrant/.npm/registry.npmjs.org/nan/.cache.json
+162 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+163 silly addNameRange number 2 { name: 'nan', range: '>=2.1.0 <3.0.0', hasData: true }
+164 silly addNameRange versions [ 'nan',
+164 silly addNameRange   [ '0.3.0-wip',
+164 silly addNameRange     '0.3.0-wip2',
+164 silly addNameRange     '0.3.0',
+164 silly addNameRange     '0.3.1',
+164 silly addNameRange     '0.3.2',
+164 silly addNameRange     '0.4.0',
+164 silly addNameRange     '0.4.1',
+164 silly addNameRange     '0.4.2',
+164 silly addNameRange     '0.4.3',
+164 silly addNameRange     '0.4.4',
+164 silly addNameRange     '0.5.0',
+164 silly addNameRange     '0.5.1',
+164 silly addNameRange     '0.5.2',
+164 silly addNameRange     '0.6.0',
+164 silly addNameRange     '0.7.0',
+164 silly addNameRange     '0.7.1',
+164 silly addNameRange     '0.8.0',
+164 silly addNameRange     '1.0.0',
+164 silly addNameRange     '1.1.0',
+164 silly addNameRange     '1.1.1',
+164 silly addNameRange     '1.1.2',
+164 silly addNameRange     '1.2.0',
+164 silly addNameRange     '1.3.0',
+164 silly addNameRange     '1.4.0',
+164 silly addNameRange     '1.4.1',
+164 silly addNameRange     '1.5.0',
+164 silly addNameRange     '1.4.2',
+164 silly addNameRange     '1.4.3',
+164 silly addNameRange     '1.5.1',
+164 silly addNameRange     '1.5.2',
+164 silly addNameRange     '1.6.0',
+164 silly addNameRange     '1.5.3',
+164 silly addNameRange     '1.6.1',
+164 silly addNameRange     '1.6.2',
+164 silly addNameRange     '1.7.0',
+164 silly addNameRange     '1.8.0',
+164 silly addNameRange     '1.8.1',
+164 silly addNameRange     '1.8.2',
+164 silly addNameRange     '1.8.3',
+164 silly addNameRange     '1.8.4',
+164 silly addNameRange     '1.9.0',
+164 silly addNameRange     '2.0.0',
+164 silly addNameRange     '2.0.1',
+164 silly addNameRange     '2.0.2',
+164 silly addNameRange     '2.0.3',
+164 silly addNameRange     '2.0.4',
+164 silly addNameRange     '2.0.5',
+164 silly addNameRange     '2.0.6',
+164 silly addNameRange     '2.0.7',
+164 silly addNameRange     '2.0.8',
+164 silly addNameRange     '2.0.9',
+164 silly addNameRange     '2.1.0',
+164 silly addNameRange     '2.2.0',
+164 silly addNameRange     '2.2.1',
+164 silly addNameRange     '2.3.0',
+164 silly addNameRange     '2.3.1',
+164 silly addNameRange     '2.3.2',
+164 silly addNameRange     '2.3.3',
+164 silly addNameRange     '2.3.4',
+164 silly addNameRange     '2.3.5',
+164 silly addNameRange     '2.4.0' ] ]
+165 silly addNamed nan@2.4.0
+166 verbose addNamed "2.4.0" is a plain semver version for nan
+167 silly cache afterAdd nan@2.4.0
+168 verbose afterAdd /home/vagrant/.npm/nan/2.4.0/package/package.json not in flight; writing
+169 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+170 verbose afterAdd /home/vagrant/.npm/nan/2.4.0/package/package.json written
+171 silly install resolved [ { name: 'bindings',
+171 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+171 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+171 silly install resolved     version: '1.2.1',
+171 silly install resolved     author:
+171 silly install resolved      { name: 'Nathan Rajlich',
+171 silly install resolved        email: 'nathan@tootallnate.net',
+171 silly install resolved        url: 'http://tootallnate.net' },
+171 silly install resolved     repository:
+171 silly install resolved      { type: 'git',
+171 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+171 silly install resolved     main: './bindings.js',
+171 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+171 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+171 silly install resolved     license: 'MIT',
+171 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+171 silly install resolved     _id: 'bindings@1.2.1',
+171 silly install resolved     scripts: {},
+171 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+171 silly install resolved     _from: 'bindings@>=1.2.1 <2.0.0',
+171 silly install resolved     _npmVersion: '1.4.14',
+171 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+171 silly install resolved     maintainers: [ [Object], [Object] ],
+171 silly install resolved     dist:
+171 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+171 silly install resolved        tarball: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+171 silly install resolved     directories: {},
+171 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+171 silly install resolved     readme: 'ERROR: No README data found!' },
+171 silly install resolved   { name: 'nan',
+171 silly install resolved     version: '2.4.0',
+171 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8 -> 6 compatibility',
+171 silly install resolved     main: 'include_dirs.js',
+171 silly install resolved     repository: { type: 'git', url: 'git://github.com/nodejs/nan.git' },
+171 silly install resolved     scripts:
+171 silly install resolved      { test: 'tap --gc --stderr test/js/*-test.js',
+171 silly install resolved        'rebuild-tests': 'node-gyp rebuild --msvs_version=2013 --directory test',
+171 silly install resolved        docs: 'doc/.build.sh' },
+171 silly install resolved     contributors:
+171 silly install resolved      [ [Object],
+171 silly install resolved        [Object],
+171 silly install resolved        [Object],
+171 silly install resolved        [Object],
+171 silly install resolved        [Object],
+171 silly install resolved        [Object],
+171 silly install resolved        [Object] ],
+171 silly install resolved     devDependencies:
+171 silly install resolved      { bindings: '~1.2.1',
+171 silly install resolved        commander: '^2.8.1',
+171 silly install resolved        glob: '^5.0.14',
+171 silly install resolved        'node-gyp': '~3.0.1',
+171 silly install resolved        'readable-stream': '^2.1.4',
+171 silly install resolved        tap: '~0.7.1',
+171 silly install resolved        xtend: '~4.0.0' },
+171 silly install resolved     license: 'MIT',
+171 silly install resolved     bugs: { url: 'https://github.com/nodejs/nan/issues' },
+171 silly install resolved     homepage: 'https://github.com/nodejs/nan#readme',
+171 silly install resolved     _id: 'nan@2.4.0',
+171 silly install resolved     _shasum: 'fb3c59d45fe4effe215f0b890f8adf6eb32d2232',
+171 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-2.4.0.tgz',
+171 silly install resolved     _from: 'nan@>=2.1.0 <3.0.0',
+171 silly install resolved     _npmVersion: '3.3.6',
+171 silly install resolved     _nodeVersion: '5.0.0',
+171 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+171 silly install resolved     dist:
+171 silly install resolved      { shasum: 'fb3c59d45fe4effe215f0b890f8adf6eb32d2232',
+171 silly install resolved        tarball: 'https://registry.npmjs.org/nan/-/nan-2.4.0.tgz' },
+171 silly install resolved     maintainers: [ [Object], [Object] ],
+171 silly install resolved     _npmOperationalInternal:
+171 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+171 silly install resolved        tmp: 'tmp/nan-2.4.0.tgz_1468158679820_0.6951719264034182' },
+171 silly install resolved     directories: {},
+171 silly install resolved     readme: 'ERROR: No README data found!' } ]
+172 info install bindings@1.2.1 into /vagrant/ember/node_modules/contextify
+173 info install nan@2.4.0 into /vagrant/ember/node_modules/contextify
+174 info installOne bindings@1.2.1
+175 verbose installOne of bindings to /vagrant/ember/node_modules/contextify not in flight; installing
+176 verbose correctMkdir /home/vagrant/.npm/_locks correctMkdir not in flight; initializing
+177 info installOne nan@2.4.0
+178 verbose installOne of nan to /vagrant/ember/node_modules/contextify not in flight; installing
+179 verbose correctMkdir /home/vagrant/.npm/_locks correctMkdir not in flight; initializing
+180 verbose lock using /home/vagrant/.npm/_locks/bindings-887aef58091e9dcc.lock for /vagrant/ember/node_modules/contextify/node_modules/bindings
+181 verbose lock using /home/vagrant/.npm/_locks/nan-bad35d728d870167.lock for /vagrant/ember/node_modules/contextify/node_modules/nan
+182 silly install write writing bindings 1.2.1 to /vagrant/ember/node_modules/contextify/node_modules/bindings
+183 silly install write writing nan 2.4.0 to /vagrant/ember/node_modules/contextify/node_modules/nan
+184 verbose unbuild node_modules/contextify/node_modules/bindings
+185 verbose unbuild node_modules/contextify/node_modules/nan
+186 silly gentlyRm /vagrant/ember/node_modules/contextify/node_modules/bindings is being purged from base /vagrant/ember
+187 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify/node_modules/bindings
+188 verbose tar unpack /home/vagrant/.npm/bindings/1.2.1/package.tgz
+189 verbose tar unpacking to /vagrant/ember/node_modules/contextify/node_modules/bindings
+190 silly gentlyRm /vagrant/ember/node_modules/contextify/node_modules/bindings is being purged
+191 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify/node_modules/bindings
+192 silly gentlyRm /vagrant/ember/node_modules/contextify/node_modules/nan is being purged from base /vagrant/ember
+193 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify/node_modules/nan
+194 silly gunzTarPerm modes [ '755', '644' ]
+195 verbose tar unpack /home/vagrant/.npm/nan/2.4.0/package.tgz
+196 verbose tar unpacking to /vagrant/ember/node_modules/contextify/node_modules/nan
+197 silly gentlyRm /vagrant/ember/node_modules/contextify/node_modules/nan is being purged
+198 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify/node_modules/nan
+199 silly gunzTarPerm modes [ '755', '644' ]
+200 silly gunzTarPerm extractEntry package.json
+201 silly gunzTarPerm extractEntry package.json
+202 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+203 silly gunzTarPerm extractEntry README.md
+204 silly gunzTarPerm extractEntry bindings.js
+205 silly gunzTarPerm extractEntry README.md
+206 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+207 silly gunzTarPerm extractEntry include_dirs.js
+208 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+209 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+210 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 420 ]
+211 silly gunzTarPerm extractEntry CHANGELOG.md
+212 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+213 silly gunzTarPerm extractEntry LICENSE.md
+214 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+215 silly gunzTarPerm extractEntry doc/node_misc.md
+216 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 420 ]
+217 silly gunzTarPerm extractEntry doc/asyncworker.md
+218 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 420 ]
+219 silly gunzTarPerm extractEntry doc/callback.md
+220 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 420 ]
+221 silly gunzTarPerm extractEntry doc/converters.md
+222 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 420 ]
+223 silly gunzTarPerm extractEntry doc/errors.md
+224 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 420 ]
+225 verbose write writing to /vagrant/ember/node_modules/contextify/node_modules/bindings/package.json
+226 info preinstall bindings@1.2.1
+227 verbose readDependencies loading dependencies from /vagrant/ember/node_modules/contextify/node_modules/bindings/package.json
+228 silly gunzTarPerm extractEntry doc/maybe_types.md
+229 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 420 ]
+230 silly gunzTarPerm extractEntry doc/methods.md
+231 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 420 ]
+232 verbose readDependencies loading dependencies from /vagrant/ember/node_modules/contextify/node_modules/bindings/package.json
+233 silly install resolved []
+234 verbose about to build /vagrant/ember/node_modules/contextify/node_modules/bindings
+235 info build /vagrant/ember/node_modules/contextify/node_modules/bindings
+236 silly gunzTarPerm extractEntry doc/new.md
+237 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 420 ]
+238 silly gunzTarPerm extractEntry doc/buffers.md
+239 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 420 ]
+240 info linkStuff bindings@1.2.1
+241 silly linkStuff bindings@1.2.1 has /vagrant/ember/node_modules/contextify/node_modules as its parent node_modules
+242 verbose linkBins bindings@1.2.1
+243 verbose linkMans bindings@1.2.1
+244 verbose rebuildBundles bindings@1.2.1
+245 info install bindings@1.2.1
+246 silly gunzTarPerm extractEntry doc/object_wrappers.md
+247 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 420 ]
+248 silly gunzTarPerm extractEntry doc/persistent.md
+249 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 420 ]
+250 info postinstall bindings@1.2.1
+251 verbose unlock done using /home/vagrant/.npm/_locks/bindings-887aef58091e9dcc.lock for /vagrant/ember/node_modules/contextify/node_modules/bindings
+252 silly gunzTarPerm extractEntry doc/scopes.md
+253 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 420 ]
+254 silly gunzTarPerm extractEntry doc/script.md
+255 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 420 ]
+256 silly gunzTarPerm extractEntry doc/string_bytes.md
+257 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 420 ]
+258 silly gunzTarPerm extractEntry doc/v8_internals.md
+259 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 420 ]
+260 silly gunzTarPerm extractEntry doc/v8_misc.md
+261 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 420 ]
+262 silly gunzTarPerm extractEntry nan.h
+263 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+264 silly gunzTarPerm extractEntry nan_callbacks.h
+265 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 420 ]
+266 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+267 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 420 ]
+268 silly gunzTarPerm extractEntry nan_converters.h
+269 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 420 ]
+270 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+271 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 420 ]
+272 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+273 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 420 ]
+274 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+275 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+276 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+277 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+278 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+279 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 420 ]
+280 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+281 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 420 ]
+282 silly gunzTarPerm extractEntry nan_new.h
+283 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+284 silly gunzTarPerm extractEntry nan_object_wrap.h
+285 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 420 ]
+286 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+287 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 420 ]
+288 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+289 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 420 ]
+290 silly gunzTarPerm extractEntry nan_string_bytes.h
+291 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+292 silly gunzTarPerm extractEntry nan_typedarray_contents.h
+293 silly gunzTarPerm modified mode [ 'nan_typedarray_contents.h', 436, 420 ]
+294 silly gunzTarPerm extractEntry nan_weak.h
+295 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 420 ]
+296 silly gunzTarPerm extractEntry tools/package.json
+297 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 420 ]
+298 silly gunzTarPerm extractEntry tools/README.md
+299 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 420 ]
+300 silly gunzTarPerm extractEntry tools/1to2.js
+301 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 493 ]
+302 verbose write writing to /vagrant/ember/node_modules/contextify/node_modules/nan/package.json
+303 info preinstall nan@2.4.0
+304 verbose readDependencies loading dependencies from /vagrant/ember/node_modules/contextify/node_modules/nan/package.json
+305 verbose readDependencies loading dependencies from /vagrant/ember/node_modules/contextify/node_modules/nan/package.json
+306 silly install resolved []
+307 verbose about to build /vagrant/ember/node_modules/contextify/node_modules/nan
+308 info build /vagrant/ember/node_modules/contextify/node_modules/nan
+309 info linkStuff nan@2.4.0
+310 silly linkStuff nan@2.4.0 has /vagrant/ember/node_modules/contextify/node_modules as its parent node_modules
+311 verbose linkBins nan@2.4.0
+312 verbose linkMans nan@2.4.0
+313 verbose rebuildBundles nan@2.4.0
+314 info install nan@2.4.0
+315 info postinstall nan@2.4.0
+316 verbose unlock done using /home/vagrant/.npm/_locks/nan-bad35d728d870167.lock for /vagrant/ember/node_modules/contextify/node_modules/nan
+317 verbose about to build /vagrant/ember/node_modules/contextify
+318 info build /vagrant/ember/node_modules/contextify
+319 info linkStuff contextify@0.1.15
+320 silly linkStuff contextify@0.1.15 has /vagrant/ember/node_modules as its parent node_modules
+321 verbose linkBins contextify@0.1.15
+322 verbose linkMans contextify@0.1.15
+323 verbose rebuildBundles contextify@0.1.15
+324 verbose rebuildBundles [ 'bindings', 'nan' ]
+325 info install contextify@0.1.15
+326 verbose unsafe-perm in lifecycle false
+327 info contextify@0.1.15 Failed to exec install script
+328 verbose unlock done using /home/vagrant/.npm/_locks/contextify-3f1ff4ffb72411aa.lock for /vagrant/ember/node_modules/contextify
+329 verbose stack Error: contextify@0.1.15 install: `node-gyp rebuild`
+329 verbose stack Exit status 1
+329 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
+329 verbose stack     at emitTwo (events.js:87:13)
+329 verbose stack     at EventEmitter.emit (events.js:172:7)
+329 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+329 verbose stack     at emitTwo (events.js:87:13)
+329 verbose stack     at ChildProcess.emit (events.js:172:7)
+329 verbose stack     at maybeClose (internal/child_process.js:829:16)
+329 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+330 verbose pkgid contextify@0.1.15
+331 verbose cwd /vagrant/ember
+332 error Linux 3.2.0-23-generic
+333 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "contextify" "--verbose"
+334 error node v4.5.0
+335 error npm  v2.15.9
+336 error code ELIFECYCLE
+337 error contextify@0.1.15 install: `node-gyp rebuild`
+337 error Exit status 1
+338 error Failed at the contextify@0.1.15 install script 'node-gyp rebuild'.
+338 error This is most likely a problem with the contextify package,
+338 error not with npm itself.
+338 error Tell the author that this fails on your system:
+338 error     node-gyp rebuild
+338 error You can get information on how to open an issue for this project with:
+338 error     npm bugs contextify
+338 error Or if that isn't available, you can get their info via:
+338 error
+338 error     npm owner ls contextify
+338 error There is likely additional logging output above.
+339 verbose exit [ 1, true ]
+340 verbose unbuild node_modules/contextify
+341 info preuninstall contextify@0.1.15
+342 info uninstall contextify@0.1.15
+343 verbose unbuild rmStuff contextify@0.1.15 from /vagrant/ember/node_modules
+344 info postuninstall contextify@0.1.15
+345 silly gentlyRm /vagrant/ember/node_modules/contextify is being purged from base /vagrant/ember
+346 verbose gentlyRm don't care about contents; nuking /vagrant/ember/node_modules/contextify
+347 silly vacuum-fs purging /vagrant/ember/node_modules/contextify
+348 silly vacuum-fs quitting because other entries in /vagrant/ember/node_modules

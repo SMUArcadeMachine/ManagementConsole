@@ -17,7 +17,7 @@ function createAlert(title,body,type,sticky,where,input_options){
         }
     }
     if(sticky !== false){
-        if(sticky == 'long'){
+        if(sticky == 'long'){0
             options.extendedTimeOut = 15000;
             options.timeOut = 15000;
         }else if(sticky == 1){

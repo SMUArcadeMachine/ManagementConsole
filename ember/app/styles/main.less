@@ -740,37 +740,6 @@ body .parent-active  textarea.focus{
   float:right;
   width:718px;
 }
-.virtual{
-  border-radius:6px;
-  border:1px solid #b3d7e4;
-  background:#e4f8ff;
-  padding: 0;
-  overflow:hidden;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .1);
-  -webkit-box-shadow:0 3px 5px rgba(0, 0, 0, .1);
-  margin:0 0 39px;
-  &.pad{
-    margin: 120px 0 39px;
-  }
-}
-.virtual .text-box{
-  width: 415px;
-  padding: 55px;
-  width: 100%;
-  color: #535353;
-  text-align: center;
-  box-sizing: border-box;
-  font: 300 25px/29px 'Open Sans', Arial, Helvetica, sans-serif;
-}
-.virtual .text-box .get-started{
-  margin-left: 15px;
-}
-#main .virtual h1{
-  font:300 43px 'Open Sans', Arial, Helvetica, sans-serif;
-  color:@blue-color;
-  margin:0 0 8px;
-}
-.virtual p{margin:0 0 17px;}
 .btn-browse{
   display:inline-block;
   vertical-align:top;
@@ -4530,7 +4499,7 @@ span.link.cover {
 .nav-main-banners{
   width: 67.5px;
 }
-.virtuals-well{
+.smu-mc-well{
     background-color: rgb(245, 245, 245);
     border: 1px solid @border-grey;
     border-radius: 4px;
@@ -6766,7 +6735,7 @@ div.listing-epic-editor{
 .add-files-wrapper{
   //    height: 163px;
 //  margin: 0 9px!important;
-  .virtuals-well{
+  .smu-mc-well{
     margin: 0;
   }
 }
@@ -8011,20 +7980,6 @@ th.vs-actions{
 .wallet-payment-details-wrapper{
     padding: 40px;
 }
-.wallet-payment-details-wrapper tbody .virtuals-wallet-order-description{
-    color: #474747!important;
-    max-width: 523px;
-  .ellipsis;
-}
-.history-table-row .history-table-amount.positive,.wallet-payment-details-wrapper .virtuals-wallet-order-price.positive,.last-5-row .last-5-amount.positive{
-    color: #50bf82;
-}
-.history-table-row .history-table-amount.negative,.wallet-payment-details-wrapper .virtuals-wallet-order-price.negative,.last-5-row .last-5-amount.negative{
-    color: #e65a5a;
-}
-.history-table-row .history-table-amount.neutral,.wallet-payment-details-wrapper .virtuals-wallet-order-price.neutral,.last-5-row .last-5-amount.neutral{
-    color: grey;
-}
 .last-5-more{
     float: right;
     font-size: 13px;
@@ -8168,69 +8123,6 @@ select.history-filter{
   top: -44px;
   right: 63px;
 }
-.virtuals-order-table-wrapper{
-  border: 1px solid @border-grey;
-  background-color: white;
-  margin: 0 auto;
-  border-radius: 4px;
-  &:last-of-type{
-    margin-top: 40px;
-  }
-}
-.virtuals-order-table{
-  width: 100%;
-  tfoot tr{
-    border-bottom: 0;
-  }
-  tfoot tr td {
-    padding-right: 13px;
-  }
-  tbody tr {
-    font-weight: bold;
-  }
-  tfoot tr {
-    height: 35px;
-    text-align: right;
-    font-weight: bold;
-  }
-  th{
-    height: 35px;
-    border-right: 0!important;
-    border-bottom: 1px solid @border-grey;
-    background-color: #efefef;
-    background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#fdfdfd), to(#eaeaea));
-    background-image: -webkit-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
-    background-image: -moz-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
-    background-image: -ms-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
-    background-image: -o-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
-    background-image: linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#eaeaea',GradientType=0 );
-  }
-}
-th.virtuals-wallet-order-description{
-    border-radius: 4px 0 0 0;
-}
-th.virtuals-wallet-order-price{
-    border-radius: 0 4px 0 0;
-}
-.virtuals-wallet-order-description{
-  text-align: left;
-  padding-left: 13px;
-  border-right: 1px solid @inside-table-grey;
-  span{
-    width: 509px;
-    display: block;
-    .wrap;
-  }
-}
-.virtuals-wallet-order-price{
-    text-align: right;
-    padding-right: 13px;
-}
-.virtuals-wallet-item{
-    height: 43px;
-    border-bottom: 1px solid @inside-table-grey;
-}
 .wallet-content .wallet-sub-label {
     color: rgb(83, 81, 81);
     font-size: 12px;
@@ -8269,22 +8161,6 @@ th.virtuals-wallet-order-price{
     position: absolute;
     margin-left: 209px;
     margin-top: 4px;
-}
-.virtual-wallet-balance-error{
-    display: none;
-    position: absolute;
-    left: 207px;
-    top: 34px;
-    width: 386px;
-}
-.virtual-wallet-balance-success{
-    display: none;
-    position: absolute;
-    left: 207px;
-    top: 34px;
-    width: 386px;
-    z-index: 10;
-
 }
 .report-category,.reason-category,.detailed-category{
     margin: 8px 0px 6px 0px;
@@ -10107,62 +9983,6 @@ td.dashboard-create-col2 {
       font-weight: bold;
     }
   }
-  .virtuals-io-button{
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    color: #ffffff;
-    &:not([data-button-type="page"]){
-      font-weight: bold;
-
-      padding: 9px 12px;
-      border-radius: 4px;
-      font-size: 14px;
-      font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-      transition: all 0.4s ease-in-out;
-      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -2px 0 0 rgba(0, 0, 0, 0.05);
-      outline: 0;
-      text-decoration: none;
-      line-height: 20px;
-      border: 1px solid transparent;
-      &[disabled] {
-        pointer-events: none;
-        cursor: default;
-        opacity: 0.65!important;
-        box-shadow: none;
-      }
-      &:hover{
-        box-shadow: inset 0 -2px 0 0 rgba(0,0,0,.05),inset 0 0 15px rgba(255,255,255,.25),inset 0 0 2px rgba(255,255,255,.25),inset 0 1px 0 rgba(255,255,255,.1);
-      }
-      &:active{
-        box-shadow: inset 0 1px 5px rgba(0,0,0,.2),inset 0 1px 0 rgba(0,0,0,.1);
-      }
-      &.btn-mini{
-        padding: 4px 6px;
-        font-size: 10px;
-      }
-      &.btn-small{
-        padding: 6px 11px;
-        font-size: 12px;
-      }
-      &.btn-large {
-        padding: 14px 16px;
-        font-size: 18px;
-      }
-    }
-    &.embedded{
-      background-color: rgb(119, 119, 119);
-      background-image: linear-gradient(rgb(145, 145, 145), rgb(119, 119, 119));
-      background-repeat: repeat-x;
-      color: rgb(255, 255, 255);
-    }
-    &.hosted{
-      background-color: rgb(0, 185, 242);
-      background-image: linear-gradient(rgb(38, 204, 255), rgb(0, 185, 242));
-      background-repeat: repeat-x;
-      color: rgb(255, 255, 255);
-    }
-  }
 }
 /* ==========================================================================
    Contact page
@@ -10602,38 +10422,9 @@ td.dashboard-create-col2 {
     float: right;
     width: 183px;
   }
-  .virtuals-order-table-wrapper{
-    width: 492px;
-    margin-bottom: 19px;
-  }
   .guest-email{
     width: 472px;
     margin: 0;
-  }
-  .virtuals-wallet-item{
-    .virtuals-wallet-order-description{
-      padding: 13px;
-      .payment{
-        margin-top: 13px;
-        span{
-          color: @blue-color;
-        }
-        img{
-          width: 22px;
-          height: 22px;
-          margin-right: 10px;
-        }
-      }
-      span{
-        width: 347px;
-      }
-    }
-  }
-  .login-vio{
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font: 300 18px 'Open Sans', Arial, Helvetica, sans-serif;
   }
 }
 .powered-by{

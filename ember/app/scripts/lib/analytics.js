@@ -8,8 +8,11 @@ App.Analytics = (function() {
 		});
 	}
 	return {
+	    can_run_analytics: function(){
+	        return !(window.TESTING || App.GOOGLE.ANALYTICS == "" || App.GOOGLE.ANALYTICS == null)
+        },
 		init: function() {
-			if (window.TESTING) {
+			if (!this.can_run_analytics()) {
 				return;
 			}
 
@@ -23,18 +26,20 @@ App.Analytics = (function() {
 
 		},
         trackPage: _.debounce(function() {
-            if (window.TESTING) {
+            if (!this.can_run_analytics()) {
                 return;
             }
+
             var page = window.location.hash.length > 0 ?
                 window.location.hash.substring(1) :
                 window.location.pathname;
             window._gaq.push(['_trackPageview', page]);
         }, 500),
         trackEvent: function(name, label, value) {
-            if (window.TESTING) {
+            if (!this.can_run_analytics()) {
                 return;
             }
+
             if(label){
                 window._gaq.push(['_trackEvent', 'website', name, label, value]);
             }else{

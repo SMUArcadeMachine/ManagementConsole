@@ -150,14 +150,14 @@ set$(get$(Em, 'Auth'), 'Request', Ember.Object.extend({
               xhrFields: {
                   withCredentials: true
               },
-              url: App.VIRTUALS.API + url.url
+              url: App.API + url.url
           });
       }else{
           return $.extend(opts,{
               xhrFields: {
                   withCredentials: true
               },
-              url: App.VIRTUALS.API + url
+              url: App.API + url
           });
       }
   },

@@ -66,6 +66,7 @@ module.exports = function (grunt) {
             'app/bower_components/spin/jquery.spin.js',
             'app/bower_components/images-loaded/images-loaded.js',
             'app/bower_components/jquery.parse/jquery.parse.js',
+            'app/bower_components/jquery.typewatch/jquery.typewatch.js',
             'app/bower_components/typeahead/dist/bloodhound.js',
             'app/bower_components/typeahead/dist/typeahead.jquery.js',
             'app/bower_components/less/dist/less-1.7.0.js',
@@ -314,7 +315,7 @@ module.exports = function (grunt) {
                         return 'app/' + filepath;
                     },
                     includeSourceURL: true,
-                    template: "window.virtualsSetupFunctions.push(function() { {%= src %} ; });"
+                    template: "window.mcSetupFunction.push(function() { {%= src %} ; });"
                 },
                 src: '<%= config.app %>/scripts/management-console.js',
                 dest: '<%= config.dist %>/js/dev-main.js'
@@ -354,6 +355,8 @@ module.exports = function (grunt) {
                         DEBUG_LEVEL: '<%= config.debug_level %>',
                         WWW: '<%= config.www_dev %>',
                         HASH: '<%= config.hash_dev %>',
+                        GA_KEY: '<%= config.google_analytics_key %>',
+                        GA_DOMAIN: '<%= config.base_domain %>'
                     }
                 },
                 files: config.preprocessFiles
@@ -365,6 +368,8 @@ module.exports = function (grunt) {
                         DEBUG: false,
                         WWW: '<%= config.www_prod %>',
                         HASH: '<%= config.hash_prod %>',
+                        GA_KEY: '<%= config.google_analytics_key %>',
+                        GA_DOMAIN: '<%= config.base_domain %>'
                     }
                 },
                 files: config.preprocessFiles

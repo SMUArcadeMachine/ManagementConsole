@@ -213,11 +213,9 @@ App.PageableMixin = Ember.Mixin.create({
     }.property('total', 'perPage'),
     content: function () {
         this.refreshPage = false;
-        log.debug('____________________CONTENT START____________________');
         var ids = this.getIds();
         if(ids == null){
             log.debug('Nothing');
-            log.debug('___________________CONTENT END___________________');
             return null;
         }
         var store = this.get('store');
@@ -228,7 +226,6 @@ App.PageableMixin = Ember.Mixin.create({
         }
         log.debug('Content length = ' + ids.length);
         log.debug(return_vals);
-        log.debug('___________________CONTENT END___________________');
         return return_vals;
     }.property('refreshPage'),
     getIds: function(){
@@ -250,7 +247,6 @@ App.PageableMixin = Ember.Mixin.create({
         pages.set(page,Ember.ArrayProxy.create({content: ids}));
     },
     addPage: function(type,page){
-        log.debug('__________________ADD PAGE START____________________');
         var model_type = this.get('model_type');
         var store = this.store;
         var metadata = this.get('store').typeMapFor(store.modelFor(model_type)).metadata;
@@ -261,10 +257,8 @@ App.PageableMixin = Ember.Mixin.create({
             total: total,
             refreshPage: true
         });
-        log.debug('__________________ADD PAGE END____________________');
     },
     updatePage: function(page){
-        log.debug('__________________UPDATE PAGE START____________________');
         var store = this.get('store');
         var type = this.get('type');
         var metadata = store.typeMapFor(store.modelFor(this.get('model_type'))).metadata;
@@ -277,7 +271,6 @@ App.PageableMixin = Ember.Mixin.create({
             refreshPage: true,
             isLoading: false
         });
-        log.debug('__________________UPDATE PAGE END____________________');
     },
     actions: {
         /**
@@ -346,7 +339,6 @@ App.TypePageableMixin = Ember.Mixin.create(App.PageableMixin,{
         pages.get(type).set(page,Ember.ArrayProxy.create({content: ids}));
     },
     addPage: function(type,page){
-        log.debug('__________________ADD PAGE START____________________');
         var model_type = this.get('model_type');
         var store = this.store;
         var metadata = this.get('store').typeMapFor(store.modelFor(model_type)).metadata;
@@ -359,7 +351,6 @@ App.TypePageableMixin = Ember.Mixin.create(App.PageableMixin,{
                 refreshPage: true
             });
         }
-        log.debug('__________________ADD PAGE END____________________');
     },
     actions: {
         nextPage: function (route) {
@@ -423,10 +414,8 @@ App.TypePageableMixin = Ember.Mixin.create(App.PageableMixin,{
                             }
                             controller.send('updatedCount',return_data,page);
                             if(controller.afterDelete) controller.afterDelete(return_data);
-                            log.debug('success');
                         }).fail(function(return_data){
                             createError('Error removing ' + model_type_formatted + '.',return_data,controller);
-                            log.debug('fail');
                         }).always(function(){
                             hideLoader();
                         });
@@ -479,7 +468,6 @@ App.TypeCustomPageableMixin = Ember.Mixin.create(App.PageableMixin,{
         pages.get(custom_value).get(type).set(page,Ember.ArrayProxy.create({content: ids}));
     },
     addPage: function(type,page,custom_value){
-        log.debug('__________________ADD PAGE START____________________');
         custom_value = custom_value.toLowerCase();
         var custom_key = this.get('custom_key');
         var model_type = this.get('model_type');
@@ -498,10 +486,8 @@ App.TypeCustomPageableMixin = Ember.Mixin.create(App.PageableMixin,{
                 refreshPage: true
             });
         }
-        log.debug('__________________ADD PAGE END____________________');
     },
     updatePage: function(newPage){
-        log.debug('__________________UPDATE PAGE START____________________');
         var custom_key = this.get('custom_key');
         var store = this.get('store');
         var type = this.get('type');
@@ -516,7 +502,6 @@ App.TypeCustomPageableMixin = Ember.Mixin.create(App.PageableMixin,{
             refreshPage: true,
             isLoading: false
         });
-        log.debug('__________________UPDATE PAGE END____________________');
     },
     actions: {
         nextPage: function (route) {
@@ -576,45 +561,35 @@ App.TypeCustomPageableMixin = Ember.Mixin.create(App.PageableMixin,{
 });
 App.PageableRouteMixin = Ember.Mixin.create(App.PageLoadedMixin,{
     setupController: function( controller, model, queryParams ){
-        log.debug('________________SETUP START______________');
         var old_page_type = controller.get('controllers.application.pageType');
         var pageLoaded = this.isPageLoaded.apply(this,arguments);
         var route = this;
         var setupControllerArgs = arguments;
-        if(!controller.get('isLoading') || old_page_type != model.type){
-            if(!pageLoaded){
+        if(!controller.get('isLoading') || old_page_type != model.type) {
+            if (!pageLoaded) {
                 var type = model.type || controller.get('type');
-                if(controller.get('type') == type)
-                    controller.set('isLoading',true);
+                if (controller.get('type') == type)
+                    controller.set('isLoading', true);
                 var data = {
                     type: type,
                     page: model.page || 1,
                     count: controller.get('perPage')
                 };
                 var extra_data = controller.get('extra_data');
-                if(extra_data) $.extend(data,extra_data);
-                controller.get('store').find(controller.get('model_type'),data).then().andThen(function(return_data){
-                    controller.addPage(type,model.page);
-                    route.loadedRoute(setupControllerArgs,'new');
-                },function(return_data){
-                    createError('Error retrieving ' + controller.get('model_type').pluralize() + '.',return_data,controller);
-                },function(){
-                    if(controller.get('type') == type)
-                        controller.set('isLoading',false);
-                    log.debug('__________________SETUP END____________________');
+                if (extra_data) $.extend(data, extra_data);
+                controller.get('store').find(controller.get('model_type'), data).then().andThen(function (return_data) {
+                    controller.addPage(type, model.page);
+                    route.loadedRoute(setupControllerArgs, 'new');
+                }, function (return_data) {
+                    createError('Error retrieving ' + controller.get('model_type').pluralize() + '.', return_data, controller);
+                }, function () {
+                    if (controller.get('type') == type)
+                        controller.set('isLoading', false);
                 });
-            }else{
+            } else {
                 controller.updatePage(model.page);
-                route.loadedRoute(setupControllerArgs,'old');
-                log.debug('__________________SETUP END____________________');
+                route.loadedRoute(setupControllerArgs, 'old');
             }
-        }else{
-            log.debug('__________________SETUP END____________________');
         }
-    }/*,
-    model: function(model){
-        return {
-            page: model.page || 1
-        }
-    }*/
+    }
 });

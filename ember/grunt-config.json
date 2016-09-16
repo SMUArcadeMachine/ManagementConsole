@@ -1,9 +1,10 @@
 {
     "www_dev": "http://127.0.0.1:9876",
     "www_prod": "https://archademachine.lyle.smu.edu",
-    "google_analytics_key": "blank",
+    "google_analytics_key": "",
     "debug_level": "trace",
     "hash_dev": "#/",
     "hash_prod": "",
+    "base_domain": "",
 }
 

@@ -1,4 +1,4 @@
-window.virtualsSetupFunctions = [];
+window.mcSetupFunction = [];
 //___________________________________________________________SETS LOG LEVEL________________________________________________________________________________
 //Levels: Lowest -> highest = silent -> error -> warning -> info -> debug -> trace
 //@if DEBUG=true
@@ -7,11 +7,6 @@ var LOG_LEVEL = '/* @echo DEBUG_LEVEL */';
 log.setLevel(LOG_LEVEL);
 if(LOG_LEVEL != 'silent'){
     log.info('----------------------------------------LOG LEVEL: ' + LOG_LEVEL + ' ----------------------------------------');
-    Pusher.log = function(message) {
-        if (window.console && window.console.log) {
-            window.console.log(message);
-        }
-    };
 }
 //@endif
 
@@ -66,11 +61,11 @@ window.setupSMUManagementConsole = function(divSelector){
 
     //@if DEBUG=true
     //______________________________________________________________RUN SETUP FUNCTION______________________________________________________________________________________
-    _.each(window.virtualsSetupFunctions, function(setupFunction) {
+    _.each(window.mcSetupFunction, function(setupFunction) {
         setupFunction();
     });
     if(window.location.href.indexOf('ember/build') !== -1){
-        App.VIRTUALS.STATIC = '';
+        App.STATIC = '';
     }
     //@endif
 

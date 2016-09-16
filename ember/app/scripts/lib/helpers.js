@@ -68,21 +68,6 @@ Ember.Handlebars.helper("navIcon", function(icon,icon_alt) {
 Ember.Handlebars.helper("capitalize_first_letter", function(string) {
     return App.Utils.capitalize_first_letter(string);
 });
-Ember.Handlebars.helper("price_format", function(price,showNegative,cents,showSign,show_cents) {
-    if(arguments.length == 1){
-        throw 'Invalid price format args length';
-    }else if(arguments.length == 2){
-        return App.Utils.price_format(price);
-    }else if(arguments.length == 3){
-        return App.Utils.price_format(price,showNegative === true);
-    }else if(arguments.length == 4){
-        return App.Utils.price_format(price,showNegative === true,cents);
-    }else if(arguments.length == 5){
-        return App.Utils.price_format(price,showNegative === true,cents,showSign);
-    }else{
-        return App.Utils.price_format(price,showNegative === true,cents,showSign,show_cents);
-    }
-});
 var parseDateArgs = function(arguments){
     if(arguments.length == 1) throw 'Invalid date args length';
     if(arguments.length == 2){
@@ -104,17 +89,6 @@ Ember.Handlebars.helper("numberFormat", function(number) {
     if(number == null) return 'Error';
     return number.toString().replace(/[^0-9]/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 });
-Ember.Handlebars.helper("stripeIdSlice", function(id) {
-    return id.slice(3);
-});
-Ember.Handlebars.helper("formatDescription", function(description) {
-    if(description == null) return null;
-    return new Handlebars.SafeString(description);
-});
-Ember.Handlebars.helper("formatSize", function(size) {
-    if(size == null) return null;
-    return new Handlebars.SafeString(App.Utils.format_bytes(size,2));
-});
 Ember.Handlebars.registerHelper("bindIMG", function(options) {
     var value;
     if(typeof this.get === 'function' && typeof this.get(options.hash['url'])  !== 'undefined'){
@@ -122,27 +96,10 @@ Ember.Handlebars.registerHelper("bindIMG", function(options) {
     }else if(typeof this[options.hash['url']] !== 'undefined'){
         value = this[options.hash['url']];
     }else{
-        value = App.VIRTUALS.STATIC + options.hash['url'];
+        value = App.STATIC + options.hash['url'];
     }
     return new Ember.Handlebars.SafeString((options.hash['attr'] || 'src') + '="' + value + '"');
 });
-Ember.Handlebars.helper("chargeType", function(code) {
-    return App.Utils.get_charge_type(code) || null;
-});
-Ember.Handlebars.helper("transactionState", function(code) {
-    return App.Utils.get_transaction_state(code) || null;
-});
-Ember.Handlebars.helper("autolinker", function(text) {
-    return new Handlebars.SafeString(Autolinker.link(text, {
-        truncate: 50
-    }));
-});
-Ember.Handlebars.helper("ewallet_icon_url", function(payment_type) {
-    return new Handlebars.SafeString(payment_type ? '<img class="vs-paid-icon" src="' + App.Utils.ewallet_icon_url(payment_type) + '"/>' : '');
-});
 Ember.Handlebars.helper("safe_text", function(text) {
     return new Handlebars.SafeString(text);
-});
-Ember.Handlebars.helper("wear_value", function(wear) {
-    return new Handlebars.SafeString('Wear: ' + App.Utils.number_format(wear * 100,3) + '%');
 });

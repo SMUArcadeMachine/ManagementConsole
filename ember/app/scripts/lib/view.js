@@ -8,8 +8,6 @@ Em.PageView = Em.View.extend({
         return viewCollection;
     },
     _clearGlobalEvents: function(){
-//        $(window).off();
-        $('body,html,#wrapper').off();
-//        $(document).off();
+        $('body, html, #wrapper').off();
     }
 });

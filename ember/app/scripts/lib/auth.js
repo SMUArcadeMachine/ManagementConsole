@@ -36,22 +36,14 @@ App.Auth = Ember.Auth.createWithMixins(App.AuthMixin,{
         log.debug('App.Auth.signOutSuccess');
         window.location = '/';
     }).on('signInComplete', function() {
-        var response = App.Auth.get('response');
-        if(!response['two_factor']){
-            App.Utils.hide_wait();
-        }
         log.debug('App.Auth.signInComplete');
     }).on('signOutComplete', function() {
         log.debug('App.Auth.signOutComplete');
     }).on('signInError', function() {
         App.Analytics.trackEvent('login-error');
         log.debug('App.Auth.signInError');
-        if(App.Auth.get('response').two_factor){
-            this.two_factor_authentication();
-        }else{
-            App.Auth.set('error',App.Auth.get('response').error);
-            $('.password,.password-input').val('');
-        }
+        App.Auth.set('error',App.Auth.get('response').error);
+        $('.password,.password-input').val('');
     }).on('signOutError', function() {
         App.Analytics.trackEvent('logout-error');
         App.Utils.hide_wait();

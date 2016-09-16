@@ -1,44 +1,30 @@
 .container
     section.register
-        h1
-            | Don’t have an Account?
-            strong Start buying or selling in less than 5 minutes.
         .two-columns
             form.register-form
                 fieldset
                     h2 Register
-                    .row
-                        label Username
-                        .hold
-                            input.required-text.username.input-error type="text"
-                            span.error-label error
-                            span.successful-label successful
-                        
-                    
                     .row
                         label Email
                         .hold
                             input.required-email.email1.input-error type="text" data-confirm="email"
                             span.error-label error
                             span.successful-label successful
-                        
-                    
+
                     .row
                         label Re-Enter Email
                         .hold
                             input.required-email.email2.input-error type="text" data-confirm="email"
                             span.error-label error
                             span.successful-label successful
-                    
-                
+
                     .row
                         label Password
                         .hold
                             input.required-text.password1.input-error type="password" data-confirm="password"
                             span.error-label error
                             span.successful-label successful
-                        
-                    
+
                     .row
                         label Re-Enter Password
                         .hold
@@ -46,17 +32,8 @@
                             span.error-label error
                             span.successful-label successful
 
-                    
                     input.button type="submit" value="submit"
-            .using-box
-                h2 Register by using
-                ul.signin-list
-                    li
-                        a.facebook.pointer click="oauthSubmit 'facebook' bubbles=false" Sign in with Facebook
-                    li
-                        div#google
-                            a.google.pointer click="oauthSubmit 'google' bubbles=false" Sign in with Google+
-            
+
         
 
 
