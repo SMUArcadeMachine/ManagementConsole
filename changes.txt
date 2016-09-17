@@ -19,6 +19,8 @@ npm install ember-cli-windows -g
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 ember-cli-windows --headless
 
-npm install test start powershell: 11:59pm 12:01am
-vagrant up powershell: 12:45pm 12:49pm give up
-sympm vagrant up: 1:11am
+npm install from powershell: 2:15am 2:17am
+npm install from vagrant ssh: 2:21am
+
+npm set progress=false
+npm config set registry http://registry.npmjs.org/
