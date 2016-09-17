@@ -1,8 +1,0 @@
-{
-  "name": "jquery-ui.js",
-  "main": "index.js",
-  "_source": "/var/www/html/js/jquery-ui.js",
-  "_target": "*",
-  "_originalSource": "/var/www/html/js/jquery-ui.js",
-  "_direct": true
-}

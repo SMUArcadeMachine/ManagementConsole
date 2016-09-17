@@ -1,4 +1,16 @@
 TODO items
 
+Fork grunt emblem and the new version of JSDOM
 Vagrant run database_setup.sql
 Check the rest of ember
+
+chosen
+Less
+Bootstrap
+toastr
+createAlert create repo depending on toastr
+Emblem
+select2
+sortable
+
+script-loader

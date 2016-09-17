@@ -1,15 +1,26 @@
 {
-  "name": "ember-data.js",
-  "_cacheHeaders": {
-    "ETag": "\"ae9f59542c852ed09e59e19823a367e7\"",
-    "Last-Modified": "Thu, 05 Sep 2013 18:37:53 GMT",
-    "Content-Length": "192010",
-    "Content-Type": "text/javascript"
+  "name": "ember-data",
+  "version": "2.7.0",
+  "license": "MIT",
+  "main": "ember-data.js",
+  "dependencies": {
+    "ember": "^2.0.0"
   },
-  "_release": "e-tag:ae9f59542",
-  "main": "index.js",
-  "_source": "http://builds.emberjs.com/beta/ember-data.js",
-  "_target": "*",
-  "_originalSource": "http://builds.emberjs.com/beta/ember-data.js",
+  "ignore": [
+    "**/*_configuration.js",
+    "ember-data-setup.js",
+    "docs",
+    "**/*.html"
+  ],
+  "homepage": "https://github.com/components/ember-data",
+  "_release": "2.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.7.0",
+    "commit": "ff74ad938181af596aeac921b9b6527ac63ab947"
+  },
+  "_source": "https://github.com/components/ember-data.git",
+  "_target": "^2.7.0",
+  "_originalSource": "ember-data",
   "_direct": true
 }

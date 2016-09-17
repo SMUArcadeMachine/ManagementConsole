@@ -4,5 +4,4 @@ build
 prod
 .sass-cache
 .tmp
-!node_modules/grunt-emblem
 #app/bower_components

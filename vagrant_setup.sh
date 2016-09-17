@@ -14,7 +14,7 @@ sudo apt-get install -y curl wget build-essential python-software-properties pyt
 # Main lamp
 sudo apt-get install -y lamp-server^
 
-# Set root Apache folder to a Vagrant-isk style
+# Set root Apache folder to vagrant root folder
 if ! [ -L /var/www ]; then
   rm -rf /var/www
   ln -fs /vagrant /var/www
@@ -24,8 +24,10 @@ fi
 curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 sudo apt-get install -y nodejs
 
-# Grunt
+# Grunt & Bower
 sudo npm install -g grunt-cli
+sudo npm install -g bower
+
 
 # PHP
 sudo apt-get install -y php5-xdebug php5-curl
@@ -62,6 +64,13 @@ sudo service apache2 restart
 # PHP package manager
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+
+# Phantom JS
+sudo npm install -g phantomjs-prebuilt
+
+# Ember CLI
+sudo npm install -g ember-cli
+sudo ember install ember-simple-auth
 
 # Run database_setup.sql
 

@@ -1,6 +1,0 @@
-before_script:
-  - gem install compass --no-ri --no-rdoc
-  - npm install -g grunt-cli
-  - npm install
-  - node tests/server.js &
-script: phantomjs tests/cli-runner.js
