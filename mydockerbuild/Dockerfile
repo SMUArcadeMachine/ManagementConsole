@@ -43,38 +43,38 @@ ENV PHP_POST_MAX_SIZE 10M
 VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
 
 EXPOSE 80 3306
-CMD ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
 
-# --------------------------------------------------------------------------LAMP END--------------------------------------------------------------------------
-
-# Essentials
-RUN apt-get install -y curl wget build-essential python-software-properties python g++ make git-core libkrb5-dev vim ssh
-
-# -----------------------------------------------------------------------PHP, APACHE--------------------------------------------------------------------------------
-# PHP
-RUN apt-get install -y php5-xdebug php5-curl
-
-# XDebug config
-ADD docker_files/xdebug.ini /etc/php5/conf.d/xdebug.ini
-
-# Apache mods
-RUN a2enmod rewrite
-RUN a2enmod headers
-RUN a2enmod ssl
-
-# Apache restart after changes
-RUN service apache2 restart
-
-# PHP package manager
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
-
-# -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
-# Node JS w/ NPM
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-RUN apt-get install -y nodejs
-RUN npm set registry https://registry.npmjs.org/
-RUN npm set progress=false
+## --------------------------------------------------------------------------LAMP END--------------------------------------------------------------------------
+#
+## Essentials
+#RUN apt-get install -y curl wget build-essential python-software-properties python g++ make git-core libkrb5-dev vim ssh
+#
+## -----------------------------------------------------------------------PHP, APACHE--------------------------------------------------------------------------------
+## PHP
+#RUN apt-get install -y php5-xdebug php5-curl
+#
+## XDebug config
+#ADD docker_files/xdebug.ini /etc/php5/conf.d/xdebug.ini
+#
+## Apache mods
+#RUN a2enmod rewrite
+#RUN a2enmod headers
+#RUN a2enmod ssl
+#
+## Apache restart after changes
+#RUN service apache2 restart
+#
+## PHP package manager
+#RUN curl -sS https://getcomposer.org/installer | php
+#RUN mv composer.phar /usr/local/bin/composer
+#
+## -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
+## Node JS w/ NPM
+#RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+#RUN apt-get install -y nodejs
+#RUN npm set registry https://registry.npmjs.org/
+#RUN npm set progress=false
 
 # Symlinks hack on vagrant
 #sudo npm install -g sympm

@@ -24,3 +24,5 @@ npm install from vagrant ssh: 2:21am
 
 npm set progress=false
 npm config set registry http://registry.npmjs.org/
+
+Make sure people add -v flag to run and add shared folders under Docker settings
