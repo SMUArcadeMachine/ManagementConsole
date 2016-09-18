@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS SMUAdminConsole;
 USE SMUAdminConsole;
 
 ALTER SCHEMA SMUAdminConsole DEFAULT CHARACTER SET utf8mb4;
-GRANT ALL ON SMUAdminConsole.* TO `smu-admin-console-user`@localhost IDENTIFIED BY '8043v36m807c3084m6m03v';
+GRANT ALL ON SMUAdminConsole.* TO `admin`@localhost IDENTIFIED BY '8043v36m807c3084m6m03v';
 
 #__________________________________________________________________________________
 CREATE TABLE users (

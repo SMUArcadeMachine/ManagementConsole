@@ -2,6 +2,7 @@
 class Cron extends CI_Controller {
 
     public function test(){
+        echo '/cron/test/route';
     }
     public function do_something(){
         if($this->input->is_cli_request() || ENVIRONMENT == 'development'){

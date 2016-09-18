@@ -7,7 +7,7 @@
 
 //Database
 define('MYSQL_HOST',    'localhost');
-define('MYSQL_USERNAME','smu-admin-console-user');
+define('MYSQL_USERNAME','admin');
 define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
 

@@ -1,0 +1,6 @@
+documentation/*
+.vagrant/*
+ember-old/*
+ember-github-version/*
+ember-app/*
+!documentation/sql/database_setup.sql

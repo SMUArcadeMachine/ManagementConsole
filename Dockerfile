@@ -2,6 +2,9 @@ FROM ubuntu:12.04
 
 MAINTAINER Preston Tighe
 
+ENV MYSQL_USER admin
+ENV MYSQL_PASS 8043v36m807c3084m6m03v
+
 ## Updating repository
 #
 RUN apt-get -y update
@@ -12,6 +15,7 @@ RUN apt-get update && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts
+ADD documentation/sql/database_setup.sql /database_setup.sql
 ADD docker_files/start-apache2.sh /start-apache2.sh
 ADD docker_files/start-mysqld.sh /start-mysqld.sh
 ADD docker_files/run.sh /run.sh
@@ -48,42 +52,42 @@ ENTRYPOINT ["/run.sh"]
 ## --------------------------------------------------------------------------LAMP END--------------------------------------------------------------------------
 #
 ## Essentials
-#RUN apt-get install -y curl wget build-essential python-software-properties python g++ make git-core libkrb5-dev vim ssh
+RUN apt-get install -y curl wget build-essential python-software-properties python g++ make git-core libkrb5-dev vim ssh
 #
 ## -----------------------------------------------------------------------PHP, APACHE--------------------------------------------------------------------------------
 ## PHP
-#RUN apt-get install -y php5-xdebug php5-curl
+RUN apt-get install -y php5-xdebug php5-curl
 #
 ## XDebug config
-#ADD docker_files/xdebug.ini /etc/php5/conf.d/xdebug.ini
+ADD docker_files/xdebug.ini /etc/php5/conf.d/xdebug.ini
 #
 ## Apache mods
-#RUN a2enmod rewrite
-#RUN a2enmod headers
-#RUN a2enmod ssl
+RUN a2enmod rewrite
+RUN a2enmod headers
+RUN a2enmod ssl
 #
 ## Apache restart after changes
-#RUN service apache2 restart
+RUN service apache2 restart
 #
 ## PHP package manager
-#RUN curl -sS https://getcomposer.org/installer | php
-#RUN mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
 #
 ## -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
 ## Node JS w/ NPM
-#RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-#RUN apt-get install -y nodejs
-#RUN npm set registry https://registry.npmjs.org/
-#RUN npm set progress=false
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -y nodejs
+RUN npm set registry https://registry.npmjs.org/
+RUN npm set progress=false
 
 # Symlinks hack on vagrant
 #sudo npm install -g sympm
 #sudo sympm install
 
 # Grunt, Bower, & Ember CLI
-#sudo npm install -g grunt-cli
-#sudo npm install -g bower
-#sudo npm install -g ember-cli
+RUN npm install -g grunt-cli
+RUN npm install -g bower
+RUN npm install -g ember-cli
 
 # Install Bower & NPM components
 #cd /vagrant/ember-app

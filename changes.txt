@@ -26,3 +26,15 @@ npm set progress=false
 npm config set registry http://registry.npmjs.org/
 
 Make sure people add -v flag to run and add shared folders under Docker settings
+
+Try adding more containers to seperate things?
+
+Docker commands:
+docker stop smu-arcade-machine;
+docker rm smu-arcade-machine;
+docker run -d --name smu-arcade-machine -p 8080:80 -p 3306:3306 -v C:\Users\PrestonSSD2\PhpstormProjects\SMUArcadeMachine:/var/www toozick/smu-arcade-machine:v1;
+docker exec -i -t smu-arcade-machine /bin/bash
+
+mysql -u admin -p8043v36m807c3084m6m03v
+
+docker build -t toozick/smu-arcade-machine:v1 .
