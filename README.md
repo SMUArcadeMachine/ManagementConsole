@@ -1,22 +1,31 @@
-# Arcade Machine Management Console
+# SMU Arcade Machine Management Console
 
-# Base Installation Steps
-1. Clone this repo.
-2. Download Vagrant: https://www.vagrantup.com/downloads.html
-3. Download VirtualBox: https://www.virtualbox.org/wiki/Downloads
-4. Download PhpStorm (IDE): https://www.jetbrains.com/phpstorm/download/
+# Installation Steps
+1. Download Docker Toolbox (w/ Virtual Box): https://www.docker.com/products/docker-toolbox
+2. Create a Docker Cloud account: https://cloud.docker.com/
+3. Download PhpStorm (IDE): https://www.jetbrains.com/phpstorm/download/
     1. Sign up under a student license.
-    1. How to: http://prntscr.com/cixwt5
-    1. Cygwin install link: https://cygwin.com/install.html
-5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
-6. CMDs: 
-    1. cd <project_root_direct>
-    2. vagrant up
-    3. `vagrant ssh` or your own SSH client to connect to the server with SSH.
-7. Go to http://127.0.0.1:8080/ to access the website
+    2. Checkout from version control to pull in this repo.
+4. Open Terminal or **PowerShell not Command Prompt as ADMIN**
+5. Start Docker: 
+    1. cd <project_root_direct> (Ex. cd C:/Users/PrestonT/PhpstormProjects/SMUArcadeMachine)
+    2. ./docker-start.sh
+6. Run Ember Server
+    1. docker exec -it smu-arcade-machine /bin/bash
+    2. ember server
+7. Access public frontend EmberJS website: http://localhost:4200/
+8. Access backend server: http://localhost:8080/
+    1. Ex. http://localhost:8080/test will output `Test backend API call`
+    
+# Ember Server
+* #### Start (SSH into Docker container then run Ember Server)
+    1. docker exec -it smu-arcade-machine /bin/bash
+    2. ember server
+* #### Web URL: http://localhost:4200/
+* Requires Docker Container to be running
 
-# Windows Pre Steps
-npm install -g ember-cli-windows  
-ember-cli-windows  
-
+# PHP Backend Server
+* #### Start
+    1. ./docker-start.sh
+* #### Web URL: http://localhost:8080/
 

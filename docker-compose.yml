@@ -1,0 +1,25 @@
+version: '2'
+services:
+  web:
+    container_name: smu-arcade-machine
+    image: toozick/smu-arcade-machine:v1
+    ports:
+    - "8080:80"
+    - "3306:3306"
+    - "4200:4200"
+    - "35729:35729"
+    volumes:
+    - .\application:/var/www/application
+    - .\.htaccess:/var/www/.htaccess
+    - .\index.php:/var/www/index.php
+    - .\ember-app\bower.json:/var/www/ember-app/bower.json
+    - .\ember-app\package.json:/var/www/ember-app/package.json
+    - .\ember-app\ember-cli-build.js:/var/www/ember-app/ember-cli-build.js
+    - .\ember-app\.ember-cli:/var/www/ember-app/.ember-cli
+    - .\ember-app\.bowerrc:/var/www/ember-app/.bowerrc
+    - .\ember-app\.watchmanconfig:/var/www/ember-app/.watchmanconfig
+    - .\ember-app\testem.js:/var/www/ember-app/testem.js
+    - .\ember-app\app:/var/www/ember-app/app
+    - .\ember-app\config:/var/www/ember-app/config
+    - .\ember-app\public:/var/www/ember-app/public
+    - .\ember-app\vendor:/var/www/ember-app/vendor

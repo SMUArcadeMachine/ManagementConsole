@@ -2,12 +2,16 @@ FROM ubuntu:12.04
 
 MAINTAINER Preston Tighe
 
+# Base run point
+ENTRYPOINT ["/run.sh"]
+
+ENV MYSQL_DATABASE SMUAdminConsole
 ENV MYSQL_USER admin
 ENV MYSQL_PASS 8043v36m807c3084m6m03v
 
-## Updating repository
-#
+# Updating repository
 RUN apt-get -y update
+
 # --------------------------------------------------------------------------LAMP--------------------------------------------------------------------------
 # Install packages
 RUN apt-get update && \
@@ -16,9 +20,7 @@ RUN apt-get update && \
 
 # Add image configuration and scripts
 ADD documentation/sql/database_setup.sql /database_setup.sql
-ADD docker_files/start-apache2.sh /start-apache2.sh
-ADD docker_files/start-mysqld.sh /start-mysqld.sh
-ADD docker_files/run.sh /run.sh
+ADD docker_files/*.sh /
 RUN chmod 755 /*.sh
 ADD docker_files/my.cnf /etc/mysql/conf.d/my.cnf
 ADD docker_files/supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
@@ -31,13 +33,12 @@ RUN rm -rf /var/lib/mysql/*
 ADD docker_files/create_mysql_admin_user.sh /create_mysql_admin_user.sh
 RUN chmod 755 /*.sh
 
-# config to enable .htaccess
-ADD docker_files/apache_default /etc/apache2/sites-available/000-default.conf
-RUN a2enmod rewrite
+# Vim colors
+ADD docker_files/vimrc.local /etc/vim/vimrc.local
 
-# Configure /app folder with sample app
-#RUN git clone https://github.com/fermayo/hello-world-lamp.git /app
-#RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+# config to enable .htaccess
+ADD docker_files/apache_default /etc/apache2/sites-available/default
+RUN a2enmod rewrite
 
 #Environment variables to configure php
 ENV PHP_UPLOAD_MAX_FILESIZE 10M
@@ -46,8 +47,8 @@ ENV PHP_POST_MAX_SIZE 10M
 # Add volumes for MySQL
 VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
 
-EXPOSE 80 3306
-ENTRYPOINT ["/run.sh"]
+# Expose MySQL port 3306
+EXPOSE 3306
 
 ## --------------------------------------------------------------------------LAMP END--------------------------------------------------------------------------
 #
@@ -72,7 +73,13 @@ RUN service apache2 restart
 ## PHP package manager
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
-#
+
+# Remove default index.html file
+RUN rm /var/www/index.html
+
+# Expose Apache 80 port
+EXPOSE 80
+
 ## -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
 ## Node JS w/ NPM
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
@@ -90,11 +97,15 @@ RUN npm install -g bower
 RUN npm install -g ember-cli
 
 # Install Bower & NPM components
-#cd /vagrant/ember-app
-#bower install
-#sudo npm install
+ADD ember-app /var/www/ember-app/
+WORKDIR /var/www/ember-app
+RUN bower install --allow-root --config.interactive=false
+RUN npm install
 
 # Ember addons
 #sudo ember install ember-simple-auth
+
+# Expose Ember server ports
+EXPOSE 4200 35729
 
 # Run database_setup.sql

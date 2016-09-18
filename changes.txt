@@ -1,9 +1,8 @@
 TODO items
+Test XDebug
+Try adding more containers to separate things?
 
-Vagrant run database_setup.sql
-Check the rest of ember
-
-Things to download
+Things to download to Ember JS:
 chosen
 Less
 Bootstrap
@@ -14,26 +13,11 @@ select2
 sortable
 script-loader
 
-Windows npm install
-npm install ember-cli-windows -g
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-ember-cli-windows --headless
 
-npm install from powershell: 2:15am 2:17am
-npm install from vagrant ssh: 2:21am
-
-npm set progress=false
-npm config set registry http://registry.npmjs.org/
-
-Make sure people add -v flag to run and add shared folders under Docker settings
-
-Try adding more containers to seperate things?
-
-Docker commands:
-docker stop smu-arcade-machine;
-docker rm smu-arcade-machine;
-docker run -d --name smu-arcade-machine -p 8080:80 -p 3306:3306 -v C:\Users\PrestonSSD2\PhpstormProjects\SMUArcadeMachine:/var/www toozick/smu-arcade-machine:v1;
-docker exec -i -t smu-arcade-machine /bin/bash
+Some commands:
+docker rm -f smu-arcade-machine;
+docker-compose up -d;
+docker exec -i -t smu-arcade-machine /bin/bash;
 
 mysql -u admin -p8043v36m807c3084m6m03v
 
