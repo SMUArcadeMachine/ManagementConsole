@@ -14,19 +14,19 @@
 7. Run Ember Server
     1. `docker exec -it smu-arcade-machine /bin/bash`
     2. `ember server`
-8. Access public frontend EmberJS website: http://localhost:4200/
-9. Access backend server: http://localhost:8080/
-    1. Ex. http://localhost:8080/test will output `Test backend API call`
+8. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
+9. Access backend server: [http://localhost:8080/](http://localhost:8080/)
+    1. Ex. [http://localhost:8080/test](http://localhost:8080/test) will output `Test backend API call`
     
 # Ember Server
 * **Start (SSH into Docker container then run Ember Server)**
     1. `docker exec -it smu-arcade-machine /bin/bash`
     2. `ember server`
-* **Web URL: http://localhost:4200/**
+* Web URL: [http://localhost:4200/](http://localhost:4200/)
 * Requires Docker Container to be running
 
 # PHP Backend Server
 * **Start**
     1. `bash docker-start.sh`
-* **Web URL: http://localhost:8080/**
+* Web URL: [http://localhost:8080/](http://localhost:8080/)
 
