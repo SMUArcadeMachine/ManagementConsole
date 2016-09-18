@@ -30,3 +30,13 @@
     1. `bash docker-start.sh`
 * Web URL: [http://localhost:8080/](http://localhost:8080/)
 
+# Ember Guide
+* Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)
+* Make sure you are looking at guides/Stack Overflow questions for Ember 2.8.0 and up as Ember has changed a lot from 1.* -> 2.*. 
+* **AJAX/Talking with the backend** - 2 ways
+    1. [Ember Data](https://guides.emberjs.com/v2.8.0/tutorial/ember-data/)
+        1. Used most of the time
+        2. Used to POST, GET, and PUT resources (Ex. GET a list of all the ROMs)
+    2. [Ember AJAX](https://github.com/ember-cli/ember-ajax)
+        1. Used rarely.
+        2. Try to use Ember Data whenever possible.
