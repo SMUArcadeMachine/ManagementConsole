@@ -8,7 +8,7 @@
     1. Sign up under a student license.
     2. Checkout from version control to pull in this repo.
 5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
-6. Start Docker: 
+6. Start Docker (first time takes a bit): 
     1. cd <project_root_direct> (Ex. cd C:/Users/PrestonT/PhpstormProjects/SMUArcadeMachine)
     2. bash docker-start.sh
 7. Run Ember Server
