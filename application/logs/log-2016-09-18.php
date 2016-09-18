@@ -327,3 +327,24 @@ DEBUG - 2016-09-18 08:18:25 --> Database Driver Class Initialized
 DEBUG - 2016-09-18 08:18:25 --> Controller Class Initialized
 DEBUG - 2016-09-18 08:18:25 --> Final output sent to browser
 DEBUG - 2016-09-18 08:18:25 --> Total execution time: 0.1899
+DEBUG - 2016-09-18 08:41:40 --> Config Class Initialized
+DEBUG - 2016-09-18 08:41:40 --> Hooks Class Initialized
+DEBUG - 2016-09-18 08:41:40 --> Utf8 Class Initialized
+DEBUG - 2016-09-18 08:41:40 --> UTF-8 Support Enabled
+DEBUG - 2016-09-18 08:41:40 --> URI Class Initialized
+DEBUG - 2016-09-18 08:41:40 --> Router Class Initialized
+ERROR - 2016-09-18 08:41:40 --> 404 Page Not Found --> welcome
+DEBUG - 2016-09-18 09:12:30 --> Config Class Initialized
+DEBUG - 2016-09-18 09:12:30 --> Hooks Class Initialized
+DEBUG - 2016-09-18 09:12:30 --> Utf8 Class Initialized
+DEBUG - 2016-09-18 09:12:30 --> UTF-8 Support Enabled
+DEBUG - 2016-09-18 09:12:30 --> URI Class Initialized
+DEBUG - 2016-09-18 09:12:32 --> Router Class Initialized
+ERROR - 2016-09-18 09:12:32 --> 404 Page Not Found --> welcome
+DEBUG - 2016-09-18 09:12:40 --> Config Class Initialized
+DEBUG - 2016-09-18 09:12:40 --> Hooks Class Initialized
+DEBUG - 2016-09-18 09:12:40 --> Utf8 Class Initialized
+DEBUG - 2016-09-18 09:12:40 --> UTF-8 Support Enabled
+DEBUG - 2016-09-18 09:12:41 --> URI Class Initialized
+DEBUG - 2016-09-18 09:12:41 --> Router Class Initialized
+ERROR - 2016-09-18 09:12:41 --> 404 Page Not Found --> welcome
