@@ -19,14 +19,14 @@
     1. Ex. http://localhost:8080/test will output `Test backend API call`
     
 # Ember Server
-* #### Start (SSH into Docker container then run Ember Server)
+* **Start (SSH into Docker container then run Ember Server)**
     1. docker exec -it smu-arcade-machine /bin/bash
     2. ember server
-* #### Web URL: http://localhost:4200/
+* **Web URL: http://localhost:4200/**
 * Requires Docker Container to be running
 
 # PHP Backend Server
-* #### Start
+* **Start**
     1. bash docker-start.sh
-* #### Web URL: http://localhost:8080/
+* **Web URL: http://localhost:8080/**
 

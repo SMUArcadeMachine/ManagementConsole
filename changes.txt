@@ -1,4 +1,5 @@
 TODO items
+Run ember server on docker startup
 Test XDebug
 Try adding more containers to separate things?
 
