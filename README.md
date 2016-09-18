@@ -37,6 +37,7 @@
     1. [Ember Data](https://guides.emberjs.com/v2.8.0/tutorial/ember-data/)
         1. Used most of the time
         2. Used to POST, GET, and PUT resources (Ex. GET a list of all the ROMs)
+        3. Basically a client side database that caches, updates, and adds new resources.
     2. [Ember AJAX](https://github.com/ember-cli/ember-ajax)
         1. Used rarely.
         2. Try to use Ember Data whenever possible.
