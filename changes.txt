@@ -1,8 +1,7 @@
 TODO items
-http://stackoverflow.com/questions/35774714/how-to-cache-the-run-npm-install-instruction-when-docker-build-a-dockerfile
+File change problems
 Run ember server on docker startup
 Test XDebug
-Try adding more containers to separate things?
 
 Things to download to Ember JS:
 chosen
@@ -14,18 +13,3 @@ Emblem
 select2
 sortable
 script-loader
-
-
-Some commands:
-docker rm -f smu-arcade-machine;
-docker-compose up -d;
-
-docker exec -i -t smu-arcade-machine-management-console /bin/bash
-
-mysql -u admin -p8043v36m807c3084m6m03v
-
-docker build -t toozick/smu-arcade-machine-management-console:v1 -f docker_files/php-apache/Dockerfile .
-
-docker run -t -i -p 8080:80 --name smu-arcade-machine-management-console smu-arcade-machine-management-console /bin/bash
-
-docker rm $(docker ps -a -q) -f; docker rmi $(docker images -q) -f

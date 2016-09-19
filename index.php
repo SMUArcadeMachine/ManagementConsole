@@ -1,4 +1,6 @@
 <?php
+echo 't22';
+exit;
 /**
  * CodeIgniter
  *

@@ -31,6 +31,7 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
 # XDebug
+WORKDIR /tmp
 RUN wget http://xdebug.org/files/xdebug-2.4.1.tgz
 RUN tar -xvzf xdebug-2.4.1.tgz
 WORKDIR xdebug-2.4.1
@@ -40,6 +41,7 @@ RUN make
 RUN cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226
 COPY docker_files/php-apache/xdebug.ini /usr/local/etc/php/php.ini
 EXPOSE 9000
+WORKDIR /
 
 # -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
 # Node JS w/ NPM
