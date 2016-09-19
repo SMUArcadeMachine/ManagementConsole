@@ -209,6 +209,7 @@ else
  * And away we go...
  *
  */
+echo 'test123';
 require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
