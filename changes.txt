@@ -18,8 +18,13 @@ script-loader
 Some commands:
 docker rm -f smu-arcade-machine;
 docker-compose up -d;
+
 docker exec -i -t smu-arcade-machine /bin/bash;
 
 mysql -u admin -p8043v36m807c3084m6m03v
 
-docker build -t toozick/smu-arcade-machine:v1 .
+docker build -t toozick/smu-arcade-machine-management-console:v1 -f docker_files/Dockerfile-base .
+
+docker run -d --name smu-arcade-machine-management-console -p 8080:80 -p 3306:3306 -v C:\Users\PrestonSSD2\PhpstormProjects\ManagementConsole:/var/www toozick/smu-arcade-machine-management-console:v1
+
+docker rm $(docker ps -a -q) -f; docker rmi $(docker images -q) -f

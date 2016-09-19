@@ -28,7 +28,7 @@
 # PHP Backend Server
 * **Start**
     1. `bash docker-start.sh`
-* Web URL: [http://localhost:8080/](http://localhost:8080/)
+* Web URL: [http://localhost:8080/test](http://localhost:8080/test)
 
 # Ember Guide
 * Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)

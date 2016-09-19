@@ -1,0 +1,10 @@
+FROM toozick/smu-arcade-machine-management-console:v1
+
+# Install Bower & NPM components
+ADD ember-app /var/www/ember-app/
+WORKDIR /var/www/ember-app
+RUN bower install --allow-root --config.interactive=false
+RUN npm install
+
+# Ember addons
+#sudo ember install ember-simple-auth
