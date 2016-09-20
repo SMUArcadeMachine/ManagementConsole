@@ -1,37 +1,35 @@
 version: '2'
 services:
-  web:
-    container_name: smu-arcade-machine-management-console
-    build:
-      context: .
-      dockerfile: docker_files/Dockerfile-dev
+  ember:
+      container_name: ember
+      build:
+        context: .
+        dockerfile: docker_files/Dockerfile-dev
+      ports:
+        - "4200:4200"
+        - "35729:35729"
+      volumes:
+        - .\ember-app\bower.json:/var/www/html/ember-app/bower.json
+        - .\ember-app\package.json:/var/www/html/ember-app/package.json
+        - .\ember-app\ember-cli-build.js:/var/www/html/ember-app/ember-cli-build.js
+        - .\ember-app\.ember-cli:/var/www/html/ember-app/.ember-cli
+        - .\ember-app\testem.js:/var/www/html/ember-app/testem.js
+        - .\ember-app\app:/var/www/html/ember-app/app
+        - .\ember-app\config:/var/www/html/ember-app/config
+        - .\ember-app\public:/var/www/html/ember-app/public
+        - .\ember-app\vendor:/var/www/html/ember-app/vendor
+  php-apache:
+    container_name: php-apache
+    image: toozick/smu-arcade-machine-management-console-php-apache:v1
     links:
       - mysql
-    environment:
-      XDEBUG_CONFIG: "remote_host=10.0.0.39"
-      PHP_IDE_CONFIG: "serverName=my.local"
     ports:
       - "8080:80"
-      - "4200:4200"
       - "9000:9000"
-      - "49152:49152"
     volumes:
-#      - .:/var/www/html
-#      - .\test.php:/var/www/html/test.php
-      - .\.htaccess:/var/www/html/.htaccess
-      - .\index.php:/var/www/html/index.php
-      - .\phpinfo.php:/var/www/html/phpinfo.php
-      - .\application:/var/www/html/application
-      - .\ember-app\bower.json:/var/www/html/ember-app/bower.json
-      - .\ember-app\package.json:/var/www/html/ember-app/package.json
-      - .\ember-app\ember-cli-build.js:/var/www/html/ember-app/ember-cli-build.js
-      - .\ember-app\.ember-cli:/var/www/html/ember-app/.ember-cli
-      - .\ember-app\testem.js:/var/www/html/ember-app/testem.js
-      - .\ember-app\app:/var/www/html/ember-app/app
-      - .\ember-app\config:/var/www/html/ember-app/config
-      - .\ember-app\public:/var/www/html/ember-app/public
-      - .\ember-app\vendor:/var/www/html/ember-app/vendor
+      - .:/var/www/html/
   mysql:
+    container_name: mysql
     image: mysql:5.5
     ports:
       - "3306:3306"

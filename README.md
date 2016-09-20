@@ -16,25 +16,11 @@
         
     1. `cd <project_root_direct>`
     2. `bash docker-start.sh` or `sh docker-start.sh`
-7. Run Ember Server
-    1. `docker exec -it smu-arcade-machine-management-console /bin/bash`
-    2. `ember server`
-8. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
-9. Access backend server: [http://localhost:8080/](http://localhost:8080/)
+7. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
+8. Access backend server: [http://localhost:8080/](http://localhost:8080/)
     1. Ex. [http://localhost:8080/test](http://localhost:8080/test)
+9. Run Kitematic (Docker Toolbox) to visualize the containers and see logs
     
-## Ember Server
-* **Start (SSH into Docker container then run Ember Server)**
-    1. `docker exec -it smu-arcade-machine-management-console /bin/bash`
-    2. `ember server`
-* Web URL: [http://localhost:4200/](http://localhost:4200/)
-* Requires Docker Container to be running
-
-## PHP Backend Server
-* **Start**
-    1. `bash docker-start.sh` or `sh docker-start.sh`
-* Web URL: [http://localhost:8080/test](http://localhost:8080/test)
-
 ## Ember Guide
 * Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)
 * Make sure you are looking at guides/Stack Overflow questions for Ember 2.8.0 and up as Ember has changed a lot from 1.* -> 2.*. 
@@ -52,6 +38,14 @@
 * Start - run Docker containers
 * Remove Containers - remove all containers
 * Remove All - remove all images and containers
+
+## Helpful Commands
+* SSH into Ember container (adding addons, adding bower components, adding Node modules):
+    1. docker exec -it ember /bin/bash
+* SSH into PHP/Apache container (read error logs):
+    1. docker exec -it php-apache /bin/bash
+* SSH into MySQL container:
+    1. docker exec -it mysql /bin/bash
 
 # TODO/Bugs
 * File change problems on mounting single files

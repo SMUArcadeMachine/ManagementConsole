@@ -41,18 +41,4 @@ RUN make
 RUN cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226
 COPY docker_files/php-apache/xdebug.ini /usr/local/etc/php/php.ini
 EXPOSE 9000
-WORKDIR /
-
-# -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
-# Node JS w/ NPM
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-RUN apt-get install -y nodejs
-RUN npm set registry https://registry.npmjs.org/
-RUN npm set progress=false
-
-# Grunt, Bower, & Ember CLI
-RUN npm install -g grunt-cli
-RUN npm install -g bower
-RUN npm install -g ember-cli
-
 WORKDIR /var/www/html
