@@ -15,7 +15,7 @@ services:
       - "9000:9000"
     volumes:
 #      - .:/var/www/html
-      - ./test.php:/var/www/html/test.php
+      - .\test.php:/var/www/html/test.php
       - .\.htaccess:/var/www/html/.htaccess
       - .\index.php:/var/www/html/index.php
       - .\phpinfo.php:/var/www/html/phpinfo.php

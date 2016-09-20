@@ -7,16 +7,17 @@
 4. Download PhpStorm (IDE): https://www.jetbrains.com/phpstorm/download/
     1. Sign up under a student license.
     2. Click `Checkout from version control` under main screen to pull in this repo.
+    3. **Import settings:** File | Import Settings | Browse to [documentation/php_storm_settings.jar](documentation/php_storm_settings.jar)
 5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
 6. Start Docker (first time takes a bit): 
     1. `cd <project_root_direct>`
-    2. `bash docker-start.sh`
+    2. `bash docker-start.sh` or `sh docker-start.sh`
 7. Run Ember Server
     1. `docker exec -it smu-arcade-machine-management-console /bin/bash`
     2. `ember server`
 8. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
 9. Access backend server: [http://localhost:8080/](http://localhost:8080/)
-    1. Ex. [http://localhost:8080/test](http://localhost:8080/test) will output `Test backend API call`
+    1. Ex. [http://localhost:8080/test](http://localhost:8080/test)
     
 # Ember Server
 * **Start (SSH into Docker container then run Ember Server)**
@@ -27,7 +28,7 @@
 
 # PHP Backend Server
 * **Start**
-    1. `bash docker-start.sh`
+    1. `bash docker-start.sh` or `sh docker-start.sh`
 * Web URL: [http://localhost:8080/test](http://localhost:8080/test)
 
 # Ember Guide
@@ -39,5 +40,16 @@
         2. Used to POST, GET, and PUT resources (Ex. GET a list of all the ROMs)
         3. Basically a client side database that caches, updates, and adds new resources.
     2. [Ember AJAX](https://github.com/ember-cli/ember-ajax)
-        1. Used rarely.
-        2. Try to use Ember Data whenever possible.
+        1. Used rarely
+        2. Try to use Ember Data whenever possible
+
+# Run Settings
+![Run Settings](documentation/build_screenshot.png)    
+* Start - run Docker containers
+* Remove Containers - remove all containers
+* Remove All - remove all images and containers
+
+# TODO/Bugs
+* File change problems on mounting single files
+* Run Ember server on docker startup
+* Test XDebug
