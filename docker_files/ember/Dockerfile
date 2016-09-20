@@ -35,30 +35,6 @@ RUN ./configure
 RUN make
 RUN make install
 
-#RUN apt-get update && apt-get install -y \
-#	ca-certificates \
-#	--no-install-recommends \
-#	&& rm -rf /var/lib/apt/lists/*
-#
-#RUN buildDeps=' \
-#		autoconf \
-#		automake \
-#		clang \
-#		git \
-#		make \
-#	' \
-#	&& set -x \
-#	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends \
-#	&& rm -rf /var/lib/apt/lists/* \
-#	&& git clone https://github.com/facebook/watchman.git /usr/src/watchman \
-#	&& cd /usr/src/watchman \
-#	&& ./autogen.sh \
-#	&& ./configure \
-#	&& make \
-#	&& make install \
-#	&& rm -rf /usr/src/watchman \
-#	&& apt-get purge -y --auto-remove $buildDeps
-
 WORKDIR /var/www/html/ember-app
 
 CMD ["ember","server"]
