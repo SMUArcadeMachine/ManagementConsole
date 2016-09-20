@@ -10,6 +10,10 @@
     3. **Import settings:** File | Import Settings | Browse to [documentation/php_storm_settings.jar](documentation/php_storm_settings.jar)
 5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
 6. Start Docker (first time takes a bit): 
+    1. Make sure the Docker program is running. 
+    
+        ![Docker running](documentation/docker_running.png)
+        
     1. `cd <project_root_direct>`
     2. `bash docker-start.sh` or `sh docker-start.sh`
 7. Run Ember Server
@@ -44,7 +48,7 @@
         2. Try to use Ember Data whenever possible
 
 # Run Settings
-![Run Settings](documentation/build_screenshot.png)    
+![Run Settings](documentation/build_screenshot.png)   
 * Start - run Docker containers
 * Remove Containers - remove all containers
 * Remove All - remove all images and containers
