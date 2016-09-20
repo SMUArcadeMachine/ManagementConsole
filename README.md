@@ -1,6 +1,6 @@
 # SMU Arcade Machine Management Console
 
-# Installation Steps
+## Installation Steps
 1. Install Git: https://git-scm.com/download
 2. Download Docker Toolbox (w/ Virtual Box): https://www.docker.com/products/docker-toolbox
 3. Create a Docker Cloud account: https://cloud.docker.com/
@@ -23,19 +23,19 @@
 9. Access backend server: [http://localhost:8080/](http://localhost:8080/)
     1. Ex. [http://localhost:8080/test](http://localhost:8080/test)
     
-# Ember Server
+## Ember Server
 * **Start (SSH into Docker container then run Ember Server)**
     1. `docker exec -it smu-arcade-machine-management-console /bin/bash`
     2. `ember server`
 * Web URL: [http://localhost:4200/](http://localhost:4200/)
 * Requires Docker Container to be running
 
-# PHP Backend Server
+## PHP Backend Server
 * **Start**
     1. `bash docker-start.sh` or `sh docker-start.sh`
 * Web URL: [http://localhost:8080/test](http://localhost:8080/test)
 
-# Ember Guide
+## Ember Guide
 * Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)
 * Make sure you are looking at guides/Stack Overflow questions for Ember 2.8.0 and up as Ember has changed a lot from 1.* -> 2.*. 
 * **AJAX/Talking with the backend** - 2 ways
@@ -47,7 +47,7 @@
         1. Used rarely
         2. Try to use Ember Data whenever possible
 
-# Run Settings
+## Run Settings
 ![Run Settings](documentation/build_screenshot.png)   
 * Start - run Docker containers
 * Remove Containers - remove all containers
