@@ -2,6 +2,7 @@ TODO items
 File change problems
 Run ember server on docker startup
 Test XDebug
+Install watchman
 
 Things to download to Ember JS:
 chosen

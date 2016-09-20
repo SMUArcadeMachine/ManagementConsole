@@ -12,7 +12,9 @@ services:
       PHP_IDE_CONFIG: "serverName=my.local"
     ports:
       - "8080:80"
+      - "4200:4200"
       - "9000:9000"
+      - "49152:49152"
     volumes:
 #      - .:/var/www/html
 #      - .\test.php:/var/www/html/test.php

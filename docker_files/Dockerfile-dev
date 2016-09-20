@@ -3,21 +3,23 @@ FROM toozick/smu-arcade-machine-management-console:v1
 WORKDIR /tmp
 
 # Move all app code
-WORKDIR /var/www/html
-USER root
-ADD . /var/www/html
-RUN chmod -R 777 *
+#WORKDIR /var/www/html
+#USER root
+#ADD . /var/www/html
+#RUN chmod -R 777 *
 
-## Install Bower components
-#ADD ember-app/bower.json /tmp/bower.json
-#RUN bower install --allow-root --config.interactive=false
-#RUN mkdir -p /var/www/html/ember-app/bower_components && cp -a /tmp/bower_components /var/www/html/ember-app
-#
-## Install NodeJS components
-#ADD ember-app/package.json /tmp/package.json
-#RUN npm --cache-min 999999 install
-#RUN mkdir -p /var/www/html/ember-app/node_modules && cp -a /tmp/node_modules /var/www/html/ember-app
+# Install Bower components
+ADD ember-app/bower.json /tmp/bower.json
+RUN bower install --allow-root --config.interactive=false
+RUN mkdir -p /var/www/html/ember-app/bower_components && cp -a /tmp/bower_components /var/www/html/ember-app
+
+# Install NodeJS components
+ADD ember-app/package.json /tmp/package.json
+RUN npm install
+RUN mkdir -p /var/www/html/ember-app/node_modules && cp -a /tmp/node_modules /var/www/html/ember-app
+
+WORKDIR /var/www/html/ember-app
 
 
-# Ember addonss
+# Ember addons
 #sudo ember install ember-simple-auth
