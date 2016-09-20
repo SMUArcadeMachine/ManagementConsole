@@ -6,7 +6,7 @@ MAINTAINER Preston Tighe
 RUN apt-get update
 
 # Vim
-RUN apt-get -y install vim wget git curl make
+RUN apt-get -y install vim wget git curl make bzip2 fontconfig autoconf automake clang g++ python-dev
 COPY docker_files/php-apache/vimrc.local /etc/vim/vimrc.local
 
 # -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------
@@ -20,20 +20,44 @@ RUN npm set progress=false
 RUN npm install -g grunt-cli
 RUN npm install -g bower
 RUN npm install -g ember-cli
-RUN npm install -g phantomjs
+RUN npm install -g phantomjs-prebuilt
 
 # install watchman
 # Note: See the README.md to find out how to increase the
 # fs.inotify.max_user_watches value so that watchman will
 # work better with ember projects.
-RUN \
-	git clone https://github.com/facebook/watchman.git &&\
-	cd watchman &&\
-	git checkout v3.5.0 &&\
-	./autogen.sh &&\
-	./configure &&\
-	make &&\
-	make install
+WORKDIR /tmp
+RUN git clone https://github.com/facebook/watchman.git
+WORKDIR watchman
+RUN git checkout v4.7.0
+RUN ./autogen.sh
+RUN ./configure
+RUN make
+RUN make install
+
+#RUN apt-get update && apt-get install -y \
+#	ca-certificates \
+#	--no-install-recommends \
+#	&& rm -rf /var/lib/apt/lists/*
+#
+#RUN buildDeps=' \
+#		autoconf \
+#		automake \
+#		clang \
+#		git \
+#		make \
+#	' \
+#	&& set -x \
+#	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends \
+#	&& rm -rf /var/lib/apt/lists/* \
+#	&& git clone https://github.com/facebook/watchman.git /usr/src/watchman \
+#	&& cd /usr/src/watchman \
+#	&& ./autogen.sh \
+#	&& ./configure \
+#	&& make \
+#	&& make install \
+#	&& rm -rf /usr/src/watchman \
+#	&& apt-get purge -y --auto-remove $buildDeps
 
 WORKDIR /var/www/html/ember-app
 
