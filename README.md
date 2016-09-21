@@ -36,9 +36,11 @@
     3. Open the docker-start.sh file | click Install plugins | Restart PHPStorm
     4. Run | Edit Configurations | For all 3 bash builds update the Interpreter & Working Directory accordingly | Apply | Ok
         1. Windows: C:\Program Files\Git\bin\bash.exe
-        ![Bash Builds](documentation/bash_builds_win.png)
+        
+            ![Bash Builds](documentation/bash_builds_win.png)
         2. Mac: /bin/bash
-        ![Bash Builds](documentation/bash_builds_mac.png)
+        
+            ![Bash Builds](documentation/bash_builds_mac.png)
     
 5. Start Docker (first time takes a bit): 
     1. Make sure the Docker for Windows, Docker for Mac, or Docker Quickstart Terminal process is running
