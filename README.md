@@ -1,7 +1,5 @@
 # SMU Arcade Machine Management Console
 
-VK7JG-NPHTM-C97JM-9MPGT-3V66T
-
 ## Installation Steps
 1. Install Git: [Git Download](https://git-scm.com/download)
 2. Download Docker
