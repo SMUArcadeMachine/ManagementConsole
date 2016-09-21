@@ -35,12 +35,12 @@ VK7JG-NPHTM-C97JM-9MPGT-3V66T
     1. Sign up under a student license.
     2. Click `Checkout from version control` under main screen to pull in this repo.
     3. Wait till it's done indexing.
-    3. Run | Edit Configurations | For all 3 bash builds update the interpreter path accordingly.
+    3. Open the docker-start.sh file | click Install plugins | Restart PHPStorm
+    4. Run | Edit Configurations | For all 3 bash builds update the interpreter path accordingly | Apply | Ok
         1. Windows: C:\Program Files\Git\bin\bash.exe
         ![Bash Builds](documentation/bash_builds_win.png)
         2. Mac: /bin/bash
         ![Bash Builds](documentation/bash_builds_mac.png)
-    4. Open the docker-start.sh file | click Install plugins | Restart PHPStorm
     
 5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
 6. Start Docker (first time takes a bit): 
