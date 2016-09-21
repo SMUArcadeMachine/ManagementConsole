@@ -26,17 +26,17 @@ RUN npm install -g phantomjs-prebuilt
 # Note: See the README.md to find out how to increase the
 # fs.inotify.max_user_watches value so that watchman will
 # work better with ember projects.
-WORKDIR /tmp
-RUN git clone https://github.com/facebook/watchman.git
-WORKDIR watchman
-RUN git checkout v4.7.0
-RUN ./autogen.sh
-RUN ./configure
-RUN make
-RUN make install
+#WORKDIR /tmp
+#RUN git clone https://github.com/facebook/watchman.git
+#WORKDIR watchman
+#RUN git checkout v4.7.0
+#RUN ./autogen.sh
+#RUN ./configure
+#RUN make
+#RUN make install
 
 WORKDIR /var/www/html/ember-app
 
-CMD ["ember","server"]
+CMD ["ember","server","--watcher","polling"]
 
 EXPOSE 4200 35729
