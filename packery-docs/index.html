@@ -1,0 +1,478 @@
+<!doctype html>
+<html class="export">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Gapless, draggable grid layouts">
+
+  <title>Packery</title>
+
+    <link rel="stylesheet" href="css/packery-docs.css" media="screen">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@metafizzyco">
+  <meta name="twitter:title" content="Packery">
+  <meta name="twitter:description" content="Gapless, draggable grid layouts">
+
+</head>
+<body class="index-page" data-page="index">
+
+<div class="site-nav">
+  <h1 class="site-nav__title"><a href=".">Packery</a></h1>
+  <ol class="site-nav__list">
+    <li class="site-nav__item site-nav__item--layout"><a href="layout.html">Layout</a></li>
+    <li class="site-nav__item site-nav__item--options"><a href="options.html">Options</a></li>
+    <li class="site-nav__item site-nav__item--methods"><a href="methods.html">Methods</a></li>
+    <li class="site-nav__item site-nav__item--draggable"><a href="draggable.html">Draggable</a></li>
+    <li class="site-nav__item site-nav__item--events"><a href="events.html">Events</a></li>
+    <li class="site-nav__item site-nav__item--extras"><a href="extras.html">Extras</a></li>
+    <li class="site-nav__item site-nav__item--license"><a href="license.html">License</a></li>
+  </ol>
+</div>
+
+  <div class="hero" data-js="hero">
+    <div class="primary-content">
+  
+      <div class="hero__grid-container">
+        <div class="hero__grid">
+          <div class="hero__grid__stamp hero__grid__stamp--p-top"></div>
+          <div class="hero__grid__stamp hero__grid__stamp--p-bottom"></div>
+          <div class="hero__grid__stamp hero__grid__stamp--ackery"></div>
+          <div class="hero__grid__stamp hero__grid__stamp--k"></div>
+          <div class="hero__grid__stamp hero__grid__stamp--y"></div>
+          <div class="hero__grid__stamp hero__grid__stamp--tagline"></div>
+          <div class="hero__grid__stamp hero__grid__stamp--gh-button"></div>
+        </div>
+      </div>
+  
+      <div class="hero__content">
+        <h1 class="hero__title">Packery</h1>
+        <p class="hero__tagline">Gapless, draggable grid layouts</p>
+        <p class="hero__gh-button">
+          <a class="gh-button" href="https://github.com/metafizzy/packery" data-js="gh-button">
+            <span class="gh-button__title">
+              <svg class="gh-button__icon gh-button__icon--github-logo" viewbox="0 0 512 512">
+                <path d="M256 0C115 0 0 115 0 256c0 113 73 209 175 243 13 2 18-5 18-12v-48c-64 12-81-16-86-30-3-7-15-30-26-36-9-5-22-17 0-17 20 0 35 19 39 26 23 39 60 28 75 21 2-17 9-28 16-34-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-33 3-68 0 0 21-7 70 26 20-6 42-9 64-9s43 3 64 9c49-33 70-26 70-26 14 35 5 61 3 68 16 18 26 41 26 69 0 98-60 120-117 126 9 8 17 23 17 47v70c0 7 5 15 18 12 100-33 173-129 173-242C512 115 397 0 256 0z"/>
+              </svg>
+              <span class="gh-button__title__text">Packery on GitHub</span>
+            </span>
+            <span class="gh-button__stat">
+              <svg class="gh-button__icon gh-button__icon--star" viewbox="0 0 896 1024">
+                <path d="M896 384l-313-41L448 64 313 343 0 384l230 208L171 895l277-149 277 148L665 593 896 384z"/>
+              </svg>
+              <span class="gh-button__stat__text">2,100</span>
+            </span>
+          </a>
+        </p>
+  
+        <div class="duo">
+          <div class="duo__cell">
+            <a class="button button--hero-big" href="packery.pkgd.min.js">
+              <svg class="hero__button-icon" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewbox="0 0 200 200">
+                <path class="st0" d="M177.4 53.1c-1.2 3-4.2 4.9-7.4 4.9h-40c-4.4 0-8-3.6-8-8V10c0-3.2 1.9-6.2 4.9-7.4 3-1.2 6.4-.6 8.7 1.7l40 40c2.3 2.3 3 5.8 1.8 8.8zM178 71v109c0 9.9-8.1 18-18 18H40c-9.9 0-18-8.1-18-18V20c0-9.9 8.1-18 18-18h69v48c0 11.6 9.4 21 21 21h48zm-90.1 47.5V94.8H77.1v45.8c0 1.9 0 3.9-.5 5.7-1.1 3.9-4.8 4.6-8.3 3.7l-.9 9.2c4.6 1 10.1.9 14.2-1.8 4.7-3.1 5.9-8.6 6.3-13.9.4-8.4 0-16.8 0-25zm1.6-38.4c0-8.4-13.9-8.5-13.9 0s13.9 8.4 13.9 0zm19.1 24.7c1-2.8 5.1-3.3 7.7-3.1 3.3.3 6.5 2 8.5 4.6l7-6.2c-4.7-6-13.9-7.5-21-6.1-6.6 1.3-12.2 5.7-12.4 12.8-.1 3.2.8 6.3 3.3 8.5 2.5 2.3 5.8 3.3 9 4.1 2.7.7 5.8 1.2 8.3 2.6 2.4 1.3 2.9 4.7 1 6.7-2.2 2.4-6.3 2.4-9.2 1.7-3-.7-5.8-2.6-7.7-5-2.4 2.2-4.7 4.4-7.1 6.7 5.4 5.9 14 7.9 21.7 6.9 6.3-.8 12.5-4.1 13.7-10.9.6-3.2.4-6.6-1.5-9.4-1.8-2.7-4.8-4.4-7.8-5.5-3.3-1.1-6.7-1.7-10-2.8-2.5-.9-4.6-2.6-3.5-5.6z"/>
+              </svg>
+              Download packery.&#x200B;pkgd.&#x200B;min.js
+            </a>
+          </div>
+  
+        </div>
+      </div> 
+  
+    </div> 
+  </div> 
+  
+  <div class="what-is-packery">
+    <div class="primary-content">
+  
+      <h2 class="what-is-packery__title">What is Packery?</h2>
+  
+      <p class="what-is-packery__description">Packery is a JavaScript library and jQuery plugin that makes gapless and draggable layouts. It uses a bin-packing algorithm to fill in empty gaps. Packery layouts can be intelligently ordered or organically wild. Elements can be <a href="options.html#stamp">stamped</a> in place, <a href="methods.html#fit">fit</a> in a specific spot, or <a href="draggable.html">dragged around</a>. It&#x2019;s perfect for draggable dashboard and seamless Masonry image galleries. </p>
+  
+      <p class="what-is-packery__description">Try it out!</p>
+  
+      <div class="duo drag-hero-demos" data-js="drag-hero-demos">
+      
+        <div class="duo__cell">
+          <p class="drag-hero-demos__instruction">Draggable Masonry layout</p>
+          <div class="drag-hero-demos__grid drag-hero-demos__grid--masonry">
+            <div class="drag-hero-demos__grid__masonry-grid-sizer"></div>
+            <div class="drag-hero-demos__grid__masonry-gutter-sizer"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry height2">Drag me!</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry height3"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry height2"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry height3"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry height2"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+          </div>
+        </div>
+      
+        <div class="duo__cell">
+          <p class="drag-hero-demos__instruction">Draggable dashboard</p>
+          <div class="drag-hero-demos__grid drag-hero-demos__grid--dash">
+            <div class="drag-hero-demos__grid__dash-grid-sizer"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash height2"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash width2"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash height2"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash width2 height2">Drag me!</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash width2 height2"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash width2"></div>
+          </div>
+        </div>
+      
+      </div> 
+  
+    </div>
+  </div>
+
+<div id="content" class="main">
+
+  <div class="primary-content">
+
+    <ul class="page-nav" data-js="page-nav">
+<li class="page-nav__item page-nav__item--h2"><a href="#install">Install</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#download">Download</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#cdn">CDN</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#package-managers">Package managers</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#license">License</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#commercial-license">Commercial license</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#open-source-license">Open source license</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#getting-started">Getting started</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#html">HTML</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#css">CSS</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initialize-with-jquery">Initialize with jQuery</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initialize-with-vanilla-javascript">Initialize with Vanilla JavaScript</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initialize-in-html">Initialize in HTML</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#packery-in-use">Packery in use</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#twitter-updates-from-metafizzyco">Twitter updates from @metafizzyco</a></li>
+</ul>
+
+
+<h2 id="install">Install</h2>
+
+
+<h3 id="download">Download</h3>
+
+<ul>
+  <li><a href="packery.pkgd.js">packery.pkgd.js</a> un-minified, or</li>
+  <li><a href="packery.pkgd.min.js">packery.pkgd.min.js</a> minified</li>
+</ul>
+
+
+<h3 id="cdn">CDN</h3>
+
+<p>Link directly to Packery files on <a href="https://unpkg.com">unpkg</a>.</p>
+
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">&quot;https://unpkg.com/packery@2.1/dist/packery.pkgd.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!-- or --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">&quot;https://unpkg.com/packery@2.1/dist/packery.pkgd.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+
+
+<h3 id="package-managers">Package managers</h3>
+
+<p>Install with <a href="http://bower.io">Bower</a>: <code>bower install packery --save</code></p>
+
+<p><a href="https://www.npmjs.com/package/packery">Install with npm</a>: <code>npm install packery</code></p>
+
+
+<h2 id="license">License</h2>
+
+
+<h3 id="commercial-license">Commercial license</h3>
+
+<p>If you want to use Packery to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. <a href="license.html">Read more about Packery commercial licensing</a>.</p>
+
+<p>Once purchased, you&#x2019;ll receive a commercial license PDF and be all set to use Packery in your commercial applications.</p>
+
+<div class="buy-button-trio">
+    <a class="buy-button" href="https://gum.co/packery-dev">
+      <span class="buy-button__project">Packery Commercial</span>
+      <span class="buy-button__title">Developer</span>
+      <span class="buy-button__license">License</span>
+      <span class="buy-button__for">for 1 developer</span>
+      <span class="buy-button__price">
+        <span class="buy-button__price__dollar">$</span><span class="buy-button__price__value">25</span>
+      </span>
+    </a>
+
+    <a class="buy-button" href="https://gum.co/packery-team">
+      <span class="buy-button__project">Packery Commercial</span>
+      <span class="buy-button__title">Team</span>
+      <span class="buy-button__license">License</span>
+      <span class="buy-button__for">for up to 8 developers</span>
+      <span class="buy-button__price">
+        <span class="buy-button__price__dollar">$</span><span class="buy-button__price__value">110</span>
+      </span>
+    </a>
+
+    <a class="buy-button" href="https://gum.co/packery-org">
+      <span class="buy-button__project">Packery Commercial</span>
+      <span class="buy-button__title">Organization</span>
+      <span class="buy-button__license">License</span>
+      <span class="buy-button__for">for Unlimited developers</span>
+      <span class="buy-button__price">
+        <span class="buy-button__price__dollar">$</span><span class="buy-button__price__value">320</span>
+      </span>
+    </a>
+</div>
+
+
+<h3 id="open-source-license">Open source license</h3>
+
+<p>If you are creating an open source application under a license compatible with the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL license v3</a>, you may use Packery under the terms of the GPLv3. <a href="license.html">Read more about Packery open source licensing</a>.</p>
+
+
+<h2 id="getting-started">Getting started</h2>
+
+
+<h3 id="html">HTML</h3>
+
+<p>Include the Packery <code>.js</code> file in your site.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">&quot;/path/to/packery.pkgd.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+
+<p>Packery works on a container element with a group of similar child items.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item grid-item--width2&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+
+
+<h3 id="css">CSS</h3>
+
+<p>All sizing of items is handled by your CSS.</p>
+
+<pre><code class="css"><span class="class">.grid-item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">25%</span></span></span>; }</span>
+<span class="class">.grid-item--width2</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50%</span></span></span>; }</span>
+</code></pre>
+
+
+<h3 id="initialize-with-jquery">Initialize with jQuery</h3>
+
+<p>You can use Packery as a jQuery plugin:
+  <code>$(<span class="string">&apos;selector&apos;</span>).packery()</code>.</p>
+
+<pre><code class="js">$(<span class="string">&apos;.grid&apos;</span>).packery({
+  <span class="comment">// options</span>
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  gutter: <span class="number">10</span>
+});
+</code></pre>
+
+
+<h3 id="initialize-with-vanilla-javascript">Initialize with Vanilla JavaScript</h3>
+
+<p>You can use Packery with vanilla JS:
+  <code><span class="keyword">new</span> <span class="packery_keyword">Packery</span>( elem, options )</code>.
+  The <code><span class="packery_keyword">Packery</span>()</code> constructor accepts two arguments: the container element and an options object.</p>
+
+<pre><code class="js"><span class="keyword">var</span> elem = <span class="built_in">document</span>.querySelector(<span class="string">&apos;.grid&apos;</span>);
+<span class="keyword">var</span> <span class="packery_var">pckry</span> = <span class="keyword">new</span> <span class="packery">Packery</span>( elem, {
+  <span class="comment">// options</span>
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  gutter: <span class="number">10</span>
+});
+
+<span class="comment">// element argument can be a selector string</span>
+<span class="comment">//   for an individual element</span>
+<span class="keyword">var</span> <span class="packery_var">pckry</span> = <span class="keyword">new</span> <span class="packery">Packery</span>( <span class="string">&apos;.grid&apos;</span>, {
+  <span class="comment">// options</span>
+});
+</code></pre>
+
+
+<h3 id="initialize-in-html">Initialize in HTML</h3>
+
+<p>You can initialize Packery in HTML, without writing any JavaScript. Add <code>data-packery</code> attribute to the container element. <a href="options.html">Options</a> can be set in its value.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span> <span class="attribute">data-packery</span>=<span class="value">&apos;{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;gutter&quot;: 10 }&apos;</span>&gt;</span>
+</code></pre>
+
+<div class="call-out">
+  <p>Options set in HTML must be valid JSON. Keys need to be quoted, for example <code><span class="string">&quot;itemSelector&quot;</span>:</code>. Note the value of <code>data-packery</code> is set with single quotes <code>&apos;</code>, but JSON entities use double-quotes <code>&quot;</code>.</p>
+</div>
+
+
+<h2 id="packery-in-use">Packery in use</h2>
+
+<p>Are you using Packery? <a href="https://twitter.com/metafizzyco">Tweet @metafizzyco</a> or email <a href="mailto:yo@metafizzy.co">yo@metafizzy.co</a> to share your work and possibly get it featured here.</p>
+
+<div class="in-use-gallery">
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://niice.co/">
+        <p class="in-use-gallery__item__title">Niice</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/Yzhsah1.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://stutterheim.com/">
+        <p class="in-use-gallery__item__title">Stutterheim Raincoats</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/QVGBPgU.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://www.nbc.com/the-tonight-show">
+        <p class="in-use-gallery__item__title">The Tonight Show with Jimmy Fallon</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/zStKCgb.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://www.thebestofeastlondon.com/">
+        <p class="in-use-gallery__item__title">The Best of East London</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/rp7wlb2.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="https://augaware.org/">
+        <p class="in-use-gallery__item__title">Square Enix - Deus Ex</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/OZdbncn.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://www.creativejournal.com/">
+        <p class="in-use-gallery__item__title">Creative Journal</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/VfI4lyX.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://www.syfy.com/">
+        <p class="in-use-gallery__item__title">Syfy</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/zyewWL9.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://smart.oras.com/">
+        <p class="in-use-gallery__item__title">Oras faucets</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/VqC1j2p.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://studioaka.co.uk/">
+        <p class="in-use-gallery__item__title">STUDIO AKA</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/q5eFssu.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://lookwork.com">
+        <p class="in-use-gallery__item__title">Lookwork</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/r2Tn7QC.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://admissions.unc.edu/">
+        <p class="in-use-gallery__item__title">UNC Admissions</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/qOIbqRW.jpg">
+      </a>
+    </div>
+    <div class="in-use-gallery__item">
+      <a class="in-use-gallery__item__link" href="http://www.woodshopusa.com/">
+        <p class="in-use-gallery__item__title">Woodshop</p>
+        <img class="in-use-gallery__item__image" src="http://i.imgur.com/hgIrLy1.jpg">
+      </a>
+    </div>
+</div>
+
+
+<h2 id="twitter-updates-from-metafizzyco">Twitter updates from <a href="https://twitter.com/metafizzyco">@metafizzyco</a></h2>
+
+<p><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=packery+from%3Ametafizzyco" data-widget-id="502208269725605888">Packery tweets</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+
+</div>
+
+<div class="site-nav">
+  <h1 class="site-nav__title"><a href=".">Packery</a></h1>
+  <ol class="site-nav__list">
+    <li class="site-nav__item site-nav__item--layout"><a href="layout.html">Layout</a></li>
+    <li class="site-nav__item site-nav__item--options"><a href="options.html">Options</a></li>
+    <li class="site-nav__item site-nav__item--methods"><a href="methods.html">Methods</a></li>
+    <li class="site-nav__item site-nav__item--draggable"><a href="draggable.html">Draggable</a></li>
+    <li class="site-nav__item site-nav__item--events"><a href="events.html">Events</a></li>
+    <li class="site-nav__item site-nav__item--extras"><a href="extras.html">Extras</a></li>
+    <li class="site-nav__item site-nav__item--license"><a href="license.html">License</a></li>
+  </ol>
+</div>
+
+<div class="site-footer">
+  <div class="primary-content">
+
+    <p class="site-footer__copy">Also made by Metafizzy</p>
+
+    <div class="duo other-products">
+      <div class="duo__cell other-product">
+        <a class="other-product__link" href="http://isotope.metafizzy.co/">
+          <img class="other-product__image" src="http://i.imgur.com/xfGupRf.png" alt="Isotope">
+          <h3 class="other-product__title">Isotope</h3>
+          <p class="other-product__description">Filter &amp; sort magical layouts</p>
+        </a>
+      </div>
+    
+      <div class="duo__cell other-product">
+        <a class="other-product__link" href="http://flickity.metafizzy.co/">
+          <img class="other-product__image" src="http://i.imgur.com/8BFo4Aj.png" alt="Flickity">
+          <h3 class="other-product__title">Flickity</h3>
+          <p class="other-product__description">Touch, responsive, flickable&#xA0;galleries</p>
+        </a>
+      </div>
+    </div>
+
+    <p class="site-footer__copy"><a href="https://github.com/metafizzy/next-project/issues">Help decide what Metafizzy&#x2019;s next project will be: Infinite Scroll v2, touch-friendly drag &amp; drop, and&#xA0;more.</a></p>
+
+    <p class="site-footer__copy">Follow <a href="https://twitter.com/metafizzyco">@metafizzyco on Twitter for Packery updates</a></p>
+
+  </div>
+
+  <div class="site-footer-brand">
+    <a class="site-footer-brand__link" href="http://metafizzy.co">
+      <svg class="metafizzy-logo site-footer-brand__metafizzy-logo" viewbox="0 0 400 512">
+        <path fill="#333" d="M329.4 15c-25 0-44 15-52 26.4C271 27 251 0 213 0c-39 0-69 30.4-70 69-9 3.6-32 17-38 22-10-5-21-8-33-8-35 0-71 27.4-71 71.6 0 40 34.4 68.4 65.6 69.5 6 10 13 21 22.5 35 0.6 0-38 23.5-38 23.5-15 9.5-31 27-31 56.5 0 38.4 32 66 66 66 12.4 0 24.5-3 35-10l8-5-12 34c-15 46 20 88 62.5 88 28 0 53.4-18 63-45l3.6-10c9.6 -1 19-4 28-9l47.5-29c13-8 23-20 28-35l23.5-67c9.6-27 7-64 1-95 4-8 26-57 26-113 0-79-43-94-70-94z"/>
+        <defs>
+          <path id="metafizzy-logo__body-path" d="M290.4 84c-1-18 10-34 27.6-40 21-7 43 5 50 26 11 34 4 75-7 112-8-23-37-68-71-98zm31 77.4c-30-45-65-82-104-82-7 0-13-6-13-14 0-7 6.4-13 14-13 22 0.6 36.6 8 37.5 8-5-26-38-45-66-28-18 11-26 33.6-18 53-19 5.4-55 27-68 38.5-14-16-38-20-56-9-21 13-27 40-15 61 10 17 29.6 24 47.6 20 8 15 23 38 45 71l-61 38C46 317 40 342 52 360c13 20 38 23.4 55 13 11.6-7 31-19 31-19 0-2 0-4 -1-5-1-7 4-14 11-15 7-1 14 4 15 11 2.5 15 0 27-1 32 0 0-11 31-20 57-9 28 12.5 53 37 53 15 0 32-9 38-27l31-89c1-4 4-7 8-8 12.6-4 23-14 23-14 5.4-5 14-4 19 1 5 5.4 4.5 14 -1 19 0 0.5-11 10-26 17l-15 43c1 -1 2.6-1 4-2l47.5-29c8-5 14-12 17-21l23.5-67c14-41-3-112-26-147z"/>
+        </defs>
+        <use class="metafizzy-logo__body" xlink:href="#metafizzy-logo__body-path"/>
+        <clippath id="metafizzy-logo__body-clip">
+          <use xlink:href="#metafizzy-logo__body-path"/>
+        </clippath>
+        <g clip-path="url(#metafizzy-logo__body-clip)">
+          <path class="metafizzy-logo__stripe1" d="M-65 186l379-238 55 87L-11 273z"/>
+          <path class="metafizzy-logo__stripe2" d="M-11 272l379-238 55 87-379 239z"/>
+          <path class="metafizzy-logo__stripe3" d="M43 358l379-238 46 73-379 238z"/>
+          <path class="metafizzy-logo__stripe4" d="M89 430l379-238 55 87-379 239z"/>
+        </g>
+        <ellipse transform="rotate(-121.393 260.234 218.053)" fill="#FFF" cx="260" cy="218" rx="32" ry="49"/>
+        <path fill="#333" d="M196.4 196c6.6 11-8 7-19 14-11 6.6-14 21-21 10-7-11-3-25 8-32 11-7 25-3 32 8zM287 140c6.6 11-8 7-19 14s-14 21-21 10-3-25 8-32c11-7 25-3 32 8z"/>
+        <path fill="#333" d="M243 199l17.4-11c5-3 11-1 14 3 2 3 2 7 0 10.5l-6 10c-2 3-4 4.4-8 5l-11 1c-4 0-7-1-9-5-3-5-1-11 3.5-14z"/>
+      </svg>
+  
+      <svg class="metafizzy-wordmark site-footer-brand__metafizzy-wordmark" xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewbox="0 0 1000 300">
+        <path d="M491 121l13-39H480l-3 8c-23-31-63 7-72 41-4 10-12 25-23 25-13 0 0-35 6-56v 0c4-12 11-36 11-36H423c25 0 51 5 71-13l-14-15c-9 8-17 8-27 8h-48l7-23h-25L380 44h-29l-6 21H374l-6 19c-7 22-11 49-30 64-14 10-38 17-53 7 19-8 51-21 51-45 0-13-8-29-28-29-39 0-57 40-57 60 0 25 24 40 49 40 21 0 39-7 54-19 3 9 11 16 24 16 13 0 23-5 30-14 7 10 19 16 33 14 11-1 19-7 25-14 4 8 11 14 25 15L498 157c-21-1-10-26-7-36zM277 132c3-10 13-33 28-29 5 1 6 7 4 12-4 12-20 20-33 26 0-3 0-6 1-8zm166 24c-9 3-14-2-15-11-3-19 25-60 42-33l-4 14c-3 12-12 26-23 30zm-192 33L236 207c-31-18-33-59-24-87 10-31 19-50 19-50l-50 65h-23c 0-18-4-50-8-65L136 115c-13 44-37 119-97 109-18-3-32-16-36-34-4-23 12-45 30-60l13 17c-14 11-29 33-13 50 13 14 31 6 42-5 23-22 30-56 38-86C121 82 135 35 135 35c 0 0 -1-1-1-1-5 9-15 14-25 13-11-1-17-11-14-21 3-10 14-18 25-18 15 0 23 1 34 12 14 13 23 50 26 80L244 21h23l-28 94c-7 23-13 59 12 74zM649 48c-2 6-11 18-24 18-14 0-20-11-17-21 3-8 9-14 17-16-8-9-28-7-38 2-9 8-12 20-15 31l-6 21h65l-29 94h-25l22-73H558s-14 48-22 72c-8 27-34 57-64 59L478 212c16-1 29-25 34-41 4-13 18-58 21-68h-19l7-21H539c4-12 7-24 11-36C559 21 583 1 614 1c28 0 42 21 35 47zm78 35h-82l-6 21H685l-62 56-5 17c39 0 75 9 94-15l-16-14c-11 13-27 9-39 10L721 99l6-17zM999 70c0 38-27 89-102 123-2 6-4 12-5 18-7 24-23 88-86 88-22 0-41-12-41-36 0-26 23-38 36-46 24-14 50-25 76-36l3-9c-4 2-8 3-13 3-13 1-28-4-35-15-10 8-23 14-35 17-22 5-57 0-79 0l5-18 61-55h-46l6-21h82l-6 17-64 58c11 0 22 0 33 0 14-1 31-10 41-26 3-4 16-50 16-50h24l-11 38c-4 13-7 35 8 35 12 0 23-13 26-23l15-50h25l-26 85c72-42 76-101 64-114-5 9-15 16-26 14-11-1-17-11-14-21 3-10 14-18 25-18 34 0 44 27 44 44zM867 206l-15 7c-14 7-30 13-48 25-10 7-23 19-15 32 6 11 24 9 34 5 13-6 26-19 32-32 6-11 9-24 13-37z"/>
+      </svg>
+    </a>
+  </div> 
+
+</div> 
+
+<!-- Packery does NOT require jQuery.
+  jQuery is only used for jQuery UI Draggable -->
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+
+  <script src="js/packery-docs.min.js"></script>
+
+
+</body>
+</html>
