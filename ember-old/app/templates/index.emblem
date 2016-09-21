@@ -1,0 +1,5 @@
+.index-page-wrapper
+    if App.Auth.signedIn
+        | is signed in home page
+    else
+        | is not signed in home page

@@ -1,0 +1,9 @@
+footer#footer
+    span.copy
+        | All Right Reserved,
+        strong
+            linkTo 'index'
+                = App.BASE_NAME
+    ul.add-nav
+        li
+            linkTo 'contact' | Contact
