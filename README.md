@@ -1,25 +1,56 @@
 # SMU Arcade Machine Management Console
 
+VK7JG-NPHTM-C97JM-9MPGT-3V66T
+
 ## Installation Steps
-1. Install Git: https://git-scm.com/download
-2. Download Docker Toolbox (w/ Virtual Box): https://www.docker.com/products/docker-toolbox
-3. Create a Docker Cloud account: https://cloud.docker.com/
-4. Download PhpStorm (IDE): https://www.jetbrains.com/phpstorm/download/
+1. Install Git: [Git Download](https://git-scm.com/download)
+2. Download Docker
+    1. Windows 10 Professional, Enterprise, Education (Using HyperV - Fast - Desired way)
+        1. Install [Docker for Windows](https://download.docker.com/win/stable/InstallDocker.msi)
+        2. Run 
+        
+            ![Docker for Windows](documentation/windows_hyperv.png)
+        3. Make sure the Docker program is running.
+        
+            ![Docker running](documentation/docker_running.png)
+        4. **Right click the Docker process -> Settings -> Shared Drives -> Select C drive to share (Drive with desired repo location)**
+    2. Windows 10 Home, Mobile, Mobile Enterprise (Using VM - Slow - Non-HyperV)
+        1. Install [Docker Toolbox](https://github.com/docker/toolbox/releases/download/v1.12.0/DockerToolbox-1.12.0.exe)
+        2. Run (Auto configures Docker settings)
+        
+            ![Windows VM](documentation/windows_vm.png)
+    3. Mac - 2010 or newer model (Most users)
+        1. Make sure your OS is at OS X 10.10.3 Yosemite or newer
+        2. Install [Docker for Mac](https://download.docker.com/mac/stable/Docker.dmg)
+        3. Make sure the Docker program is running.
+                
+            ![Docker running](documentation/mac_current.png)
+    4. Mac - pre 2010
+        1. Install [Docker Toolbox](https://github.com/docker/toolbox/releases/download/v1.12.0/DockerToolbox-1.12.0.pkg)
+        2. Run (Auto configures Docker settings - Run everytime you startup the Docker containers)
+        
+            ![Windows VM](documentation/mac_old.png)
+3. Create a Docker Cloud account: [Docker Cloud](https://cloud.docker.com/)
+4. Download PhpStorm (IDE): [PHP Storm](https://www.jetbrains.com/phpstorm/download/)
     1. Sign up under a student license.
     2. Click `Checkout from version control` under main screen to pull in this repo.
-    3. **Import settings:** File | Import Settings | Browse to [documentation/php_storm_settings.jar](documentation/php_storm_settings.jar)
+    3. Wait till it's done indexing.
+    3. Open the docker-start.sh file | click Install plugins | Restart PHPStorm
+    
 5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
 6. Start Docker (first time takes a bit): 
-    1. Make sure the Docker program is running. 
+    1. Make sure the Docker for Windows, Docker for Mac, or Docker Quickstart Terminal process is running
+    2. Run Docker build
     
-        ![Docker running](documentation/docker_running.png)
-        
-    1. `cd <project_root_direct>`
-    2. `bash docker-start.sh` or `sh docker-start.sh`
+        ![Windows VM](documentation/phpstorm_start_build.png)
+        * or
+        * `cd <project_root_direct>`
+        * `bash docker-start.sh` or `sh docker-start.sh`
+    
 7. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
 8. Access backend server: [http://localhost:8080/](http://localhost:8080/)
     1. Ex. [http://localhost:8080/test](http://localhost:8080/test)
-9. Run Kitematic (Docker Toolbox) to visualize the containers and see logs
+9. Run Kitematic to visualize the containers and see logs
     
 ## Ember Guide
 * Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)
@@ -48,6 +79,5 @@
     1. docker exec -it mysql /bin/bash
 
 # TODO/Bugs
-* File change problems on mounting single files
-* Run Ember server on docker startup
 * Test XDebug
+* File change problems on mounting single files

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Don't use this
+
 #docker rm $(docker ps -a -q) -f
 #docker run -d --name smu-arcade-machine-management-console \
 #    -p 8080:80 \

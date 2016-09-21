@@ -1,4 +1,7 @@
 TODO items
+Ability to easily upgrade to a HyperV windows version
+Ember.js package.json on mac and windows
+
 File change problems
 Run ember server on docker startup
 Test XDebug
