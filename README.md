@@ -42,20 +42,19 @@ VK7JG-NPHTM-C97JM-9MPGT-3V66T
         2. Mac: /bin/bash
         ![Bash Builds](documentation/bash_builds_mac.png)
     
-5. Open Terminal or **PowerShell not Command Prompt as ADMIN**
-6. Start Docker (first time takes a bit): 
+5. Start Docker (first time takes a bit): 
     1. Make sure the Docker for Windows, Docker for Mac, or Docker Quickstart Terminal process is running
     2. Run Docker build
     
         ![Windows VM](documentation/phpstorm_start_build.png)
         * or
-        * `cd <project_root_direct>`
-        * `bash docker-start.sh` or `sh docker-start.sh`
+        * Click Terminal in PHPStorm (make sure `View | Tool Buttons` is checked), bottom left hand | `bash docker-start.sh` or `sh docker-start.sh`
+        
     
-7. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
-8. Access backend server: [http://localhost:8080/](http://localhost:8080/)
+6. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
+7. Access backend server: [http://localhost:8080/](http://localhost:8080/)
     1. Ex. [http://localhost:8080/test](http://localhost:8080/test)
-9. Run Kitematic to visualize the containers and see logs
+8. Run Kitematic to visualize the containers and see logs
     
 ## Ember Guide
 * Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)
