@@ -5,7 +5,7 @@ VK7JG-NPHTM-C97JM-9MPGT-3V66T
 ## Installation Steps
 1. Install Git: [Git Download](https://git-scm.com/download)
 2. Download Docker
-    1. Windows 10 Professional, Enterprise, Education (Using HyperV - Fast - Desired way)
+    1. Windows 10 Professional, Enterprise, Education (Using HyperV - Fast - Desired way) - Activation key: VK7JG-NPHTM-C97JM-9MPGT-3V66T
         1. Install [Docker for Windows](https://download.docker.com/win/stable/InstallDocker.msi)
         2. Run 
         
@@ -14,7 +14,7 @@ VK7JG-NPHTM-C97JM-9MPGT-3V66T
         
             ![Docker running](documentation/docker_running.png)
         4. **Right click the Docker process -> Settings -> Shared Drives -> Select C drive to share**
-    2. Windows 10 Home, Mobile, Mobile Enterprise (Using VM - Slow - Non-HyperV)
+    2. Windows 10 Home, Mobile, Mobile Enterprise (Using VM - Slow)
         1. Install [Docker Toolbox](https://github.com/docker/toolbox/releases/download/v1.12.0/DockerToolbox-1.12.0.exe)
         2. Run (Auto configures Docker settings)
         
@@ -81,7 +81,11 @@ VK7JG-NPHTM-C97JM-9MPGT-3V66T
     1. docker exec -it php-apache /bin/bash
 * SSH into MySQL container:
     1. docker exec -it mysql /bin/bash
+* Remove all containers and images:
+    1. bash docker_files/docker-remove-all.sh
+* Remove all containers:
+    1. bash docker_files/docker-remove-containers.sh
 
 # TODO/Bugs
 * Test XDebug
-* File change problems on mounting single files
+* Codeigniter Rewrite
