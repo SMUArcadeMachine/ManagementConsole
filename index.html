@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Management Console</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="packery-docs/css/packery-docs.css" media="screen">
+    <link href="ui/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="ui/docs/assets/css/demo.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.0.min.js"></script>
+  </head>
+  <body>
+    <!-- Power off -->
+    <div class="navbar">
+      <div class="navbar-left">
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-terminal" aria-hidden="true"></i></button>
+      </div>
+      <div class="navbar-center">
+        <h1> SMU Arcade </h1>
+      </div>
+      <div class="navbar-right">
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-small"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+        <div class="user-text"> Admin: Katie Krummeck </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="duo drag-hero-demos" data-js="drag-hero-demos">
+
+        <div class="duo__cell">
+          <p class="drag-hero-demos__instruction">Inactive</p>
+          <div class="drag-hero-demos__grid drag-hero-demos__grid--masonry">
+            <div class="drag-hero-demos__grid__masonry-grid-sizer"></div>
+            <div class="drag-hero-demos__grid__masonry-gutter-sizer"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--masonry"></div>
+          </div>
+        </div>
+
+        <div class="duo__cell">
+          <p class="drag-hero-demos__instruction">Active</p>
+          <div class="drag-hero-demos__grid drag-hero-demos__grid--dash">
+            <div class="drag-hero-demos__grid__dash-grid-sizer"></div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash">ROM</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash">ROM</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash">ROM</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash">ROM</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash">ROM</div>
+            <div class="drag-hero-demos__item drag-hero-demos__item--dash">ROM</div>
+          </div>
+        </div>
+
+      </div> 
+      </div>
+    </div>
+    <div class="col-md-3 sidebar-container">
+      <div class="sidebar">
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" data-toggle="modal" data-target="#addgame"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" data-toggle="modal" data-target="#manageusers"><i class="fa fa-users" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" data-toggle="modal" data-target="#manageusers"><i class="fa fa-bar-chart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addgame" tabindex="-1" role="dialog" aria-labelledby="addgamelabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="addgamelabel">Upload a new game</h4>
+          </div>
+          <div class="modal-body">
+            <form action="/file-upload" class="dropzone dropzone-box" onsubmit='uploadFile()'></form>
+            <script>
+            $("div#myId").dropzone({ url: "/file/post" });
+            </script>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduserlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="adduserlabel">Add New User</h4>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Finish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="manageusers" tabindex="-1" role="dialog" aria-labelledby="manageuserslabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="manageuserslabel">Manage Users</h4>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+              <div class="user admin" > Rickey <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
+              <div class="user tech"> Parker <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
+              <div class="user tech"> Edward <br> <i class="fa fa-user" aria-hidden="true"></i></div>
+              <div class="user tech"> Sam  <br><i class="fa fa-user" aria-hidden="true"></i></div>
+              <div class="user tech" id='adduserbtn'><i class="fa fa-plus" aria-hidden="true"></i></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add New</button>
+            <script>
+              $('#adduserbtn').click(function(){
+                $('#manageusers').modal('hide');
+                $('#adduser').modal('show');
+              });
+              $('.sidebar').click(function(){
+
+              })
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="ui/dist/js/vendor/jquery.min.js"></script>
+    <script src="ui/dist/js/vendor/video.js"></script>
+    <script src="ui/dist/js/flat-ui.min.js"></script>
+    <script src="ui/docs/assets/js/application.js"></script>
+
+  <script src="packery-docs/js/packery-docs.min.js"></script>
+    <script>
+    $('.grid').packery({
+      // options
+      itemSelector: '.grid-item',
+      gutter: 10
+    });
+    </script>
+  </body>
+</html>

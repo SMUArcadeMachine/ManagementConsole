@@ -1,9 +1,0 @@
-.container
-    .error-icon-wrapper
-        i.icon-remove
-    .error-header There seems to be a problem with your last request.
-    .error-description
-        ' Click
-        a.pointer onclick="history.go(-1)"
-            | here
-        |  to go back.

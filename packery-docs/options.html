@@ -1,0 +1,894 @@
+<!doctype html>
+<html class="export">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Gapless, draggable grid layouts">
+
+  <title>Packery &#xB7; Options</title>
+
+    <link rel="stylesheet" href="css/packery-docs.css" media="screen">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@metafizzyco">
+  <meta name="twitter:title" content="Packery Options">
+  <meta name="twitter:description" content="Gapless, draggable grid layouts">
+
+</head>
+<body class="options-page" data-page="options">
+
+<div class="site-nav">
+  <h1 class="site-nav__title"><a href=".">Packery</a></h1>
+  <ol class="site-nav__list">
+    <li class="site-nav__item site-nav__item--layout"><a href="layout.html">Layout</a></li>
+    <li class="site-nav__item site-nav__item--options"><a href="options.html">Options</a></li>
+    <li class="site-nav__item site-nav__item--methods"><a href="methods.html">Methods</a></li>
+    <li class="site-nav__item site-nav__item--draggable"><a href="draggable.html">Draggable</a></li>
+    <li class="site-nav__item site-nav__item--events"><a href="events.html">Events</a></li>
+    <li class="site-nav__item site-nav__item--extras"><a href="extras.html">Extras</a></li>
+    <li class="site-nav__item site-nav__item--license"><a href="license.html">License</a></li>
+  </ol>
+</div>
+
+
+<div id="content" class="main">
+
+  <div class="primary-content">
+      <h1>Options</h1>
+
+    <ul class="page-nav" data-js="page-nav">
+<li class="page-nav__item page-nav__item--h2"><a href="#recommended">Recommended</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#itemselector">itemSelector</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#layout">Layout</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#columnwidth">columnWidth</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#rowheight">rowHeight</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#gutter">gutter</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#element-sizing">Element sizing</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#percentposition">percentPosition</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#stamp">stamp</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#horizontal">horizontal</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#originleft">originLeft</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#origintop">originTop</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#setup">Setup</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#containerstyle">containerStyle</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#transitionduration">transitionDuration</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#shiftresize">shiftResize</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#resize">resize</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initlayout">initLayout</a></li>
+</ul>
+
+
+
+<p>All options are optional, but <a href="#itemselector"><code>itemSelector</code></a> is recommended.</p>
+
+<pre><code class="js"><span class="comment">// jQuery</span>
+$(<span class="string">&apos;.grid&apos;</span>).packery({
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  gutter: <span class="number">10</span>
+});
+</code></pre>
+
+<pre><code class="js"><span class="comment">// vanilla JS</span>
+<span class="keyword">var</span> <span class="packery_var">pckry</span> = <span class="keyword">new</span> <span class="packery">Packery</span>( <span class="string">&apos;.grid&apos;</span>, {
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  gutter: <span class="number">10</span>
+});
+</code></pre>
+
+<pre><code class="html"><span class="comment">&lt;!-- in HTML --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span> <span class="attribute">data-packery</span>=<span class="value">&apos;{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;gutter&quot;: 10 }&apos;</span>&gt;</span>
+</code></pre>
+
+
+<h2 id="recommended">Recommended</h2>
+
+
+<h3 id="itemselector">itemSelector</h3>
+
+<p>Specifies which child elements will be used as item elements in the layout.</p>
+
+<p>We recommend always setting <code>itemSelector</code>. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a> or other elements that are not part of the layout.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">itemSelector: <span class="string">&apos;.grid-item&apos;</span>
+</code></pre>
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- do not use banner in Packery layout --&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;static-banner&quot;</span>&gt;</span>Static banner<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-banner" data-packery="{ &quot;itemSelector&quot;: &quot;.grid-item&quot; }">
+      <div class="static-banner">Static banner</div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/pgVNdO">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h2 id="layout">Layout</h2>
+
+
+<h3 id="columnwidth">columnWidth</h3>
+
+<p>Aligns items to a horizontal grid. <code>columnWidth</code> is not required for grid layouts, but may help align items when <a href="draggable.html">dragging</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">columnWidth: <span class="number">60</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid" data-packery="{ &quot;columnWidth&quot;: 60 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/eouHb">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>Use <a href="../options.html#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>columnWidth</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element for the size of the column.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- .grid-sizer empty element, only used for element sizing --&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 5 columns */</span>
+<span class="class">.grid-sizer</span>,
+<span class="class">.grid-item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20%</span></span></span>; }</span>
+<span class="comment">/* 2 columns wide */</span>
+<span class="class">.grid-item--width2</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">40%</span></span></span>; }</span>
+</code></pre>
+
+<pre><code class="js"><span class="comment">// use outer width of grid-sizer for columnWidth</span>
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col" data-packery="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;,  &quot;percentPosition&quot;: true }">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/tonpx">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="rowheight">rowHeight</h3>
+
+<p>Aligns items to a vertical grid. <code>rowHeight</code> is not required for grid layouts, but may help align items when dragging items in a <a href="#horizontal">horizontal</a> layout.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">rowHeight: <span class="number">60</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid" data-packery="{ &quot;rowHeight&quot;: 60 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/KGcqD">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>Use <a href="../options.html#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>rowHeight</code> to an <i>Element</i> or Selector <i>String</i> to use the outer height of the element for the size of the row.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- .grid-sizer empty element, only used for element sizing --&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* height of 1 row */</span>
+<span class="class">.grid-sizer</span>,
+<span class="class">.grid-item</span> <span class="rules">{ <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">60px</span></span></span>; }</span>
+<span class="comment">/* 2 rows high */</span>
+<span class="class">.grid-item--height2</span> <span class="rules">{ <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">120px</span></span></span>; }</span>
+</code></pre>
+
+<pre><code class="js"><span class="comment">// use outer width of grid-sizer for columnWidth</span>
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+rowHeight: <span class="string">&apos;.grid-sizer&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid" data-packery="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;rowHeight&quot;: &quot;.grid-sizer&quot; }">
+      <div class="grid-sizer grid-sizer--row-height"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/dElba">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="gutter">gutter</h3>
+
+<p>Adds horizontal and vertical space between item elements.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">gutter: <span class="number">10</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-gutter" data-packery="{ &quot;gutter&quot;: 10 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/fIbHB">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>Use <a href="#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>gutter</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;gutter-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="class">.grid-item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">22%</span></span></span>; }</span>
+
+<span class="class">.gutter-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">4%</span></span></span>; }</span>
+
+<span class="class">.grid-item--width2</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">48%</span></span></span>; }</span>
+</code></pre>
+
+<pre><code class="js">columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+gutter: <span class="string">&apos;.gutter-sizer&apos;</span>,
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-gutter" data-packery="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;gutter&quot;: &quot;.gutter-sizer&quot;, &quot;percentPosition&quot;: true }">
+      <div class="gutter-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/buyLF">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+
+<h3 id="element-sizing">Element sizing</h3>
+
+<p>Sizing options <a href="#columnwidth"><code>columnWidth</code></a>, <a href="#rowheight"><code>rowHeight</code></a>, and <a href="#gutter"><code>gutter</code></a> can be set with an element. The size of the element is then used as the value of the option.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- .grid-sizer &amp; .gutter-sizer empty elements
+    only used for element sizing --&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;gutter-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 4 columns, 4% gutter */</span>
+<span class="class">.grid-sizer</span>,
+<span class="class">.grid-item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">22%</span></span></span>; }</span>
+
+<span class="class">.gutter-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">4%</span></span></span>; }</span>
+
+<span class="comment">/* 2 columns wide */</span>
+<span class="class">.grid-item--width2</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">40%</span></span></span>; }</span>
+</code></pre>
+
+<pre><code class="js"><span class="comment">// use outer width of grid-sizer for columnWidth</span>
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+gutter: <span class="string">&apos;.gutter-sizer&apos;</span>,
+<span class="comment">// do not use .grid-sizer in layout</span>
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-gutter" data-packery="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;, &quot;gutter&quot;: &quot;.gutter-sizer&quot;,  &quot;percentPosition&quot;: true }">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/ZQoeMr">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>Options can be set to a Selector <i>String</i> or an <i>Element</i>.</p>
+
+<pre><code class="js"><span class="comment">// set to a selector string</span>
+<span class="comment">// first matching element within container element will be used</span>
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>
+
+<span class="comment">// set to an element</span>
+columnWidth: <span class="jquery_var">$grid</span>.find(<span class="string">&apos;.grid-sizer&apos;</span>)[<span class="number">0</span>]
+</code></pre>
+
+<p>Element sizing options allow you to control the sizing of the Packery layout within your CSS. This is useful for responsive layouts and media queries.</p>
+
+<pre><code class="css"><span class="comment">/* 3 columns by default */</span>
+<span class="class">.grid-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">33.333%</span></span></span>; }</span>
+
+<span class="at_rule">@<span class="keyword">media</span> screen and (min-width: <span class="number">768px</span>) </span>{
+  <span class="comment">/* 5 columns for larger screens */</span>
+  <span class="class">.grid-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20%</span></span></span>; }</span>
+}
+</code></pre>
+
+
+<h3 id="percentposition">percentPosition</h3>
+
+<p>Sets item positions in percent values, rather than pixel values. <code>percentPosition: <span class="literal">true</span></code> works well with percent-width items, as items will not transition their position on resize.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="comment">// set positions with percent values</span>
+percentPosition: <span class="literal">true</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 5 columns */</span>
+<span class="class">.grid-item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20%</span></span></span>; }</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col" data-packery="{ &quot;percentPosition&quot;: true }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/xZjOXq">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="stamp">stamp</h3>
+
+<p>Specifies which elements are <em>stamped</em> within the layout. Packery will layout items around stamped elements.</p>
+
+<p>The <code>stamp</code> option stamps elements only when the Packery instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;stamp stamp1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;stamp stamp2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ....
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="js"><span class="comment">// specify itemSelector so stamps do get laid out</span>
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+<span class="comment">// stamp elements</span>
+stamp: <span class="string">&apos;.stamp&apos;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* position stamp elements with CSS */</span>
+<span class="class">.stamp</span> <span class="rules">{
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">background</span>:<span class="value"> orange</span></span>;
+  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">4px</span> dotted black</span></span>;
+}</span>
+<span class="class">.stamp1</span> <span class="rules">{
+  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">30%</span></span></span>;
+  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">10px</span></span></span>;
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20%</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+}</span>
+<span class="class">.stamp2</span> <span class="rules">{
+  <span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">10%</span></span></span>;
+  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">20px</span></span></span>;
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">70%</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">30px</span></span></span>;
+}</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-stamp" data-packery="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;stamp&quot;: &quot;.stamp&quot; }">
+      <div class="stamp stamp--static1"></div>
+      <div class="stamp stamp--static2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/Hqwib">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="horizontal">horizontal</h3>
+
+<p>Lays out items horizontally instead of vertically.</p>
+
+<p><code>horizontal</code> was previously <code>isHorizontal</code> in Packery v1. <code>isHorizontal</code> will still work in Packery v2.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">horizontal: <span class="literal">true</span>
+</code></pre>
+    
+<pre><code class="css"><span class="comment">/* containers need height set when horizontal */</span>
+<span class="class">.grid</span> <span class="rules">{
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>;
+}</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--horizontal grid--counting" data-packery="{ &quot;horizontal&quot;: true }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/cbLyJ">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="originleft">originLeft</h3>
+
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">originLeft: true</span></code>. Set <code>originLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<p><code>originLeft</code> was previously <code>isOriginLeft</code> in Packery v1. <code>isOriginLeft</code> will still work in Packery v2.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">originLeft: <span class="literal">false</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting" data-packery="{ &quot;originLeft&quot;: false }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/rBmsE">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="origintop">originTop</h3>
+
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top, with <code><span class="comment">originTop: true</span></code>. Set <code>originTop: <span class="literal">false</span></code> for bottom-up layouts. It&#x2019;s like Tetris!</p>
+
+<p><code>originTop</code> was previously <code>isOriginTop</code> in Packery v1. <code>isOriginTop</code> will still work in Packery v2.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">originTop: <span class="literal">false</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting" data-packery="{ &quot;originTop&quot;: false }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/Bukmp">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h2 id="setup">Setup</h2>
+
+
+<h3 id="containerstyle">containerStyle</h3>
+
+<p>CSS styles that are applied to the container element.</p>
+
+<pre><code class="js"><span class="comment">// default</span>
+<span class="comment">// containerStyle: { position: &apos;relative&apos; }</span>
+
+<span class="comment">// disable any styles being set on container</span>
+<span class="comment">// useful if using absolute position on container</span>
+containerStyle: <span class="literal">null</span>
+</code></pre>
+
+
+<h3 id="transitionduration">transitionDuration</h3>
+
+<p>Duration of the transition when items change position or appearance, set in a CSS time format. Default: <code><span class="comment">transitionDuration: &apos;0.4s&apos;</span></code></p>
+
+<pre><code class="js"><span class="comment">// fast transitions</span>
+transitionDuration: <span class="string">&apos;0.2s&apos;</span>
+
+<span class="comment">// slow transitions</span>
+transitionDuration: <span class="string">&apos;0.8s&apos;</span>
+
+<span class="comment">// no transitions</span>
+transitionDuration: <span class="number">0</span>
+</code></pre>
+
+
+<h3 id="shiftresize">shiftResize</h3>
+
+
+
+<h3 id="resize">resize</h3>
+
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">resize: true</span></code>.</p>
+
+<p><code>resize</code> was previously <code>isResizeBound</code> in Packery v1. <code>isResizeBound</code> will still work in Packery v2.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="comment">// disable window resize behavior</span>
+resize: <span class="literal">false</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* grid has fixed width */</span>
+<span class="class">.grid</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">320px</span></span></span>;
+}</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fixed-width" data-packery="{ &quot;resize&quot;: false }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/GodQEN">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="initlayout">initLayout</h3>
+
+<p>Enables layout on initialization.
+  Enabled by default <code><span class="comment">initLayout: true</span></code>.</p>
+
+<p>Set <code>initLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+<p><code>initLayout</code> was previously <code>isInitLayout</code> in Packery v1. <code>isInitLayout</code> will still work in Packery v2.</p>
+
+<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$grid</span> = $(<span class="string">&apos;.grid&apos;</span>).packery({
+  <span class="comment">// disable initial layout</span>
+  initLayout: <span class="literal">false</span>,
+  <span class="comment">//...</span>
+});
+<span class="comment">// bind event</span>
+<span class="jquery_var">$grid</span>.packery( <span class="string">&apos;on&apos;</span>, <span class="string">&apos;layoutComplete&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="built_in">console</span>.log(<span class="string">&apos;layout is complete&apos;</span>);
+});
+<span class="comment">// trigger initial layout</span>
+<span class="jquery_var">$grid</span>.packery();
+</code></pre>
+
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/mVLXMO">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/rxvJGP">vanilla JS demo</a> on CodePen
+</p>
+
+  </div>
+
+</div>
+
+<div class="site-nav">
+  <h1 class="site-nav__title"><a href=".">Packery</a></h1>
+  <ol class="site-nav__list">
+    <li class="site-nav__item site-nav__item--layout"><a href="layout.html">Layout</a></li>
+    <li class="site-nav__item site-nav__item--options"><a href="options.html">Options</a></li>
+    <li class="site-nav__item site-nav__item--methods"><a href="methods.html">Methods</a></li>
+    <li class="site-nav__item site-nav__item--draggable"><a href="draggable.html">Draggable</a></li>
+    <li class="site-nav__item site-nav__item--events"><a href="events.html">Events</a></li>
+    <li class="site-nav__item site-nav__item--extras"><a href="extras.html">Extras</a></li>
+    <li class="site-nav__item site-nav__item--license"><a href="license.html">License</a></li>
+  </ol>
+</div>
+
+<div class="site-footer">
+  <div class="primary-content">
+
+    <p class="site-footer__copy">Also made by Metafizzy</p>
+
+    <div class="duo other-products">
+      <div class="duo__cell other-product">
+        <a class="other-product__link" href="http://isotope.metafizzy.co/">
+          <img class="other-product__image" src="http://i.imgur.com/xfGupRf.png" alt="Isotope">
+          <h3 class="other-product__title">Isotope</h3>
+          <p class="other-product__description">Filter &amp; sort magical layouts</p>
+        </a>
+      </div>
+    
+      <div class="duo__cell other-product">
+        <a class="other-product__link" href="http://flickity.metafizzy.co/">
+          <img class="other-product__image" src="http://i.imgur.com/8BFo4Aj.png" alt="Flickity">
+          <h3 class="other-product__title">Flickity</h3>
+          <p class="other-product__description">Touch, responsive, flickable&#xA0;galleries</p>
+        </a>
+      </div>
+    </div>
+
+    <p class="site-footer__copy"><a href="https://github.com/metafizzy/next-project/issues">Help decide what Metafizzy&#x2019;s next project will be: Infinite Scroll v2, touch-friendly drag &amp; drop, and&#xA0;more.</a></p>
+
+    <p class="site-footer__copy">Follow <a href="https://twitter.com/metafizzyco">@metafizzyco on Twitter for Packery updates</a></p>
+
+  </div>
+
+  <div class="site-footer-brand">
+    <a class="site-footer-brand__link" href="http://metafizzy.co">
+      <svg class="metafizzy-logo site-footer-brand__metafizzy-logo" viewbox="0 0 400 512">
+        <path fill="#333" d="M329.4 15c-25 0-44 15-52 26.4C271 27 251 0 213 0c-39 0-69 30.4-70 69-9 3.6-32 17-38 22-10-5-21-8-33-8-35 0-71 27.4-71 71.6 0 40 34.4 68.4 65.6 69.5 6 10 13 21 22.5 35 0.6 0-38 23.5-38 23.5-15 9.5-31 27-31 56.5 0 38.4 32 66 66 66 12.4 0 24.5-3 35-10l8-5-12 34c-15 46 20 88 62.5 88 28 0 53.4-18 63-45l3.6-10c9.6 -1 19-4 28-9l47.5-29c13-8 23-20 28-35l23.5-67c9.6-27 7-64 1-95 4-8 26-57 26-113 0-79-43-94-70-94z"/>
+        <defs>
+          <path id="metafizzy-logo__body-path" d="M290.4 84c-1-18 10-34 27.6-40 21-7 43 5 50 26 11 34 4 75-7 112-8-23-37-68-71-98zm31 77.4c-30-45-65-82-104-82-7 0-13-6-13-14 0-7 6.4-13 14-13 22 0.6 36.6 8 37.5 8-5-26-38-45-66-28-18 11-26 33.6-18 53-19 5.4-55 27-68 38.5-14-16-38-20-56-9-21 13-27 40-15 61 10 17 29.6 24 47.6 20 8 15 23 38 45 71l-61 38C46 317 40 342 52 360c13 20 38 23.4 55 13 11.6-7 31-19 31-19 0-2 0-4 -1-5-1-7 4-14 11-15 7-1 14 4 15 11 2.5 15 0 27-1 32 0 0-11 31-20 57-9 28 12.5 53 37 53 15 0 32-9 38-27l31-89c1-4 4-7 8-8 12.6-4 23-14 23-14 5.4-5 14-4 19 1 5 5.4 4.5 14 -1 19 0 0.5-11 10-26 17l-15 43c1 -1 2.6-1 4-2l47.5-29c8-5 14-12 17-21l23.5-67c14-41-3-112-26-147z"/>
+        </defs>
+        <use class="metafizzy-logo__body" xlink:href="#metafizzy-logo__body-path"/>
+        <clippath id="metafizzy-logo__body-clip">
+          <use xlink:href="#metafizzy-logo__body-path"/>
+        </clippath>
+        <g clip-path="url(#metafizzy-logo__body-clip)">
+          <path class="metafizzy-logo__stripe1" d="M-65 186l379-238 55 87L-11 273z"/>
+          <path class="metafizzy-logo__stripe2" d="M-11 272l379-238 55 87-379 239z"/>
+          <path class="metafizzy-logo__stripe3" d="M43 358l379-238 46 73-379 238z"/>
+          <path class="metafizzy-logo__stripe4" d="M89 430l379-238 55 87-379 239z"/>
+        </g>
+        <ellipse transform="rotate(-121.393 260.234 218.053)" fill="#FFF" cx="260" cy="218" rx="32" ry="49"/>
+        <path fill="#333" d="M196.4 196c6.6 11-8 7-19 14-11 6.6-14 21-21 10-7-11-3-25 8-32 11-7 25-3 32 8zM287 140c6.6 11-8 7-19 14s-14 21-21 10-3-25 8-32c11-7 25-3 32 8z"/>
+        <path fill="#333" d="M243 199l17.4-11c5-3 11-1 14 3 2 3 2 7 0 10.5l-6 10c-2 3-4 4.4-8 5l-11 1c-4 0-7-1-9-5-3-5-1-11 3.5-14z"/>
+      </svg>
+  
+      <svg class="metafizzy-wordmark site-footer-brand__metafizzy-wordmark" xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewbox="0 0 1000 300">
+        <path d="M491 121l13-39H480l-3 8c-23-31-63 7-72 41-4 10-12 25-23 25-13 0 0-35 6-56v 0c4-12 11-36 11-36H423c25 0 51 5 71-13l-14-15c-9 8-17 8-27 8h-48l7-23h-25L380 44h-29l-6 21H374l-6 19c-7 22-11 49-30 64-14 10-38 17-53 7 19-8 51-21 51-45 0-13-8-29-28-29-39 0-57 40-57 60 0 25 24 40 49 40 21 0 39-7 54-19 3 9 11 16 24 16 13 0 23-5 30-14 7 10 19 16 33 14 11-1 19-7 25-14 4 8 11 14 25 15L498 157c-21-1-10-26-7-36zM277 132c3-10 13-33 28-29 5 1 6 7 4 12-4 12-20 20-33 26 0-3 0-6 1-8zm166 24c-9 3-14-2-15-11-3-19 25-60 42-33l-4 14c-3 12-12 26-23 30zm-192 33L236 207c-31-18-33-59-24-87 10-31 19-50 19-50l-50 65h-23c 0-18-4-50-8-65L136 115c-13 44-37 119-97 109-18-3-32-16-36-34-4-23 12-45 30-60l13 17c-14 11-29 33-13 50 13 14 31 6 42-5 23-22 30-56 38-86C121 82 135 35 135 35c 0 0 -1-1-1-1-5 9-15 14-25 13-11-1-17-11-14-21 3-10 14-18 25-18 15 0 23 1 34 12 14 13 23 50 26 80L244 21h23l-28 94c-7 23-13 59 12 74zM649 48c-2 6-11 18-24 18-14 0-20-11-17-21 3-8 9-14 17-16-8-9-28-7-38 2-9 8-12 20-15 31l-6 21h65l-29 94h-25l22-73H558s-14 48-22 72c-8 27-34 57-64 59L478 212c16-1 29-25 34-41 4-13 18-58 21-68h-19l7-21H539c4-12 7-24 11-36C559 21 583 1 614 1c28 0 42 21 35 47zm78 35h-82l-6 21H685l-62 56-5 17c39 0 75 9 94-15l-16-14c-11 13-27 9-39 10L721 99l6-17zM999 70c0 38-27 89-102 123-2 6-4 12-5 18-7 24-23 88-86 88-22 0-41-12-41-36 0-26 23-38 36-46 24-14 50-25 76-36l3-9c-4 2-8 3-13 3-13 1-28-4-35-15-10 8-23 14-35 17-22 5-57 0-79 0l5-18 61-55h-46l6-21h82l-6 17-64 58c11 0 22 0 33 0 14-1 31-10 41-26 3-4 16-50 16-50h24l-11 38c-4 13-7 35 8 35 12 0 23-13 26-23l15-50h25l-26 85c72-42 76-101 64-114-5 9-15 16-26 14-11-1-17-11-14-21 3-10 14-18 25-18 34 0 44 27 44 44zM867 206l-15 7c-14 7-30 13-48 25-10 7-23 19-15 32 6 11 24 9 34 5 13-6 26-19 32-32 6-11 9-24 13-37z"/>
+      </svg>
+    </a>
+  </div> 
+
+</div> 
+
+<!-- Packery does NOT require jQuery.
+  jQuery is only used for jQuery UI Draggable -->
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+
+  <script src="js/packery-docs.min.js"></script>
+
+
+</body>
+</html>
