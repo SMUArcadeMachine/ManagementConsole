@@ -34,7 +34,7 @@
     2. Click `Checkout from version control` under main screen to pull in this repo.
     3. Wait till it's done indexing.
     3. Open the docker-start.sh file | click Install plugins | Restart PHPStorm
-    4. Run | Edit Configurations | For all 3 bash builds update the Interpreter & Working Directory accordingly | Apply | Ok
+    4. Run | Edit Configurations | For all 3 bash builds update the Script, Interpreter & Working Directory accordingly (change the Windows/Mac URL formatting) | Apply | Ok
         1. Windows: C:\Program Files\Git\bin\bash.exe
         
             ![Bash Builds](documentation/bash_builds_win.png)
