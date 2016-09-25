@@ -52,8 +52,8 @@
             * Click Terminal in PHPStorm (make sure `View | Tool Buttons` is checked), bottom left hand | `bash docker-start.sh` or `sh docker-start.sh`
         2. Docker Quickstart Terminal
             * In the Docker Quickstart Terminal
-            1. cd <project_root>
-            2. bash start-docker.sh
+            1. `cd <project_root>`
+            2. `bash start-docker.sh`
         
     
 6. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
