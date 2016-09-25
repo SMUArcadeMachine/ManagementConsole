@@ -19,7 +19,8 @@ services:
       - mysql
     ports:
       - "8080:80"
-      - "9000:9000"
+    environment:
+      XDEBUG_CONFIG: remote_host=<do_not_touch>
     volumes:
       - .:/var/www/html/
   mysql:

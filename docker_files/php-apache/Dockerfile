@@ -40,5 +40,10 @@ RUN ./configure
 RUN make
 RUN cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226
 COPY docker_files/php-apache/xdebug.ini /usr/local/etc/php/php.ini
+RUN touch /var/log/xdebug.log
+RUN chown www-data:www-data /var/log/xdebug.log
+RUN chmod 777 /var/log/xdebug.log
+
 EXPOSE 9000
+
 WORKDIR /var/www/html
