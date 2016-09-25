@@ -33,7 +33,7 @@ foreach($roms as $rom){
     $newName = ".".$fileName;
 
     // Hide the file
-    ssh2_sftp_rename($sftp, "/home/pi/RetroPie/roms/MAMEVERSION/{$fileName}", "/home/pi/RetroPie/roms/MAMEVERSION/{$newName}");
+    ssh2_sftp_rename($sftp, "/home/pi/RetroPie/roms/mame4all/{$fileName}", "/home/gamestorage/{$fileName}");
     $stmt = $db->prepare("UPDATE Games SET GameActive = 0 WHERE Gamename = ?");
     $stmt->execute(array($rom["title"]));
 }
