@@ -1,0 +1,152 @@
+    <div class="navbar">
+      <div class="navbar-left">
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-terminal" aria-hidden="true" data-toggle='modal' data-target='#sshmodal'></i></button>
+      </div>
+      <div class="navbar-center">
+        <h1> Jerry </h1>
+      </div>
+      <div class="navbar-right">
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-small"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+        <div class="user-text"> {{!-- {{usertype}}: {{fullName}}  --}} Admin : Katie Krummeck</div>
+      </div>
+    </div>
+    <div style="height:100%; width:100%">
+    <div class="col-md-9">
+    	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
+		<ul class='rom-list'>
+			{{#each model as |rom|}}
+				<li class='rom' data-toggle='modal' data-target='#rompage'> {{rom.title}} - {{rom.console}} <img class='rom-cover' src={{rom-coverimg rom.title rom.console}} alt=''> </li>
+			{{/each}}
+		</ul>
+      </div>
+
+    {{!-- Sidebar --}}
+    <div class="col-md-3 sidebar-container">
+      <div class="sidebar">
+        <div class="button-wrapper" data-toggle="modal" data-target="#addgame">
+            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <span class="popup-text">Activate Games</span>
+        </div>
+        <div class="button-wrapper" data-toggle="modal" data-target="#manageusers">
+            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                <i class="fa fa-users" aria-hidden="true"></i>
+            </button>
+            <span class="popup-text">Manage Users</span>
+        </div>
+        <div class="button-wrapper" data-toggle="modal" data-target="#">
+            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+            <span class="popup-text">View Statistics</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    {{!-- Adding game modal --}}
+    <div class="modal fade" id="addgame" tabindex="-1" role="dialog" aria-labelledby="addgamelabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="addgamelabel">Upload a new game</h3>
+          </div>
+          <div class="modal-body">
+            <input type="text" placeholder="Search for a game to add"><button class='btn-primary'>Add</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Adding User Modal --}}
+    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduserlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="adduserlabel">Add New User</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Finish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Specific Rom Page --}}
+    <div class="modal fade" id="rompage" tabindex="-1" role="dialog" aria-labelledby="rompagelabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="rompagelabel">(ROM NAME)</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- SSH Instructions --}}
+    <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Management Modal -->
+    <div class="modal fade" id="manageusers" tabindex="-1" role="dialog" aria-labelledby="manageuserslabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="manageuserslabel">Manage Users</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+              <div class="user admin"> Rickey <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
+              <div class="user tech"> Parker <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
+              <div class="user tech"> Edward <br> <i class="fa fa-user" aria-hidden="true"></i></div>
+              <div class="user tech"> Sam  <br><i class="fa fa-user" aria-hidden="true"></i></div>
+              <div class="user tech" id='adduserbtn'><i class="fa fa-plus" aria-hidden="true"></i></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add New</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{{outlet}}
