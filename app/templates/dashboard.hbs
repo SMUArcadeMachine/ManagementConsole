@@ -1,7 +1,6 @@
     <div class="navbar">
       <div class="navbar-left">
-        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-power-off" aria-hidden="true"></i></button>
-        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" id='reset'><i class="fa fa-refresh" aria-hidden="true"></i></button>
         <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-terminal" aria-hidden="true" data-toggle='modal' data-target='#sshmodal'></i></button>
       </div>
       <div class="navbar-center">
@@ -17,8 +16,12 @@
     	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
 		<ul class='rom-list'>
 			{{#each model as |rom|}}
-				<li class='rom' data-toggle='modal' data-target='#rompage'> {{rom.title}} - {{rom.console}} <img class='rom-cover' src={{rom-coverimg rom.title rom.console}} alt=''> </li>
+				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'> 
+        {{rom.prettytitle}} - {{rom.console}} 
+        <img class='rom-cover' src='loading.gif' alt=''> {{rom-coverimg rom.title rom.console}}
+        </li>
 			{{/each}}
+
 		</ul>
       </div>
 
@@ -46,6 +49,26 @@
       </div>
     </div>
     </div>
+
+    {{#each model as |rom|}}
+      <div class="modal fade" id="{{rom.title}}modal" tabindex="-1" role="dialog" aria-labelledby="{{rom.title}}label">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="{{rom.title}}label">{{rom.prettytitle}}</h3>
+              </div>
+              <div class="modal-body">
+                <div class="user-container">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    {{/each}}
 
     {{!-- Adding game modal --}}
     <div class="modal fade" id="addgame" tabindex="-1" role="dialog" aria-labelledby="addgamelabel">
@@ -143,10 +166,11 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add New</button>
           </div>
         </div>
       </div>
     </div>
+
+    {{!-- {{rom-component roms=model}} --}}
 
 {{outlet}}

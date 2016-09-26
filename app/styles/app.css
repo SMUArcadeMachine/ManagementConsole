@@ -102,11 +102,11 @@ html, body {
 	width:95px;
 	height:95px;
     transform:translateX(70px);
-    transition:transform 0.5s;
+    transition:all 0.5s ease;
 }
 .button-wrapper {
     position: relative;
-    width:300px;
+    width:100%;
     height:auto;
     cursor: pointer;
     display:flex;
@@ -166,20 +166,40 @@ html, body {
 	cursor:pointer;
 	color:white;
 	border-radius:4px;
+	font-size:12pt;
+	padding-top:10px;
+	transition: all 0.4s ease;
 }
 .user > i {
 	font-size:40pt;
 }
 .admin {
-	background-color:rgb(52, 73, 94);
+	background-color:#C0392B;
+	border-color:#C0392B;
+}
+.admin:hover {
+	background-color:#d44233;
 }
 .tech {
-	background-color:#48c9b0;
+	background-color:#2f91d2;
+	border-color: #2f91d2;
+}
+.tech:hover {
+	background-color:#35a5ef;
 }
 #adduserbtn {
 	display:flex;
 	justify-content: center;
 	align-items: center;
+	padding:0;
+	transition:all 0.4s ease;
+	color:#2f91d2;
+	background-color:white;
+	border:solid 3px #2f91d2;
+}
+#adduserbtn:hover {
+	background-color:#2f91d2;
+	color:#ffffff;
 }
 .drag-hero-demos__item {
 	background-color: #1abc9c;
@@ -189,6 +209,8 @@ html, body {
 	flex-wrap:wrap;
 	overflow-y:scroll;
 	height:69vh;
+	padding:0;
+	justify-content: center;
 }
 .rom {
 	list-style:none;
@@ -197,11 +219,12 @@ html, body {
 	height:250px;
 	color:#f9f9f9;
 	text-align: center;
-	background-color:#293a4a;
+	background-color:#C0392B;
 	border-radius:5px;
 	overflow:hidden;
 }
 .rom-cover {
+	height:100%;
 	width:100%;
-	padding-bottom:69%;
+	background-color:white;
 }
