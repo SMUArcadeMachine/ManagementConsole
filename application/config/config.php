@@ -511,3 +511,17 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*
+| -------------------------------------------------------------------
+|  Autoloads REST Controller & Parent versioning system
+| -------------------------------------------------------------------
+|
+| Used to autoload REST Controller. Autoload doesn't work because it is inside the core CI controller construct.
+|
+*/
+spl_autoload_register(function($class_name){
+    if(strpos($class_name, 'REST_Controller') !== false){
+        require_once( APPPATH . 'libraries/REST_Controller.php');
+    }
+});

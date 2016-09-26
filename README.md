@@ -43,12 +43,17 @@
             ![Bash Builds](documentation/bash_builds_mac.png)
     
 5. Start Docker (first time takes a bit): 
-    1. Make sure the Docker for Windows, Docker for Mac, or Docker Quickstart Terminal process is running
+    1. Make sure the Docker for Windows, Docker for Mac, or Docker Quickstart Terminal process is running.
     2. Run Docker build
+        1. Docker for Windows or Docker for Mac
     
-        ![Windows VM](documentation/phpstorm_start_build.png)
-        * or
-        * Click Terminal in PHPStorm (make sure `View | Tool Buttons` is checked), bottom left hand | `bash docker-start.sh` or `sh docker-start.sh`
+            ![Windows VM](documentation/phpstorm_start_build.png)
+            * or
+            * Click Terminal in PHPStorm (make sure `View | Tool Buttons` is checked), bottom left hand | `bash docker-start.sh` or `sh docker-start.sh`
+        2. Docker Quickstart Terminal
+            * In the Docker Quickstart Terminal
+            1. `cd <project_root>`
+            2. `bash start-docker.sh`
         
     
 6. Access public frontend EmberJS website: [http://localhost:4200/](http://localhost:4200/)
