@@ -36,6 +36,7 @@
  * @filesource
  */
 
+require_once __DIR__. '/application/config/constants.php';
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -304,6 +305,11 @@ switch (ENVIRONMENT)
 	}
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+if( ! ini_get('date.timezone') )
+{
+    date_default_timezone_set('America/Chicago');
+}
 
 /*
  * --------------------------------------------------------------------

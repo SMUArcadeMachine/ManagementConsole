@@ -12,7 +12,7 @@ CREATE TABLE users (
 	uid 					INT NOT NULL AUTO_INCREMENT,
 	first_name				VARCHAR(40),
 	last_name				VARCHAR(40),
-	email					VARCHAR(100),
+	username					VARCHAR(100), #email
   password				VARCHAR(255),
 	`type`					int, 						# 1 = admin, 2 = manager
 	date_start				timestamp DEFAULT CURRENT_TIMESTAMP,

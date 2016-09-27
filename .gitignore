@@ -5,3 +5,4 @@
 
 docker-compose-temp.yml
 docker_files/xdebug-local-ip.txt
+db/*

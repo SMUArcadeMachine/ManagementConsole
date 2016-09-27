@@ -21,11 +21,14 @@ services:
       - "8080:80"
     environment:
       XDEBUG_CONFIG: remote_host=<do_not_touch>
+      CI_ENV: development
     volumes:
       - .:/var/www/html/
   mysql:
     container_name: mysql
     image: mysql:5.5
+    volumes:
+      - ./documentation/sql/database_setup.sql:/docker-entrypoint-initdb.d/database_setup.sql
     ports:
       - "3306:3306"
     environment:
