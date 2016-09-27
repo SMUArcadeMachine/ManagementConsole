@@ -20,7 +20,7 @@ class Rom_model extends CI_Model {
         try{
             $this->db->select("file_name");
             $fileName = $this->db->get_where('roms', (array('gid' => $gid)));
-            $response = rename("/home/gamestorage/{$fileName}", "/home/pi/RetroPie/roms/mame4all/{$fileName}");
+            $response = rename("/home/pi/gamestorage/{$fileName}", "/home/pi/RetroPie/roms/mame-mame4all/{$fileName}");
             if($response = 0){
                 throw new Exception('Error activating the ROM.');
             }
@@ -39,7 +39,7 @@ class Rom_model extends CI_Model {
         try{
             $this->db->select("file_name");
             $fileName = $this->db->get_where('roms', (array('gid' => $gid)));
-            $response = rename("/home/pi/RetroPie/roms/mame4all/{$fileName}", "/home/gamestorage/{$fileName}");
+            $response = rename("/home/pi/RetroPie/roms/mame-mame4all/{$fileName}", "/home/pi/gamestorage/{$fileName}");
             if($response == 0){
                 throw new Exception('Error dectivating the ROM.');
             }else{
