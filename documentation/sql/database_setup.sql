@@ -75,5 +75,19 @@ CREATE TABLE user_login_history (
 	PRIMARY KEY				(login_history_id),
 	FOREIGN KEY 			(uid) REFERENCES users(uid) ON DELETE CASCADE
 );
+#__________________________________________________________________________________
+CREATE TABLE roms (
+	gid		INT NOT NULL AUTO_INCREMENT,
+	game_name		TEXT NOT NULL,
+	file_name		TEXT NOT NULL,
+	rom_loc		TEXT NOT NULL,
+	rom_active		BOOLEAN,
+	game_time_played		INTEGER,
+	game_last_active		DATETIME,
+	last_edit_id		INTEGER,
+	PRIMARY KEY				(gid),
+	FOREIGN KEY 			(last_edit_id) REFERENCES users(uid)
+);
+
 
 INSERT into globals(object,action,active) values ('SMUAdminConsole','login',1);
