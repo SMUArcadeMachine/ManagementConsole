@@ -27,7 +27,7 @@ CREATE TABLE users (
 CREATE TABLE api_keys (
 	id 						int(11) NOT NULL AUTO_INCREMENT,
 	uid 					int,
-	email 				varchar(40),
+	username 				varchar(40),
 	api_key 				varchar(60) NOT NULL,						
 	level 					int(2) NOT NULL,
 	ignore_limits			tinyint(1) NOT NULL DEFAULT 0,
