@@ -17,28 +17,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sqlquery = 'SELECT * FROM users WHERE username="' . $_POST['username'] . '";';
+        $sqlquery = 'SELECT * FROM users WHERE smuid="' . $_POST['smuid'] . '";';
         $result = $conn->query($sqlquery);
 
-        if ($result->num_rows > 0) {
+        if (count($result) > 0){
             if (password_verify($_POST['password'], $result[0]['password']) == false) {
-
                 echo "Login failed - password doesn't match";
-                echo json_encode(array('success' => 'no'));
+                return json_encode(array('status' => '0'));
             } else {
-                setcookie('login', 'true'/*$temp[0]['activationKey']*/, time() + 90);
-                echo json_encode(array('success' => 'yes', 'username' => $_POST['username'], 'email' => $result[0]['email']));
+                setcookie('login', 'true'/*$temp[0]['activationKey']*/, time() + 900);
+                return json_encode(array('status' => '1')); //, 'user' => array('smuid' => $_POST['username'], 'email' => $result[0]['email'])));
 #					return $response->withStatus(301)->withHeader('Location','/landing');
             }
         } else { //no response from DB
             echo "No results from Login request";
-            echo json_encode(array('success' => 'no'));
+            return json_encode(array('status' => 'no'));
         }
-
     }
     catch(PDOException $e){
         echo $sqlquery."<br>".$e->getMessage();
-        echo json_encode(array('success' => 'no'));
+        return json_encode(array('status' => '0'));
     }
 }
 
