@@ -1,10 +1,11 @@
     <div class="navbar">
       <div class="navbar-left">
         <button class="btn btn-block btn-lg btn-primary dashboard-button-large" id='reset'><i class="fa fa-refresh" aria-hidden="true"></i></button>
-        <button class="btn btn-block btn-lg btn-primary dashboard-button-large"><i class="fa fa-terminal" aria-hidden="true" data-toggle='modal' data-target='#sshmodal'></i></button>
+        {{!-- TODO: Needs to be hooked up to API call --}}
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" data-toggle='modal' data-target='#sshmodal'><i class="fa fa-terminal" aria-hidden="true" ></i></button>
       </div>
       <div class="navbar-center">
-        <h1> Jerry </h1>
+        <h1> SMU Arcade Machine </h1>
       </div>
       <div class="navbar-right">
         <button class="btn btn-block btn-lg btn-primary dashboard-button-small"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
@@ -17,8 +18,8 @@
 		<ul class='rom-list'>
 			{{#each model as |rom|}}
 				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'> 
-        {{rom.prettytitle}} - {{rom.console}} 
-        <img class='rom-cover' src='loading.gif' alt=''> {{rom-coverimg rom.title rom.console}}
+        {{rom.prettytitle}}
+        <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
         </li>
 			{{/each}}
 
@@ -57,6 +58,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h3 class="modal-title" id="{{rom.title}}label">{{rom.prettytitle}}</h3>
+                {{!-- TODO: Display ROM content --}}
               </div>
               <div class="modal-body">
                 <div class="user-container">
@@ -71,6 +73,7 @@
     {{/each}}
 
     {{!-- Adding game modal --}}
+    {{!-- IN PROGRESS - David --}}
     <div class="modal fade" id="addgame" tabindex="-1" role="dialog" aria-labelledby="addgamelabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -99,36 +102,27 @@
           </div>
           <div class="modal-body">
             <div class="user-container">
+              <form>
+                <span class="input input--kaede">
+                  <input class="input__field input__field--kaede" type="text" id="input-35" />
+                  <label class="input__label input__label--kaede" for="input-35">
+                    <span class="input__label-content input__label-content--kaede">Enter an SMU Email</span>
+                  </label>
+                </span>
+                <button>Add another user </button>
+              </form>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Finish</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- Specific Rom Page --}}
-    <div class="modal fade" id="rompage" tabindex="-1" role="dialog" aria-labelledby="rompagelabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="rompagelabel">(ROM NAME)</h3>
-          </div>
-          <div class="modal-body">
-            <div class="user-container">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add Users</button>
           </div>
         </div>
       </div>
     </div>
 
     {{!-- SSH Instructions --}}
+    {{!-- TODO --}}
     <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -161,11 +155,12 @@
               <div class="user tech"> Parker <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
               <div class="user tech"> Edward <br> <i class="fa fa-user" aria-hidden="true"></i></div>
               <div class="user tech"> Sam  <br><i class="fa fa-user" aria-hidden="true"></i></div>
-              <div class="user tech" id='adduserbtn'><i class="fa fa-plus" aria-hidden="true"></i></div>
+              <div class="user tech" id='adduserbtn' data-dismiss='modal' data-toggle='modal' data-target='adduser'><i class="fa fa-plus" aria-hidden="true"></i></div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add New User</button>
           </div>
         </div>
       </div>
