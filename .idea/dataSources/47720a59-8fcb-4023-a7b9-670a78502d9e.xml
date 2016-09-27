@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - SMUAdminConsole@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="SMUAdminConsole">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <table id="3" parent="1" name="api_keys"/>
+    <table id="4" parent="1" name="globals"/>
+    <table id="5" parent="1" name="password_resets"/>
+    <table id="6" parent="1" name="user_failed_login_history"/>
+    <table id="7" parent="1" name="user_login_history"/>
+    <table id="8" parent="1" name="users"/>
+    <column id="9" parent="3" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="10" parent="3" name="uid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="11" parent="3" name="username">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="12" parent="3" name="api_key">
+      <mandatory>1</mandatory>
+      <data-type>varchar(60)|0</data-type>
+    </column>
+    <column id="13" parent="3" name="level">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="14" parent="3" name="ignore_limits">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="15" parent="3" name="is_private_key">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="16" parent="3" name="ip_addresses">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="17" parent="3" name="date_created">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <column id="18" parent="3" name="active">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <index id="19" parent="3" name="uid">
+      <columns>uid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="20" parent="3" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="21" parent="3" name="api_keys_ibfk_1">
+      <columns>uid</columns>
+      <ref-key>~.users.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>delete</cascade-delete-rule>
+    </foreign-key>
+    <column id="22" parent="4" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="23" parent="4" name="object">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="24" parent="4" name="action">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="25" parent="4" name="active">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="26" parent="4" name="message">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="27" parent="4" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="28" parent="5" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="29" parent="5" name="token">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="30" parent="5" name="uid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="31" parent="5" name="date_created">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <index id="32" parent="5" name="uid">
+      <columns>uid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="33" parent="5" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="34" parent="5" name="password_resets_ibfk_1">
+      <columns>uid</columns>
+      <ref-key>~.users.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>delete</cascade-delete-rule>
+    </foreign-key>
+    <column id="35" parent="6" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="36" parent="6" name="attempts">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="37" parent="6" name="ip">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="38" parent="6" name="uid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="39" parent="6" name="last_attempt_date">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <index id="40" parent="6" name="uid">
+      <columns>uid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="41" parent="6" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="42" parent="6" name="user_failed_login_history_ibfk_1">
+      <columns>uid</columns>
+      <ref-key>~.users.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>delete</cascade-delete-rule>
+    </foreign-key>
+    <column id="43" parent="7" name="login_history_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="44" parent="7" name="ip">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="45" parent="7" name="uid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="46" parent="7" name="date_logged">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <index id="47" parent="7" name="uid">
+      <columns>uid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="48" parent="7" name="PRIMARY">
+      <columns>login_history_id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="49" parent="7" name="user_login_history_ibfk_1">
+      <columns>uid</columns>
+      <ref-key>~.users.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>delete</cascade-delete-rule>
+    </foreign-key>
+    <column id="50" parent="8" name="uid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="51" parent="8" name="first_name">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="52" parent="8" name="last_name">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="53" parent="8" name="username">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="54" parent="8" name="password">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="55" parent="8" name="type">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="56" parent="8" name="date_start">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <column id="57" parent="8" name="date_banned_till">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+    </column>
+    <column id="58" parent="8" name="profile_picture_url">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="59" parent="8" name="ip">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="60" parent="8" name="active">
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="61" parent="8" name="PRIMARY">
+      <columns>uid</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

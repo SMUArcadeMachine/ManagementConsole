@@ -1,0 +1,20 @@
+header#header
+    strong.logo
+        linkTo 'index'
+            = App.BASE_NAME
+                
+    nav.panel
+        ul
+            if App.Auth.signedIn
+                li
+                    span = title
+            li
+                if App.Auth.signedIn
+                    a.pointer click="logout" Log Out
+                else
+                    linkTo 'login'
+                        button.button.btn.btn-inverse Login
+
+    
+
+
