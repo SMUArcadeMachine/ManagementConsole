@@ -12,6 +12,9 @@ define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
 
 //Global
+define('OAUTH2_CLIENT_ID','smu-arcade-machine-management-console');
+define('OAUTH2_SECRET','45h56ub567756rr6u56er7r567u6rbt6r8');
+define('CLIENT_ID','smu-arcade-machine-management-console');
 define('NOTIFICATIONS',false);
 define('MB_RATIO',1048576);
 define('FAILED_LOGIN_ATTEMPTS',5);

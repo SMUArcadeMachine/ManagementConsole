@@ -113,6 +113,7 @@ $config['auth_override_class_method']['queues']['all'] = true;
 $config['auth_override_class_method']['redirect']['all'] = true;
 $config['auth_override_class_method']['error']['index']['post'] = true;
 $config['auth_override_class_method']['test']['index']['get'] = true;
+$config['auth_override_class_method']['token']['all'] = true;
 /*
 |--------------------------------------------------------------------------
 | API Key Levels

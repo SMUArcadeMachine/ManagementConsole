@@ -19,7 +19,7 @@ class Login extends REST_Controller {
 
             $return_data = array(
                 'status' => 'success',
-                'api_key' => $api_key,
+                'ac' => $api_key,
                 'message' => $message,
                 'uid' => $uid
             );

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+#ipconfig | "C:\Program Files\Git\usr\bin\grep.exe" -E -i "IPv4" | "C:\Program Files\Git\usr\bin\grep.exe" -E -o "[0-9][0-9.]+" | "C:\Program Files\Git\usr\bin\grep.exe" -v  "192.168."
+
+
 if [ -f docker_files/xdebug-local-ip.txt ]; then
     local_ip=$(cat docker_files/xdebug-local-ip.txt)
 else

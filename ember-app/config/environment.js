@@ -47,7 +47,7 @@ module.exports = function(environment) {
   }
 
   ENV['ember-simple-auth'] = {
-    serverTokenEndpoint: ENV.apiURL + '/login'
+    serverTokenEndpoint: ENV.apiURL + '/token'
   };
 
   return ENV;
