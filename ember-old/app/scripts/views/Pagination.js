@@ -1,1 +1,0 @@
-App.PaginationView = Ember.View.extend(App.PaginationMixin);

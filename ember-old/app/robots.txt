@@ -1,7 +1,0 @@
-# Robots.txt file
-#
-
-User-agent: *
-
-Disallow: /account
-Disallow: /error
