@@ -88,6 +88,14 @@ CREATE TABLE roms (
 	PRIMARY KEY				(gid),
 	FOREIGN KEY 			(last_edit_id) REFERENCES users(uid)
 );
+#__________________________________________________________________________________
+# this table is a list of all the possible roms that work with Mame4All, this is mainly for getting the names
+CREATE TABLE possible_roms (
+	pgid		INT NOT NULL AUTO_INCREMENT,
+	file_name		TEXT NOT NULL,
+	game_name		TEXT NOT NULL,
+	PRIMARY KEY				(pgid)
+);
 
 
 INSERT into globals(object,action,active) values ('SMUAdminConsole','login',1);
