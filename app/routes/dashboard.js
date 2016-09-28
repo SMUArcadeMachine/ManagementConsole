@@ -14,10 +14,14 @@ Ember.$(document).ready(function() {
 
 export default Ember.Route.extend({
 	model() {
-		let url = "https://private-0b4bd-managmentconsole.apiary-mock.com/roms";
-		// let gameArray = Ember.$.getJSON(url).games;
-		let json = Ember.$.getJSON(url).then(function(data) {return data.data});
+		let url = "https://private-50f0c-digarcademachine1.apiary-mock.com/actives";
+		let json = Ember.$.getJSON(url);
+		// let json = Ember.$.getJSON(url).then(function(data) {return data.actives});
 		console.log(json);
-		return json;
+		// return json;
+    return Ember.RSVP.hash({
+           active: this.store.findAll('active'),
+           inactive: this.store.findAll('inactive')
+    });
 	}
 });

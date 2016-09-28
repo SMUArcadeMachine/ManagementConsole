@@ -16,8 +16,8 @@
     <div class="col-md-9">
     	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
 		<ul class='rom-list'>
-			{{#each model as |rom|}}
-				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'> 
+			{{#each model.active as |rom|}}
+				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'>
         {{rom.prettytitle}}
         <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
         </li>
@@ -51,7 +51,7 @@
     </div>
     </div>
 
-    {{#each model as |rom|}}
+    {{#each model.active as |rom|}}
       <div class="modal fade" id="{{rom.title}}modal" tabindex="-1" role="dialog" aria-labelledby="{{rom.title}}label">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -83,7 +83,7 @@
           </div>
           <div class="modal-body">
             <input type="text" placeholder="Search for a game to add"><button class='btn-primary'>Filter</button>
-            {{#each model as |roms|}}
+            {{#each model.inactive as |roms|}}
               {{inactive-roms inactive-roms=roms}}
             {{/each}}
             <!-- {{#search-filter
