@@ -4,5 +4,8 @@ import config from '../config/environment';
 
 export default DS.RESTAdapter.extend(DataAdapterMixin, {
     authorizer: 'authorizer:application',
-    host: config.apiURL
+    host: config.apiURL,
+    // ajaxOptions(){
+    //     debugger;
+    // }
 });

@@ -5,7 +5,7 @@ class Token extends REST_Controller
         parent::__construct();
         require_once __DIR__ . '/../resources/oauth2-server-php/src/OAuth2/Autoloader.php';
     }
-    public function index_get($provider)
+    public function index_get()
     {
 //        q('BEGIN');
 //        $api_key = $this->api_key();

@@ -7,7 +7,6 @@ class Login_model extends CI_Model {
     }
     /* ------------------------Regular Login Check---------------------------*/
     function check_login($username,$password){
-        $password = $password['password'];
 
         //Username lookup
         $user = lookup_user($username,'Username or password incorrect.');
@@ -54,10 +53,10 @@ class Login_model extends CI_Model {
                 $this->load->model('users_model');
 
                 $return_data = array(
-                    'meta' => $meta,
-                    'api_key' => $this->_create_api_key($user),
+//                    'meta' => $meta,
+                    'access_token' => $this->_create_api_key($user),
                     'uid' => $user['uid'],
-                    'message' => $this->users_model->load($user['uid'],FALSE)
+//                    'message' => $this->users_model->load($user['uid'],FALSE)
                 );
 
                 //Return data with newly created API key

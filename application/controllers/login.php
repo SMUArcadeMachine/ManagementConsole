@@ -7,29 +7,13 @@ class Login extends REST_Controller {
     }
     public function index_post(){
         q('BEGIN');
-        $api_key = $this->api_key();
-        if($api_key != null){
-            $uid = $this->uid();
-            $this->_allow = $this->_detect_api_key();
-            if($this->_allow === FALSE) throw new Exception('Invalid API Key.');
+        $username = $this->post('username');
+        $password = $this->post('password');
 
-            $this->load->model('users_model');
+        if(empty($username)) throw new Exception('Username is required.');
+        if(empty($password)) throw new Exception('Password is required.');
 
-            $message = $this->users_model->load($uid,FALSE);
-
-            $return_data = array(
-                'status' => 'success',
-                'ac' => $api_key,
-                'message' => $message,
-                'uid' => $uid
-            );
-
-        }else{
-            $username = $this->post('username');
-            $password = $this->post('password');
-
-            $return_data = $this->login_model->check_login($username,array('password' => $password));
-        }
+        $return_data = $this->login_model->check_login($username, $password);
         q('COMMIT');
         $this->response($return_data,200);
     }
