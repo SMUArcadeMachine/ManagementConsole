@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('login');
   this.route('dashboard');
   this.route('register');
+
+  this.route('forgot', function() {
+    this.route('password');
+  });
 });
 
 export default Router;

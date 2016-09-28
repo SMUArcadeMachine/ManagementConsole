@@ -1,4 +1,6 @@
-<div class="register-login-form">
-    <h2>Register</h2>
-    {{register-form changeset=(changeset user UserValidations) submit=(action "submit")}}
+<div class="register-login-wrapper">
+    <div class="loginmodal-container">
+        <h1>Register</h1>
+        {{register-form changeset=(changeset user UserValidations) submit=(action "submit")}}
+    </div>
 </div>

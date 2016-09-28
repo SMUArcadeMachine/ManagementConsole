@@ -1,4 +1,5 @@
 {{#if session.isAuthenticated}}
+    <a {{action 'invalidateSession'}} class="pointer">Logout</a>
     <p>Signed in as {{currentUser.username}}</p>
 {{/if}}
-Dashboard page
+<p>Dashboard page</p>

@@ -1,7 +1,1 @@
-{{#if session.isAuthenticated}}
-    <a {{action 'invalidateSession'}} class="pointer">Logout</a>
-{{else}}
-    {{#link-to 'login' classNames="pointer"}}Login{{/link-to}}
-    {{#link-to 'register' classNames="pointer"}}Register{{/link-to}}
-{{/if}}
 {{outlet}}
