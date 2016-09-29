@@ -1,0 +1,41 @@
+.container
+    section.register
+        .two-columns
+            form.register-form
+                fieldset
+                    h2 Register
+                    .row
+                        label Email
+                        .hold
+                            input.required-email.email1.input-error type="text" data-confirm="email"
+                            span.error-label error
+                            span.successful-label successful
+
+                    .row
+                        label Re-Enter Email
+                        .hold
+                            input.required-email.email2.input-error type="text" data-confirm="email"
+                            span.error-label error
+                            span.successful-label successful
+
+                    .row
+                        label Password
+                        .hold
+                            input.required-text.password1.input-error type="password" data-confirm="password"
+                            span.error-label error
+                            span.successful-label successful
+
+                    .row
+                        label Re-Enter Password
+                        .hold
+                            input.required-text.password2.input-error type="password" data-confirm="password"
+                            span.error-label error
+                            span.successful-label successful
+
+                    input.button type="submit" value="submit"
+
+        
+
+
+
+

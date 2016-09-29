@@ -1,17 +1,8 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/*.iml
+.idea/deployment.xml
 
-# compiled output
-/dist
-/tmp
-
-# dependencies
-/node_modules
-/bower_components
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log
-testem.log
+docker-compose-temp.yml
+docker_files/xdebug-local-ip.txt
+db/*

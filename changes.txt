@@ -1,0 +1,21 @@
+TODO items
+Ability to easily upgrade to a HyperV windows version
+Ember.js package.json on mac and windows
+
+File change problems
+Run ember server on docker startup
+Test XDebug
+Install watchman
+
+Things to download to Ember JS:
+chosen
+Less
+Bootstrap
+toastr
+createAlert create repo depending on toastr
+Emblem
+select2
+sortable
+script-loader
+
+
