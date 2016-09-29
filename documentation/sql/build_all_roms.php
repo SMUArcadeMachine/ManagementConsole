@@ -32,7 +32,7 @@ while(! feof($romNames)) {
         $stmt->bindParam(1, $file);
         $stmt->bindParam(2, $name);
         $file = $line[0] . ".zip";
-        $name = cleanName($line[1]);
+        $name = rtrim(cleanName($line[1]));
         $stmt->execute();
 }
 
