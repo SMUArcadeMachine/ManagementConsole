@@ -18,7 +18,6 @@ function getName($file, $db){
     $stmt->bindParam(1, $file);
     $stmt->execute();
     $res = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo $res['game_name'];
     return $res['game_name'];
 }
 
