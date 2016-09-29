@@ -15,7 +15,7 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
 function getName($file, $db){
     $name = $db->query("SELECT game_name FROM possible_roms WHERE file_name = $file");
-    return $name[game_name];
+    return $name['game_name'];
 }
 
 $activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all");
