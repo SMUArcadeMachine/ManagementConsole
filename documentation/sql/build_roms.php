@@ -38,7 +38,7 @@ if(count($activeDir) > 1) {
             $stmt->bindParam(1, $gName);
             $stmt->bindParam(2, $activeDir[$x]);
             $stmt->bindParam(3, $aDir);
-            $stmt->bindParam(4, $u);
+            $stmt->bindParam(4, $a);
             $stmt->execute();
 
         }
