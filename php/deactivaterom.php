@@ -25,16 +25,16 @@ $sftp = ssh2_sftp($connection);
 
 foreach($roms as $rom){
     // Get the file location and name
-    $stmt = $db->prepare("SELECT Gamename FROM Games WHERE Gamename == ?");
+    $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name == ?");
     $stmt->execute(array($rom["title"]));
     $romRecord = $stmt->fetch(PDO::FETCH_ASSOC);
-    $fileLoc = $romRecord["GameRomLoc"];
-    $fileName = substr(strrchr($fileLoc, "/"), 1);
-    $newName = ".".$fileName;
+//    $fileLoc = $romRecord["GameRomLoc"];
+//    $fileName = substr(strrchr($fileLoc, "/"), 1);
+    $fileName = $romRecord["file_name"];
 
-    // Hide the file
-    ssh2_sftp_rename($sftp, "/home/pi/RetroPie/roms/mame4all/{$fileName}", "/home/gamestorage/{$fileName}");
-    $stmt = $db->prepare("UPDATE Games SET GameActive = 0 WHERE Gamename = ?");
+    // Unhide the file
+    ssh2_sftp_rename($sftp, "/home/pi/RetroPie/roms/mame-mame4all/{$fileName}", "/home/pi/gamestorage/{$fileName}");
+    $stmt = $db->prepare("UPDATE roms SET rom_active = 0 WHERE game_name = ?");
     $stmt->execute(array($rom["title"]));
 }
 
