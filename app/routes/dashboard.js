@@ -20,20 +20,21 @@ export default Ember.Route.extend({
 		return json;
 	},
 	actions: {
-    showModal: function(name, model) {
-      this.render(name, {
-        into: 'dashboard',
-        outlet: 'modal',
-        model: model
-      });
+    showModal: function(templateName, model) {
 			console.log("Testing Modals: showModal");
+      this.render('components/' + templateName, {
+        into: 'dashboard',
+        outlet: 'modal'
+        // model: model
+      });
+		 );
+			console.log("Testing Modals: showModal finished");
     },
     removeModal: function() {
       this.disconnectOutlet({
         outlet: 'modal',
         parentView: 'dashboard'
       });
-			console.log("Testing Modals: removeModal");
     }
   }
 });

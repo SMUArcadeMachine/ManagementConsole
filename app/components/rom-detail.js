@@ -1,15 +1,13 @@
 import Ember from 'ember';
 //from the Ember.JS tutorial
 export default Ember.Component.extend({
+
   actions: {
-    ok: function() {
-      this.$('.modal').modal('hide');
-      this.sendAction('ok');
-    }
-  },
-  show: function() {
-    this.$('.modal').modal().on('hidden.bs.modal', function() {
-      this.sendAction('close');
-    }.bind(this));
-  }.on('didInsertElement')
+    show: function() {
+      this.$('.modal').modal().on('hidden.bs.modal', function() {
+        this.sendAction('close');
+        console.log("Testing Modals: in component js");
+      }.bind(this));
+    }.on('didInsertElement')
+  }
 });

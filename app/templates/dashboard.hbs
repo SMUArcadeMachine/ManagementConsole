@@ -18,6 +18,10 @@
       <div class="col-md-9">
     	  <h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
 		    <ul class='rom-list'>
+
+          {{!-- Adding Game Details Modal --}}
+          {{!-- IN PROGRESS - Bryce --}}
+          {{outlet 'modal'}}
 			    {{#each model as |rom|}}
 				      <li class='rom' {{action 'showModal' 'rom-detail' model}} id='{{rom.title}}'>
                 {{rom.prettytitle}}
@@ -50,11 +54,6 @@
           </div>
         </div>
       </div>
-
-      {{!-- Adding Game Details Modal --}}
-      {{!-- IN PROGRESS - Bryce --}}
-      {{outlet}}
-      {{outlet 'showModal'}}
 
     </div>
 
@@ -183,5 +182,3 @@
     </div>
 
     {{!-- {{rom-component roms=model}} --}}
-
-{{outlet}}
