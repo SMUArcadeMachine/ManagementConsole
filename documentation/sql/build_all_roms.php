@@ -18,7 +18,7 @@ $dbname = "SMUAdminConsole";
 $username = "admin";
 $password = "8043v36m807c3084m6m03v";
 
-$db = new PDO("mysql:host=$host;dbname=$dbname, $username, $password");
+$db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
 $romNames = fopen("rom_names.csv", "r");
 
