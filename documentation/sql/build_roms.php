@@ -14,8 +14,10 @@ $password = "8043v36m807c3084m6m03v";
 $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
 function getName($file, $db){
-    $name = $db->query("SELECT game_name FROM possible_roms WHERE file_name = $file");
-    return $name['game_name'];
+    $stmt = $db->prepare("SELECT game_name FROM possible_roms WHERE file_name = ?");
+    $stmt->bindParam(1, $file);
+    echo $stmt;
+    return $stmt['game_name'];
 }
 
 $activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all/");
@@ -30,7 +32,6 @@ $u = 0;
 if(count($activeDir) > 1) {
     for ($x = 2; $x < count($activeDir); $x++) {
         if(strpos($activeDir[$x], '.zip') !== FALSE){
-            echo $activeDir[$x];
             $gName = getName($activeDir[$x], $db);
             $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
