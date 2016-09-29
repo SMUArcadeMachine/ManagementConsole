@@ -1,0 +1,12 @@
+documentation/*
+.vagrant/*
+ember-old/*
+ember-github-version/*
+README.md
+.gitignore
+.dockerignore
+changes.txt
+npm-debug.log
+vagrant_setup.sh
+Vagrantfile
+!documentation/sql/database_setup.sql

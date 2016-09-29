@@ -1,0 +1,38 @@
+version: '2'
+services:
+  ember:
+    container_name: ember
+    build:
+      context: .
+      dockerfile: docker_files/Dockerfile-dev
+    ports:
+      - "4200:4200"
+      - "35729:35729"
+    volumes:
+      - ./ember-app:/var/www/html/ember-app
+      - /var/www/html/ember-app/node_modules
+      - /var/www/html/ember-app/bower_components
+  php-apache:
+    container_name: php-apache
+    image: toozick/smu-arcade-machine-management-console-php-apache:v1
+    links:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      XDEBUG_CONFIG: remote_host=<do_not_touch>
+      CI_ENV: development
+    volumes:
+      - .:/var/www/html/
+  mysql:
+    container_name: mysql
+    image: mysql:5.5
+    volumes:
+      - ./documentation/sql/database_setup.sql:/docker-entrypoint-initdb.d/database_setup.sql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: admin
+      MYSQL_ROOT_PASSWORD: 8043v36m807c3084m6m03v
+      MYSQL_PASSWORD: 8043v36m807c3084m6m03v
+      MYSQL_DATABASE: SMUAdminConsole
