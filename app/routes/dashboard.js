@@ -13,22 +13,19 @@ Ember.$(document).ready(function() {
 
 export default Ember.Route.extend({
 	model() {
-		let url = "https://private-0b4bd-managmentconsole.apiary-mock.com/roms";
+		let url = "https://private-50f0c-digarcademachine1.apiary-mock.com/actives";
 		// let gameArray = Ember.$.getJSON(url).games;
 		let json = Ember.$.getJSON(url).then(function(data) {return data.data;});
 		console.log(json);
 		return json;
 	},
 	actions: {
-    showModal: function(templateName, model) {
-			console.log("Testing Modals: showModal");
-      this.render('components/' + templateName, {
+    showModal: function(name, model) {
+      this.render('components/'+name, {
         into: 'dashboard',
-        outlet: 'modal'
-        // model: model
+        outlet: 'modal',
+        model: model
       });
-		 );
-			console.log("Testing Modals: showModal finished");
     },
     removeModal: function() {
       this.disconnectOutlet({
