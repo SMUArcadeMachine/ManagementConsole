@@ -16,12 +16,11 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 function getName($file, $db){
     $stmt = $db->prepare("SELECT game_name FROM possible_roms WHERE file_name = ?");
     $stmt->bindParam(1, $file);
-    echo $stmt;
+    echo $stmt['game_name'];
     return $stmt['game_name'];
 }
 
 $activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all/");
-echo $activeDir;
 $aDir = "/home/pi/RetroPie/roms/mame-mame4all/";
 $inactiveDir = scandir("/home/pi/gamestorage/");
 $uDir = "/home/pi/gamestorage/";
