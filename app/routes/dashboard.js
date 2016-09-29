@@ -11,13 +11,29 @@ Ember.$(document).ready(function() {
 	});
 });
 
-
 export default Ember.Route.extend({
 	model() {
 		let url = "https://private-0b4bd-managmentconsole.apiary-mock.com/roms";
 		// let gameArray = Ember.$.getJSON(url).games;
-		let json = Ember.$.getJSON(url).then(function(data) {return data.data});
+		let json = Ember.$.getJSON(url).then(function(data) {return data.data;});
 		console.log(json);
 		return json;
-	}
+	},
+	actions: {
+    showModal: function(name, model) {
+      this.render(name, {
+        into: 'dashboard',
+        outlet: 'modal',
+        model: model
+      });
+			console.log("Testing Modals: showModal");
+    },
+    removeModal: function() {
+      this.disconnectOutlet({
+        outlet: 'modal',
+        parentView: 'dashboard'
+      });
+			console.log("Testing Modals: removeModal");
+    }
+  }
 });
