@@ -1,7 +1,6 @@
     <div class="navbar">
       <div class="navbar-left">
         <button class="btn btn-block btn-lg btn-primary dashboard-button-large" id='reset'><i class="fa fa-refresh" aria-hidden="true"></i></button>
-        {{!-- TODO: Needs to be hooked up to API call --}}
         <button class="btn btn-block btn-lg btn-primary dashboard-button-large" data-toggle='modal' data-target='#sshmodal'><i class="fa fa-terminal" aria-hidden="true" ></i></button>
       </div>
       <div class="navbar-center">
@@ -13,45 +12,59 @@
       </div>
     </div>
     <div style="height:100%; width:100%">
-    <div class="col-md-9">
-    	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
-		<ul class='rom-list'>
-			{{#each model as |rom|}}
-				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'> 
-        {{rom.prettytitle}}
-        <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
-        </li>
-			{{/each}}
-
-		</ul>
+      {{!-- Game list --}}
+      <div class="col-md-9">
+      {{#if deactivate}}
+        <h2 style='text-align:center;color:#2d3b48;'> Choose Which Games to Deactivate </h2>
+        <form id='deactivate-roms-form'>
+          {{selectable-roms roms=model.roms}}
+          <button class='btn-primary pop-up-submit' {{action 'submitDeactivateForm'}}><i class="fa fa-check" aria-hidden="true" ></i></button>
+        </form>
+      {{else}}
+        <h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
+        {{active-roms roms=model.roms}}
+      {{/if}}
       </div>
 
-    {{!-- Sidebar --}}
-    <div class="col-md-3 sidebar-container">
-      <div class="sidebar">
-        <div class="button-wrapper" data-toggle="modal" data-target="#addgame">
-            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-            <span class="popup-text">Activate Games</span>
-        </div>
-        <div class="button-wrapper" data-toggle="modal" data-target="#manageusers">
-            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
-                <i class="fa fa-users" aria-hidden="true"></i>
-            </button>
-            <span class="popup-text">Manage Users</span>
-        </div>
-        <div class="button-wrapper" data-toggle="modal" data-target="#">
-            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-            <span class="popup-text">View Statistics</span>
+      {{!-- Sidebar --}}
+      <div class="col-md-3 sidebar-container">
+        <div class="sidebar">
+          <div class="button-wrapper" {{action "toggleDeactivate"}} >
+            {{#if deactivate}}
+              <button class="btn btn-block btn-lg btn-danger dashboard-button-large sidebar-button" >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+              <span class="popup-text">Cancel</span>
+            {{else}}
+              <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+              <span class="popup-text">Deactivate Games</span>
+            {{/if}}
+          </div>
+          <div class="button-wrapper" data-toggle="modal" data-target="#addgame">
+              <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+              <span class="popup-text">Activate Games</span>
+          </div>
+          <div class="button-wrapper" data-toggle="modal" data-target="#manageusers">
+              <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                  <i class="fa fa-users" aria-hidden="true"></i>
+              </button>
+              <span class="popup-text">Manage Users</span>
+          </div>
+          <div class="button-wrapper" data-toggle="modal" data-target="#">
+              <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+              </button>
+              <span class="popup-text">View Statistics</span>
+          </div>
         </div>
       </div>
     </div>
-    </div>
 
-    {{#each model as |rom|}}
+    {{#each model.roms as |rom|}}
       <div class="modal fade" id="{{rom.title}}modal" tabindex="-1" role="dialog" aria-labelledby="{{rom.title}}label">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -82,53 +95,17 @@
             <h3 class="modal-title" id="addgamelabel">Upload a new game</h3>
           </div>
           <div class="modal-body">
-            <input type="text" placeholder="Search for a game to add"><button class='btn-primary'>Filter</button>
-            {{#each model as |roms|}}
-              {{inactive-roms inactive-roms=roms}}
-            {{/each}}
-            <!-- {{#search-filter
-              filter=(action 'filterResults') as |romSearch|}} -->
-            <!-- {{/search-filter}} -->
+            <input type="text" placeholder="Search for a game to add"><button class='btn-primary'>Add</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" {{action 'updateActive'}}>Add game</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- Adding User Modal --}}
-    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduserlabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="adduserlabel">Add New User</h3>
-          </div>
-          <div class="modal-body">
-            <div class="user-container">
-              <form>
-                <span class="input input--kaede">
-                  <input class="input__field input__field--kaede" type="text" id="input-35" />
-                  <label class="input__label input__label--kaede" for="input-35">
-                    <span class="input__label-content input__label-content--kaede">Enter an SMU Email</span>
-                  </label>
-                </span>
-                <button>Add another user </button>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add Users</button>
+            <button type="button" class="btn btn-primary">Add game</button>
           </div>
         </div>
       </div>
     </div>
 
     {{!-- SSH Instructions --}}
-    {{!-- TODO --}}
     <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -137,7 +114,16 @@
             <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
           </div>
           <div class="modal-body">
-            <div class="user-container">
+            <div class="container-fluid ssh">
+              <h4> To access the Arcade Machine's terminal: </h4>
+              <ol>
+                <li> Open an SSH capable terminal (For Windows, use <a href='http://www.putty.org/'>PuTTY</a> or something similar) </li>
+                <li> Connect to the pi with the user "pi" using it's IP Address like so: <br> <code>ssh pi@192.168.1.7</code></li>
+                <li> Use the default raspberry pi password as the password </li>
+                <li> ...? </li>
+                <li> Profit </li>
+              </ol>
+              If you're confused on this process, <a href='http://www.wikihow.com/Use-SSH'>read up on how to SSH into a server </a>. <br>Or you can spam your questions to the email <a href='mailto:mfonten@smu.edu'> mfonten@smu.edu </a>
             </div>
           </div>
           <div class="modal-footer">
@@ -161,12 +147,60 @@
               <div class="user tech"> Parker <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
               <div class="user tech"> Edward <br> <i class="fa fa-user" aria-hidden="true"></i></div>
               <div class="user tech"> Sam  <br><i class="fa fa-user" aria-hidden="true"></i></div>
-              <div class="user tech" id='adduserbtn' data-dismiss='modal' data-toggle='modal' data-target='adduser'><i class="fa fa-plus" aria-hidden="true"></i></div>
+              <div class="user tech adduser" id='adduserbtn' data-dismiss='modal' data-toggle='modal' data-target='adduser'><i class="fa fa-plus" aria-hidden="true"></i></div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add New User</button>
+            <button type="button" class="btn btn-primary adduser" data-dismiss='modal' data-toggle='modal' data-target='adduser'>Add New Users</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- View User Modal --}}
+    <div class="modal fade" id="manageusers" tabindex="-1" role="dialog" aria-labelledby="manageuserslabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="manageuserslabel">View User</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Adding User Modal --}}
+    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduserlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="adduserlabel">Add New User</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container add-user-container">
+              <form id='adduserform'>
+                <span class="input input--kaede">
+                  <input class="input__field input__field--kaede" type="text" id="input-0" />
+                  <label class="input__label input__label--kaede" for="input-0">
+                    <span class="input__label-content input__label-content--kaede">Enter an SMU Email</span>
+                  </label>
+                </span>
+              </form>
+              <button type='button' id='addinputbtn' class='btn btn-primary'><i class="fa fa-plus" aria-hidden="true"></i> </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add Users</button>
           </div>
         </div>
       </div>
