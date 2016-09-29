@@ -15,12 +15,13 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
 function getName($file, $db){
     $name = $db->query("SELECT game_name FROM possible_roms WHERE file_name = $file");
+    echo $name['game_name'];
     return $name['game_name'];
 }
 
-$activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all");
+$activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all/");
 $aDir = "/home/pi/RetroPie/roms/mame-mame4all/";
-$inactiveDir = scandir("/home/pi/gamestorage");
+$inactiveDir = scandir("/home/pi/gamestorage/");
 $uDir = "/home/pi/gamestorage/";
 
 $a = 1;
@@ -28,7 +29,8 @@ $u = 0;
 
 if(count($activeDir) > 1) {
     for ($x = 2; $x < count($activeDir); $x++) {
-        if(strpos($activeDir[$x], '.zip') !== false){
+        if(strpos($activeDir[$x], '.zip') !== False){
+            echo $activeDir[$x];
             $gName = getName($activeDir[$x], $db);
             $stmt = $db->prepare("INSERT INTO possible_roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
@@ -43,7 +45,7 @@ if(count($activeDir) > 1) {
 
 if(count($inactiveDir) > 1) {
     for ($x = 2; $x < count($inactiveDir); $x++) {
-        if(strpos($inactiveDir[$x], '.zip') !== false){
+        if(strpos($inactiveDir[$x], '.zip') !== False){
             $gName = getName($inactiveDir[$x], $db);
             $stmt = $db->prepare("INSERT INTO possible_roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
