@@ -20,6 +20,7 @@ function getName($file, $db){
 }
 
 $activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all/");
+echo $activeDir;
 $aDir = "/home/pi/RetroPie/roms/mame-mame4all/";
 $inactiveDir = scandir("/home/pi/gamestorage/");
 $uDir = "/home/pi/gamestorage/";
@@ -29,7 +30,7 @@ $u = 0;
 
 if(count($activeDir) > 1) {
     for ($x = 2; $x < count($activeDir); $x++) {
-        if(strpos($activeDir[$x], '.zip') !== False){
+        if(strpos($activeDir[$x], '.zip') !== FALSE){
             echo $activeDir[$x];
             $gName = getName($activeDir[$x], $db);
             $stmt = $db->prepare("INSERT INTO possible_roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
@@ -45,7 +46,7 @@ if(count($activeDir) > 1) {
 
 if(count($inactiveDir) > 1) {
     for ($x = 2; $x < count($inactiveDir); $x++) {
-        if(strpos($inactiveDir[$x], '.zip') !== False){
+        if(strpos($inactiveDir[$x], '.zip') !== FALSE){
             $gName = getName($inactiveDir[$x], $db);
             $stmt = $db->prepare("INSERT INTO possible_roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
