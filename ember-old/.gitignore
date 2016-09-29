@@ -1,7 +1,0 @@
-node_modules
-temp
-build
-prod
-.sass-cache
-.tmp
-#app/bower_components
