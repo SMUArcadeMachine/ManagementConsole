@@ -10,7 +10,7 @@ $dbname = "SMUAdminConsole";
 $username = "admin";
 $password = "8043v36m807c3084m6m03v";
 
-$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4, $username, $password");
+$db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $roms = array();
 
 foreach($db->query("SELECT game_name FROM roms WHERE rom_active == 0") as $row) {

@@ -23,9 +23,8 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $romNames = fopen("rom_names.csv", "r");
 
 // Get all the rom files and they're names
-while(!feof($romNames)) {
-    $line = fgets($romNames);
-    $line = explode(",", $line);
+while(! feof($romNames)) {
+    $line = fgetcsv($romNames);
     $stmt = $db->prepare("INSERT INTO possible_roms (file_name, game_name) VALUES (?, ?)");
     $stmt->bindParam(1, $file);
     $stmt->bindParam(2, $name);
