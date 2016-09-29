@@ -22,6 +22,7 @@ export function romCoverImg([gametitle, gameconsole]) {
 	  	//console.log(result['items'][0]['pagemap']['cse_thumbnail'][0]['src']);
 	  	//image = result['items'][0]['pagemap']['cse_thumbnail'][0]['src'];
 	  	Ember.$("#"+gametitle+" > img").attr('src', image);
+	  	Ember.$("#"+gametitle+"selectable > img").attr('src', image);
 	});
   //return image;
 }

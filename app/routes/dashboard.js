@@ -16,17 +16,6 @@ Ember.$(document).ready(function() {
 		'" /><label class="input__label input__label--kaede" for="'+id+'"><span class="input__label-content input__label-content--kaede">Enter an SMU Email</span></label></span>';
 		Ember.$('#adduserform').append(inputhtml);
 	});
-	Ember.$(document).on('click', '#reset',function() {
-		var url = 'https://private-50f0c-digarcademachine1.apiary-mock.com/reset';
-		Ember.$.get(url, function() {
-			alert('Machine reset is now in progress.');
-		});
-	});
-	$('#deactivate-roms-form').submit(function () {
-		console.log("Submitting form");
-		sendContactForm();
-		return false;
-	});
 });
 
 
