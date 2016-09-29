@@ -10,6 +10,10 @@ export default Ember.Controller.extend({
         else {
           return this.get('store').findAll('rom');
         }
+      },
+      updateRoms() {
+        let checked = $('input');
+        console.log(checked);
       }
     }
 });
