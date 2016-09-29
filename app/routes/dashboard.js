@@ -22,13 +22,22 @@ Ember.$(document).ready(function() {
 export default Ember.Route.extend({
 	model() {
 		// This returns undefined - console.log(this.get('private-9c66cc-managementconsole.apiary-mock.com/getroms'));
-		var url = "https://private-50f0c-digarcademachine1.apiary-mock.com/actives";
-		let roms = Ember.$.getJSON(url).then(function(data) { return data.actives; });
+		var romurl = "https://private-50f0c-digarcademachine1.apiary-mock.com/actives";
+		let roms = Ember.$.getJSON(romurl).then(function(data) { return data.actives; });
+		var inactiveurl = "https://private-50f0c-digarcademachine1.apiary-mock.com/inactives";
+		let inactives = Ember.$.getJSON(inactiveurl).then(function(data) { return data.inactives; });
 		return RSVP.hash({
-	           roms: roms
+	           roms: roms,
+	           inactive: inactives
 	    });
 	},
 	setupController: function(controller, model) {
-    controller.set('model', model);
-  }
+	    controller.set('model', model);
+	  }
+	// model() {
+	//     return RSVP.hash({
+	//            active: this.store.findAll('active'),
+	//            inactive: this.store.findAll('inactive')
+	//     });
+	// }
 });

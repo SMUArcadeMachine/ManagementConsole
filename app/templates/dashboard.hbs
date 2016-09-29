@@ -28,6 +28,19 @@
         <h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
         {{active-roms roms=model.roms}}
       {{/if}}
+    <div class="col-md-9">
+    	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
+		<ul class='rom-list'>
+			{{#each model.active as |rom|}}
+				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'>
+        {{rom.prettytitle}}
+        <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
+        </li>
+			{{/each}}
+    
+
+		</ul>
+      </div>
       </div>
 
       {{!-- Sidebar --}}
@@ -68,7 +81,7 @@
       </div>
     </div>
 
-    {{#each model.roms as |rom|}}
+    {{#each model.active as |rom|}}
       <div class="modal fade" id="{{rom.title}}modal" tabindex="-1" role="dialog" aria-labelledby="{{rom.title}}label">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -89,24 +102,7 @@
         </div>
     {{/each}}
 
-    {{!-- Adding game modal --}}
-    <div class="modal fade" id="addgame" tabindex="-1" role="dialog" aria-labelledby="addgamelabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="addgamelabel">Upload a new game</h3>
-          </div>
-          <div class="modal-body">
-            <input type="text" placeholder="Search for a game to add"><button class='btn-primary'>Add</button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add game</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{rom-modal model=model.inactive}}
 
     {{!-- SSH Instructions --}}
     <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
