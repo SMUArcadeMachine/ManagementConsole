@@ -10,8 +10,8 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
             var self = this;
             self.get('session').authenticate('authenticator:oauth2', user.get('username'), user.get('password')).then(() => {
                 Ember.Logger.debug('Ember login success');
-            }, (err) => {
-                Ember.Logger.debug('Ember login error: ' + err.responseText);
+            }, (error) => {
+                createError('Error logging in', self.get('utils').parse_error(error));
             });
         }
     }

@@ -20,10 +20,6 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
-    "ember-ajax": "^2.0.1",
-    "ember-bootstrap": "0.10.0",
-    "ember-changeset": "1.1.2",
-    "ember-changeset-validations": "1.2.0",
     "ember-cli": "2.8.0",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.6",
@@ -39,14 +35,18 @@
     "ember-cli-sri": "^2.1.0",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
-    "ember-data": "^2.8.0",
     "ember-export-application-global": "^1.0.5",
-    "ember-load-initializers": "^0.5.1",
-    "ember-resolver": "^2.0.3",
-    "ember-route-action-helper": "2.0.0",
-    "ember-simple-auth": "1.1.0",
-    "ember-welcome-page": "^1.0.1",
-    "loader.js": "^4.0.1"
+    "ember-load-initializers": "^0.5.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ember-resolver": "^2.0.3",
+    "ember-data": "^2.8.0",
+    "ember-simple-auth": "1.1.0",
+    "ember-route-action-helper": "2.0.0",
+    "ember-ajax": "2.5.1",
+    "ember-bootstrap": "0.10.0",
+    "ember-changeset": "1.1.2",
+    "ember-changeset-validations": "1.2.0",
+    "loader.js": "^4.0.1"
+  }
 }

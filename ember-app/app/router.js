@@ -11,9 +11,9 @@ Router.map(function() {
   this.route('dashboard');
   this.route('register');
 
-  this.route('forgot', function() {
-    this.route('password');
-  });
+  this.route('forgot', { path: '/forgot' });
+  this.route('forgot.password', { path: '/forgot/password' });
+  this.route('forgot.password.reset', { path: '/forgot/password/reset' });
 });
 
 export default Router;

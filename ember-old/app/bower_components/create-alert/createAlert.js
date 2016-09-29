@@ -18,7 +18,7 @@ function createAlert(title,body,type,sticky,where,input_options){
     }
 
     if(sticky !== false){
-        if(sticky == 'long'){0
+        if(sticky == 'long'){
             options.extendedTimeOut = 15000;
             options.timeOut = 15000;
         }else if(sticky == 1){
@@ -40,8 +40,8 @@ function createAlert(title,body,type,sticky,where,input_options){
         return toastr.loading(body, title,options);
     }
 }
-function createError(title,return_data){
-    createAlert(title,App.Utils.get_error_message(return_data),'danger');
+function createError(title,error_message){
+    createAlert(title,error_message,'danger');
 }
 function showLoader(){
     $('.toast').remove();

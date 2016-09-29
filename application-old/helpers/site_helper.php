@@ -430,7 +430,7 @@ if(!function_exists('valid_email')){
     function valid_email($email,$error_message = null,$error_message_invalid = null){
         $CI = &get_instance();
 
-        if(!is_email($email)) throw new Data_error(array('error' => $error_message_invalid ?: 'Invalid email ' . $email . '.','type' => 'email'));
+        if(!is_email($email)) throw new Data_error(array('message' => $error_message_invalid ?: 'Invalid email ' . $email . '.','type' => 'email'));
 
         //Username lookup
         $data = array(
@@ -439,7 +439,7 @@ if(!function_exists('valid_email')){
         );
         $sql = $CI->db->from('users')->where($data)->get_compiled_select();
         $user = q($sql);
-        if($user) throw new Data_error(array('error' => $error_message ?: 'Email ' . $email . ' is already in use.','type' => 'email'));
+        if($user) throw new Data_error(array('message' => $error_message ?: 'Email ' . $email . ' is already in use.','type' => 'email'));
     }
 }
 if(!function_exists('starts_with')){

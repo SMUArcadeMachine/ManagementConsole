@@ -19,11 +19,11 @@ class Register_model extends CI_Model {
         valid_email($user[$email_key]);
 
         //Password check
-        if(!$oauth && $user['password1'] != $user['password2'] ) throw new Data_error(array('error' => 'Password miss match.','type' => 'password'));
+        if(!$oauth && $user['password1'] != $user['password2'] ) throw new Data_error(array('message' => 'Password miss match.','type' => 'password'));
 
         //Email Check
         if(!$oauth && ($user['email1'] != $user['email2'])){
-            throw new Data_error(array('error' => 'Email miss match.','type' => 'email'));
+            throw new Data_error(array('message' => 'Email miss match.','type' => 'email'));
         }
     }
 

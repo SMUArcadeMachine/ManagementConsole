@@ -1,23 +1,24 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Notifications {
-    var $transactional_type = 2;
     var $ci = null;
     var $smarty = null;
     var $directory = '/../resources/EmailTemplates/';
     var $subject_map = array(
-        'account_created' => 'blank subject'
+        'account_created' => 'Your account has been created',
+        'password_reset' => 'Password reset link'
     );
     var $type_column_map = array(
         'account_created' => true,
+        'password_reset' => true
     );
     var $type_map = array(
     );
-    var $force_notifications = array();
-    var $skip_private_message_types = array('message','email','password_reset');
+    var $force_notifications = array('password_reset');
     function __construct(){
         $this->ci =& get_instance();
         require_once __DIR__ . '/../resources/SendGrid/Smarty/libs/Smarty.class.php';
+        require_once __DIR__ . '/../resources/PHPMailer/PHPMailerAutoload.php';
     }
     function send($types,$params,$users,$subjects = array()){
         if(!NOTIFICATIONS) return $this;
@@ -126,13 +127,33 @@ class Notifications {
                 $this->smarty->assign($key,$value);
 
             //Email sending
-            $email = $users[$i]['email'];
+            $username = $users[$i]['username'];
             $subject = !empty($subjects[$i]) ? $subjects[$i] : $this->_get_subject($types[$i],$params[$i]);
+            $subject = '[' . BASE_NAME_ABBR  .'] ' . $subject;
             $content = $this->smarty->fetch('main_template.tpl');
 
-            //TODO: new email send here
-//            $mail->setFrom(SENDGRID_EMAIL)->setFromName(SENDGRID_NAME)->setReplyTo(SENDGRID_REPLY_EMAIL)->addTo($email)->setHtml($content)->setSubject('[' . BASE_NAME  .'] ' . $subject);
-//            $response = $this->sendGrid->send($mail);
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = GOOGLE_USER;
+            $mail->Password = GOOGLE_PASSWORD;
+            $mail->SMTPSecure = 'ssl';
+            $mail->SMTPDebug = 0;
+            $mail->Port = 465;
+
+            $mail->setFrom(GOOGLE_USER, BASE_NAME_ABBR);
+            $mail->addAddress($username);
+            $mail->addReplyTo(GOOGLE_USER, BASE_NAME_ABBR);
+            $mail->isHTML(true);
+
+            $mail->Subject = $subject;
+            $mail->Body    = $content;
+
+            if(!$mail->send()) {
+                throw new Exception('Email could not be sent.');
+            }
         }
     }
     private function _setup(){

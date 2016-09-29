@@ -2,11 +2,11 @@
 
 class Password extends REST_Controller {
     public function reset_post(){
-        $email = $this->post('email');
+        $username = $this->post('username');
 
         q('BEGIN');
         $this->load->model('password_model');
-        $this->password_model->create_password_reset($email);
+        $this->password_model->create_password_reset($username);
         q('COMMIT');
         $this->response(null,204);
     }

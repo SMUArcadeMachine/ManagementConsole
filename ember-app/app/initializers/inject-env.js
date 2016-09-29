@@ -11,6 +11,14 @@ export function initialize(application) {
   //Current session service (session.isAuthenticated)
   application.inject('component', 'session', 'service:session');
   application.inject('route', 'session', 'service:session');
+
+  //Ajax service
+  application.inject('component', 'ajax', 'service:ajax');
+  application.inject('route', 'ajax', 'service:ajax');
+
+  //Utils service
+  application.inject('component', 'utils', 'service:utils');
+  application.inject('route', 'utils', 'service:utils');
 }
 
 export default {

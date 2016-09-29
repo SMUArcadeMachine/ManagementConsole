@@ -715,21 +715,52 @@ abstract class REST_Controller extends CI_Controller {
             $this->_log_request($authorized = TRUE);
         }
 
-        // Call the controller method and passed arguments
-        try
-        {
+        global $transacting;
+        global $index;
+        try{
             call_user_func_array([$this, $controller_method], $arguments);
+        }catch(Data_error $e){
+            if($transacting) q('ROLLBACK');
+            $return_data = $e->getData();
+            $message = !empty($return_data['message']) ? $return_data['message'] : '';
+            if($index != null) $return_data['index'] = $index;
+            backend_log(array_merge($return_data,array(
+                'data' => $this->_args
+            )),$e);
+            $this->_force_flush($message);
+            $this->response($this->_get_return_error($message),400);
+        }catch(Exception $e){
+            if($transacting) q('ROLLBACK');
+            $message = $e->getMessage();
+            $return_data =  array('message' =>  $message);
+            if($index != null) $return_data['index'] = $index;
+            backend_log(array_merge($return_data,array(
+                'data' => $this->_args
+            )),$e);
+            $this->_force_flush($message);
+            $this->response($this->_get_return_error($message),400);
         }
-        catch (Exception $ex)
-        {
-            // If the method doesn't exist, then the error will be caught and an error response shown
-            $this->response([
-                $this->config->item('rest_status_field_name') => FALSE,
-                $this->config->item('rest_message_field_name') => [
-                    'classname' => get_class($ex),
-                    'message' => $ex->getMessage()
-                ]
-            ], self::HTTP_INTERNAL_SERVER_ERROR);
+    }
+    private function _get_return_error($message){
+        return array(
+            'errors' => array(
+                array(
+                    'message' => $message
+                )
+            )
+        );
+    }
+    private function _force_flush($message){
+        //Needs to be wrapped just in case the force fails too. Failure all over the place :(
+        try{
+            $this->queue->force_flush($message);
+        }catch(Exception $e){
+            $message = $e->getMessage();
+            $return_data =  array('message' =>  $message);
+            backend_log(array_merge($return_data,array(
+                'data' => $this->_args
+            )),$e);
+            $this->response($this->_get_return_error($message),400);
         }
     }
 

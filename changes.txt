@@ -1,11 +1,5 @@
 TODO items
-Ability to easily upgrade to a HyperV windows version
-Ember.js package.json on mac and windows
-
-File change problems
-Run ember server on docker startup
-Test XDebug
-Install watchman
+Logout if invalid API key
 
 Things to download to Ember JS:
 chosen
