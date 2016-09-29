@@ -1,8 +1,7 @@
 {
-  "name": "ember-app",
+  "name": "managementdashboard",
   "dependencies": {
     "ember": "~2.8.0",
-    "ember-cli-shims": "0.1.1",
-    "bootstrap": "~3.3.5"
+    "ember-cli-shims": "0.1.1"
   }
 }

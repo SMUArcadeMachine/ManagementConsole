@@ -1,8 +1,5 @@
 import DS from 'ember-data';
-import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
-import config from '../config/environment';
 
-export default DS.RESTAdapter.extend(DataAdapterMixin, {
-    authorizer: 'authorizer:application',
-    host: config.apiURL
+export default DS.JSONAPIAdapter.extend({
+  host: "https://private-50f0c-digarcademachine1.apiary-mock.com",
 });
