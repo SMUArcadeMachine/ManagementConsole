@@ -13,7 +13,6 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $roms = array();
 
 foreach($db->query("SELECT game_name FROM roms WHERE rom_active = 1") as $row) {
-    $res = $row->fetch(PDO::FETCH_ASSOC);
     $game = array("title" => $row['game_name'], "console" => "Arcade");
     array_push($roms, $game);
 }
