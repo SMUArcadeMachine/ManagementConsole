@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => MYSQL_HOST,
-	'username' => MYSQL_USERNAME,
-	'password' => MYSQL_PASSWORD,
-	'database' => MYSQL_DATABASE,
+	'hostname' => 'localhost',
+	'username' => 'admin',
+	'password' => '8043v36m807c3084m6m03v',
+	'database' => 'SMUAdminConsole',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
