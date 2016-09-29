@@ -25,7 +25,7 @@ $sftp = ssh2_sftp($connection);
 
 foreach($roms as $rom){
     // Get the file location and name
-    $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name == ?");
+    $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name = ?");
     $stmt->execute(array($rom["title"]));
     $romRecord = $stmt->fetch(PDO::FETCH_ASSOC);
 //    $fileLoc = $romRecord["GameRomLoc"];
