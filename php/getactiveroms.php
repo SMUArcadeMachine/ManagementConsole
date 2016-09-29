@@ -17,7 +17,7 @@ foreach($db->query("SELECT game_name FROM roms WHERE rom_active = 1") as $row) {
     array_push($roms, $game);
 }
 
-$response = array("roms" => $roms);
+$response = array("data" => $roms);
 $response = json_encode($response);
 
 echo $response;
