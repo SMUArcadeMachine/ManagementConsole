@@ -14,10 +14,11 @@ Ember.$(document).ready(function() {
 
 export default Ember.Route.extend({
 	model() {
-		let url = "/php/getactiveroms.php";
-		// let gameArray = Ember.$.getJSON(url).games;
-		let json = Ember.$.getJSON(url).then(function(data) {return data.data;});
-		console.log(json);
-		return json;
+		return this.store.findAll('active')
+		// let url = "/php/getactiveroms.php";
+		// // let gameArray = Ember.$.getJSON(url).games;
+		// let json = Ember.$.getJSON(url).then(function(data) {return data.data;});
+		// console.log(json);
+
 	}
 });

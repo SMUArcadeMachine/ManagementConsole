@@ -13,11 +13,11 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $roms = array();
 
 foreach($db->query("SELECT game_name FROM roms WHERE rom_active = 1") as $row) {
-    $game = array("title" => $row['game_name'], "console" => "Arcade");
+    $game = array("title" => $row['game_name'], "image" => "loading.gif",  "prettytitle" => $row['game_name'], "console" => "Arcade");
     array_push($roms, $game);
 }
 
-$response = array("data" => $roms);
+$response = array("actives" => $roms);
 $response = json_encode($response);
 
 echo $response;
