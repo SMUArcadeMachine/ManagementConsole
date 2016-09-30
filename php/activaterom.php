@@ -18,11 +18,9 @@ $roms = file_get_contents('php://input');
 //echo "We receive: ".$roms;
 $roms = json_decode($roms);
 $roms = $roms->games;
-echo $roms;
 $res = array();
 
 foreach($roms as $rom){
-    echo $rom->title;
     // Get the file location and name
     $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name = ?");
     $stmt->execute(array($rom->title));
