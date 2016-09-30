@@ -18,7 +18,6 @@ Ember.$(document).ready(function() {
 	});
 });
 
-
 export default Ember.Route.extend({
 	model() {
 		// This returns undefined - console.log(this.get('private-9c66cc-managementconsole.apiary-mock.com/getroms'));
