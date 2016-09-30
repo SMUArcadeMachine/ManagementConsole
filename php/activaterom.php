@@ -15,7 +15,6 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 // Get the roms to be activated
 $roms = $_POST["games"];
 $roms = json_decode($roms);
-$roms = $roms["activate"];
 $res = array();
 
 foreach($roms as $rom){
