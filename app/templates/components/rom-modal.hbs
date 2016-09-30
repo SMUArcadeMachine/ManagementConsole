@@ -7,11 +7,13 @@
       </div>
       <div class="modal-body">
         <!-- <input type="text" id="filter" placeholder="Search for a game to add" {{keyUp action="filter"}}> -->
-        {{input id="filter" key-up="filter" valueBinding="filterValue" placeHolder="ROM Filter"}}
+        {{input id="filter" key-up="filter" valueBinding="filterValue" placeholder="ROM Filter"}}
         <!-- <button class='btn-primary'>Filter</button> -->
+      <div style="overflow-y:auto">
         {{#each model as |roms|}}
           {{inactive-roms inactive-roms=roms}}
         {{/each}}
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

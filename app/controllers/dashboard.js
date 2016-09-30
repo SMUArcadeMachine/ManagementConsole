@@ -24,11 +24,13 @@ export default Ember.Controller.extend({
             });
             var json = {'deactivate':games};
             var url = 'http://192.168.1.7/php/deactivaterom.php';
+            console.log(json);
             Ember.$.post(url, json, function(response) {
                 console.log("Server responded with: " + response.status);
             });
             this.set('deactivate', false);
             this.set('machineReset', true);
+            $('#id')[0].style.hidden = "hidden";
         },
         submitEmailForm() {
             var emails = [];

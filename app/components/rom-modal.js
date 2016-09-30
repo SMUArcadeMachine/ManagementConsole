@@ -16,7 +16,6 @@ export default Ember.Component.extend({
           json.games.push(game);
         }
       });
-
   		let url = "http://192.168.1.7/php/activaterom.php";
       console.log(json);
   		var response = Ember.$.post(url, json);
