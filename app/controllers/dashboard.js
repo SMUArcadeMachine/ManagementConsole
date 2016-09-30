@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
                 }
             });
             var json = {'deactivate':games};
-            var url = 'https://private-50f0c-digarcademachine1.apiary-mock.com/deactivate';
+            var url = 'http://192.168.1.7/php/deactivaterom.php';
             Ember.$.post(url, json, function(response) {
                 console.log("Server responded with: " + response.status);
             });

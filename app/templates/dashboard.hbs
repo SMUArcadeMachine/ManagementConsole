@@ -28,19 +28,6 @@
         <h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
         {{active-roms roms=model.roms}}
       {{/if}}
-    <div class="col-md-9">
-    	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
-		<ul class='rom-list'>
-			{{#each model.active as |rom|}}
-				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'>
-        {{rom.prettytitle}}
-        <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
-        </li>
-			{{/each}}
-    
-
-		</ul>
-      </div>
       </div>
 
       {{!-- Sidebar --}}
