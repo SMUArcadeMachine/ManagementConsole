@@ -26,7 +26,7 @@ foreach($roms as $rom){
     $fileName = $romRecord["file_name"];
 
     // Unhide the file
-    rename("/home/pi/RetroPie/roms/mame-mame4all/{$fileName}", ",/home/pi/gamestorage/{$fileName}");
+    rename("/home/pi/RetroPie/roms/mame-mame4all/{$fileName}", "/home/pi/gamestorage/{$fileName}");
     $stmt = $db->prepare("UPDATE roms SET rom_active = 0 WHERE game_name = ?");
     $stmt->execute(array($rom["title"]));
 }
