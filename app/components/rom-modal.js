@@ -4,23 +4,31 @@ export default Ember.Component.extend({
   actions: {
     updateRoms(model) {
       var json = new Object();
+      var test = {
+        "games":[
+          {"title":"1942", "console":"Arcade"}
+        ]
+      };
+      console.log(test);
       json.games = [];
       Ember.$('.inactiveinput').each(function() {
         var activated = Ember.$(this).is(':checked');
         if (activated == true) {
-          var text = Ember.$(this).next().text();
+          var text = Ember.$(this).next().text(); 
           var splitText = text.split(' - ');
           var game = new Object();
           game.title = splitText[0];
-          game.console = splitText[1];
+          game.console = splitText[1];  
           json.games.push(game);
         }
       });
 
   		let url = "http://192.168.1.7/php/activaterom.php";
       console.log(json);
-  		var response = Ember.$.post(url, json);
-  		console.log(response);
+  		Ember.$.post(url, json, function(response){
+        console.log(response);
+        location.reload();
+      });
     }
   }
 });

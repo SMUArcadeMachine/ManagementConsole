@@ -8,27 +8,34 @@ export default Ember.Controller.extend({
           this.toggleProperty('deactivate');
         },
         submitReset() {
-            var url = 'https://private-50f0c-digarcademachine1.apiary-mock.com/reset';
-            Ember.$.get(url, function() {
+            var url = 'http://192.168.1.7/php/reboot.php';
+            var json = new Object();
+            json.run = true;
+            Ember.$.post(url, json, function(response) {
                 alert('Machine reset is now in progress.');
+                console.log(response);
             });
             this.set('machineReset', false);
         },
         submitDeactivateForm() {
-            var games = [];
+            var gamesObject = [];
+            var games = new Object;
             Ember.$('.rom').each(function () {
                 var activated = Ember.$(this).find('input[type="checkbox"]').is(':checked');
                 if (activated) {
-                    games.push(Ember.$(this).find('.title').text());
+                    games.title = Ember.$(this).find('.title').text();
+                    gamesObject.push(games);
                 }
             });
-            var json = {'deactivate':games};
+            var json = {'games':gamesObject};
             var url = 'http://192.168.1.7/php/deactivaterom.php';
+            console.log(json);
             Ember.$.post(url, json, function(response) {
-                console.log("Server responded with: " + response.status);
+                console.log("Server responded with: " + response);
             });
             this.set('deactivate', false);
             this.set('machineReset', true);
+            location.reload();
         },
         submitEmailForm() {
             var emails = [];
@@ -43,6 +50,10 @@ export default Ember.Controller.extend({
             Ember.$.post(url, json, function(response) {
                 console.log("Server responded with: "+  response.status);
             });
+        },
+        openUserModal(target) {
+            Ember.$('#'+target).modal('show');
+            console.log("Opening modal");
         }
     }
 });
