@@ -13,7 +13,7 @@ $password = "8043v36m807c3084m6m03v";
 $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
 // Get the roms to be activated
-$roms = $_GET["games"];
+$roms = $_POST["games"];
 $roms = json_decode($roms);
 $roms = $roms["activate"];
 $res = array();
