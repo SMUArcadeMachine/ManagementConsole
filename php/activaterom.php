@@ -22,7 +22,7 @@ echo $roms;
 $res = array();
 
 foreach($roms as $rom){
-    echo "WE LOOP";
+    echo $rom;
     // Get the file location and name
     $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name = ?");
     $stmt->execute(array($rom["title"]));
