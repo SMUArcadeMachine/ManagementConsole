@@ -8,8 +8,9 @@ html, body {
     font-weight:300;
 }
 
-#ember339 {
+#ember341 {
 	height:100%;
+	width: 100%;
 }
 
 .btn {
@@ -17,10 +18,12 @@ html, body {
 	outline:none;
 }
 .btn-primary {
+	transition:all 0.3s;
 	background-color:#1abc9c;
 }
 .btn-primary:hover {
-	background-color:#1ed8b3;
+	background-color:#1ed8b3 !important;
+	border-color:#1ed8b3 ;
 }
 .btn:focus, .btn:visited, .btn:active {
 	outline:none !important;
@@ -98,7 +101,7 @@ html, body {
 .sidebar-button {
     position:relative;
     z-index:1;
-	margin:15px !important;
+	margin:8px !important;
 	width:95px;
 	height:95px;
     transform:translateX(70px);
@@ -117,9 +120,11 @@ html, body {
 .button-wrapper:focus >.sidebar-button,
 .button-wrapper:active >.sidebar-button,
 .button-wrapper:visited >.sidebar-button{
-    transform:translateX(10px);
-    background-color:#1ed8b3;
+    transform:translateX(0px);
 }
+
+
+
 .button-wrapper:hover >.popup-text,
 .button-wrapper:focus >.popup-text,
 .button-wrapper:active >.popup-text,
@@ -132,7 +137,7 @@ html, body {
     opacity:0;
     display:inline-block;
     width:150px;
-    transform:translateX(-50px);
+    transform:translateX(-40px);
     color:#ffffff;
     transition: all 0.3s ease;
     position:relative;
@@ -161,11 +166,30 @@ html, body {
 }
 .user-container > form {
 	width:100%;
-	display:flex;
-	justify-content: center;
-	align-items: center;
+	display:block;
 	flex-direction:column;
 	min-height:30vh;
+	max-height:50vh;
+	overflow-y:scroll;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.add-user-container {
+	flex-direction:column;
+}
+
+#addinputbtn {
+    margin: 0 auto;
+    margin-top: 13px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 1px #1abc9c;
+    outline:none;
+    background-color:#1abc9c;
+    color:#f3f3f3;
+    font-size:22pt;
 }
 /*.user-container > form > input {
 	width:100%;
@@ -230,6 +254,7 @@ html, body {
 .rom {
 	list-style:none;
 	margin:8px;
+	font-weight:300;
 	width:200px;
 	height:280px;
 	color:#f9f9f9;
@@ -239,6 +264,7 @@ html, body {
 	border-radius:5px;
 	overflow:hidden;
 	cursor:pointer;
+	position:relative;
 }
 .rom-cover {
 	height:100%;
@@ -246,8 +272,49 @@ html, body {
 	background-color:white;
 }
 
+.ssh {
+	font-size:14pt;
+}
+.ssh > ol > li {
+	padding:3px;
+}
 
+.pop-up-submit {
+	position:fixed;
+	bottom:1em;
+	left:37.5%;
+	height:65px;
+	width:65px;
+	font-size:20pt;
+	animation-name:pop-up-submit;
+	animation-duration:0.3s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	border-radius:50%;
+	border: none;
+	outline:none;
+}
 
+.rom-select {
+	position:absolute;
+	left:0.2em;
+	top:0;
+	width:20px;
+	height:20px;
+	background-color:blue;
+	color:white;
+}
+
+@-webkit-keyframes pop-up-submit {
+	0%		{transform:translateY(100px);}
+	100%	{transform:translateY(0px);}
+}
+
+/* Standard syntax */
+@keyframes pop-up-submit {
+	0%		{transform:translateY(100px);}
+	100%	{transform:translateY(0px);}
+}
 
 
 /*Juro text input */
@@ -261,6 +328,7 @@ html, body {
 	vertical-align: top;
 	border: solid 1px #cccccc;
 	border-radius:5px;
+	min-height:60px;
 }
 
 .input__field {
@@ -322,7 +390,7 @@ html, body {
 .input--kaede {
 	display: block;
 	overflow: hidden;
-	margin: 1em auto 2em;
+	margin: .4em auto;
 	background: #ffffff;
 }
 
