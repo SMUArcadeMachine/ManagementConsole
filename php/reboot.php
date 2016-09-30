@@ -1,9 +1,10 @@
 <?php
+//Reference to semaphore http://www.re-cycledair.com/php-dark-arts-semaphores
 $MEMSIZE = 512;
 $SEMKEY = 1;
 $SHMKEY = 2;
 
-$sem_id = sem_get(SEM_KEY);
+$sem_id = sem_get(SEM_KEY, 1, 0666, 1);
 
 //Z's stuff should go here
 
