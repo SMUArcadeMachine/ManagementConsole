@@ -17,7 +17,7 @@ $roms = file_get_contents('php://input');
 //echo var_dump($_POST);
 //echo "We receive: ".$roms;
 $roms = json_decode($roms);
-$roms = $roms["games"];
+$roms = $roms->games;
 echo $roms;
 $res = array();
 
