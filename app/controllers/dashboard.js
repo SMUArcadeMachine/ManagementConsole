@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
             });
             this.set('deactivate', false);
             this.set('machineReset', true);
-            $('#id')[0].style.hidden = "hidden";
+            // $('#id')[0].style.hidden = "hidden";
         },
         submitEmailForm() {
             var emails = [];

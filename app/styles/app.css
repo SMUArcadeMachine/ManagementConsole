@@ -177,6 +177,11 @@ html, body {
 .add-user-container {
 	flex-direction:column;
 }
+.view-user-container {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 #addinputbtn {
     margin: 0 auto;
@@ -206,7 +211,6 @@ html, body {
 	color:white;
 	border-radius:4px;
 	font-size:12pt;
-	padding-top:10px;
 	transition: all 0.4s ease;
 }
 .user > i {
@@ -235,6 +239,18 @@ html, body {
 	color:#2f91d2;
 	background-color:white;
 	border:solid 3px #2f91d2;
+}
+.big-user-icon { 
+    background-color: #2f91d2;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 58pt;
+}
+.view-user-container > h3 {
+	margin:5px;
 }
 #adduserbtn:hover {
 	background-color:#2f91d2;
