@@ -75,6 +75,14 @@ if(count($inactiveDir) > 1) {
     for ($x = 2; $x < count($inactiveDir); $x++) {
         if(strpos($inactiveDir[$x], '.zip') !== FALSE){
             $gName = getName($inactiveDir[$x], $db);
+            $info = getInfo($gName);
+
+            // Put the image in the images folder
+            copy($info[1], "../images/$info[0].jpeg");
+
+            // Create img path for the folder
+            $imgPath = "/var/www/html/documentation/images/$info[0].jpeg";
+
             $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
             $stmt->bindParam(2, $inactiveDir[$x]);
