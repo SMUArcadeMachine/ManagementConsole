@@ -5,6 +5,8 @@ export default Ember.Component.extend({
     updateRoms(model) {
       // console.log(model);
       // console.log(model[0].get('title'));
+
+      this.store.push(store.normalize())
       var checked = $('input:checked');
       var json = new Object();
       json.activate = [];
@@ -18,8 +20,8 @@ export default Ember.Component.extend({
         json.activate.push(game);
       }
   		let url = "https://private-50f0c-digarcademachine1.apiary-mock.com/activate";
-  		var response = Ember.$.post(url, json);
-  		console.log(response);
+  		// var response = Ember.$.post(url, json);
+      
     }
   }
 });
