@@ -9,6 +9,7 @@
 /*public function toDateTime($unixTimestamp){
     return date("Y-m-d H:m:s", $unixTimestamp);
 }*/
+ini_set('display_errors',1);
 
 $servername = "localhost";
 $dbname = "SMUAdminConsole";
@@ -27,25 +28,29 @@ $reg = array(
     'time_end' => "/(?:(END)\_)(\d+)/i",
     'game_name' => "/(?:(END)\_(\d+)\_).+/i",         //(?:(\_{1}\d+\_{1}))(\w+\s)+/",
     'time_start' => "/(?:(START)\_)(\d+)/i"//,
-    //'restart' => "/?:(RESTART)"
+   // 'restart' => "/?:(RESTART)"
 );
-
+$time_start;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $line = $_POST['log'];
-
+    $line = $_POST['postVariable'];
+    global $time_start;
     if (preg_match($reg['start'], $line, $matches)) {
-	    //if(sem_acquire($sem_id)){ //set the semaphore here so we can't restart the Pi until the game is closed
-        $time_start = preg_match($reg['time_played'], $line, $matches);
-	//}
+	  //  if(sem_acquire($sem_id)){ //set the semaphore here so we can't restart the Pi until the game is closed
+        $time_start = preg_match($reg['time_start'], $line, $matches);
+//	}
     } else if (preg_match($reg['time_end'], $line, $matches)) {
-        $time_end = preg_match($reg['time_end'], $line, $matches);
-        $game_name = preg_match($reg['game_name'], $line, $matches);
-
-        $time_startSQL = toDateTime($time_start);
-        $time_endSQL = toDateTime($time_end);
-        $time_playedSQL = $time_startSQL - $time_endSQL;
+	echo #time_start;
+        preg_match($reg['time_end'], $line, $matches);
+	$time_end = $matches[1];
+        preg_match($reg['game_name'], $line, $matches);
+	$time_start = matches[1];
+     
+        //$time_startSQL = date('H:i:s', $time_start);
+        //$time_endSQL = date('H:i:s', $time_end);
+	//echo $time_start;
+        $time_playedSQL = $time_end - $time_start;
 
    /* else if($_POST['restart']) { //If we see the restart value in the POST data, we will restart
    // else if(preg_match($reg['restart'],$line,$matches)) { //This looks for for restart pushed from the machine software side, to better integrate with gamedata.php current functionality.
@@ -64,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $temp = $conn->prepare($sqlquery);
             $temp->execute();
 
-            if(empty($temp)){
+/*            if(empty($temp)){
                 $query = "CREATE TABLE gameData(
                           timeStart TIME,
                           timeEnd TIME,
@@ -77,11 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $temp = $conn->prepare($sqlquery);
                 $temp->execute();
-            }
+            }*/
             $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
 
-            if (count($temp) > 0) {
-                $sqlquery = 'INSERT INTO gameData (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_startSQL . '","' . $time_endSQL . '","' . $time_playedSQL . '","' . $game_name . '", 1;';
+            if (!(count($temp) > 0)) {
+                $sqlquery = 'INSERT INTO gameData (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_start . '","' . $time_end . '","' . $time_playedSQL . '","' . $game_name . '", 1;';
                 $temp = $conn->prepare($sqlquery);
                 $temp->execute();
                 $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
