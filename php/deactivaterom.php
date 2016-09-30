@@ -27,6 +27,8 @@ foreach($roms as $rom){
     $stmt->execute(array($rom->title));
     $romRecord = $stmt->fetch(PDO::FETCH_ASSOC);
     $fileName = $romRecord["file_name"];
+    echo var_dump($romRecord);
+    echo var_dump($fileName);
     // Unhide the file
     $res[0] = rename("/home/pi/RetroPie/roms/mame-mame4all/$fileName", "/home/pi/gamestorage/$fileName");
     $stmt = $db->prepare("UPDATE roms SET rom_active = 0 WHERE game_name = ?");
