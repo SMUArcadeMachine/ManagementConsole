@@ -16,7 +16,7 @@ $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $roms = $_GET["games"];
 $roms = json_decode($roms);
 $roms = $roms["activate"];
-
+$res = array();
 
 foreach($roms as $rom){
     // Get the file location and name
@@ -26,9 +26,10 @@ foreach($roms as $rom){
     $fileName = $romRecord["file_name"];
 
     // Unhide the file
-    rename("/home/pi/gamestorage/{$fileName}", "/home/pi/RetroPie/roms/mame-mame4all/{$fileName}");
+    $res[0] = rename("/home/pi/gamestorage/{$fileName}", "/home/pi/RetroPie/roms/mame-mame4all/{$fileName}");
     $stmt = $db->prepare("UPDATE roms SET rom_active = 1 WHERE game_name = ?");
-    $stmt->execute(array($rom["title"]));
+    $res[1] = $stmt->execute(array($rom["title"]));
 }
 
-echo 1;
+$res = json_encode($res);
+echo $res;
