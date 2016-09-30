@@ -85,6 +85,8 @@ CREATE TABLE roms (
 	game_time_played		INTEGER,
 	game_last_active		DATETIME,
 	last_edit_id		INTEGER,
+	image_loc			TEXT,
+  game_desc			TEXT,
 	PRIMARY KEY				(gid),
 	FOREIGN KEY 			(last_edit_id) REFERENCES users(uid)
 );
