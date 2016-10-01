@@ -28,7 +28,7 @@ $reg = array(
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $line = $_POST['log'];
-
+    echo $line;
     if (preg_match($reg['start'], $line, $matches)) {
         $time_start = preg_match($reg['time_played'], $line, $matches);
 
