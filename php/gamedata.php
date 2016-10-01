@@ -36,8 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $line = $_POST['log'];
 
     if (preg_match($reg['start'], $line, $matches)) {
+	    //if(sem_acquire($sem_id)){ //set the semaphore here so we can't restart the Pi until the game is closed
         $time_start = preg_match($reg['time_played'], $line, $matches);
-
+	//}
     } else if (preg_match($reg['time_end'], $line, $matches)) {
         $time_end = preg_match($reg['time_end'], $line, $matches);
         $game_name = preg_match($reg['game_name'], $line, $matches);
@@ -91,9 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
             }
             echo json_encode(array('success' => 'yes'));
-
+		//sem_release($sem_id); //We release the semaphore so that a restart can run if needed
         } catch (PDOException $e) {
             echo $sqlquery . "<br>" . $e->getMessage();
+		//sem_release($sem_id); //We release the semaphore so that a restart can run if needed
         }
     } 
     else {
