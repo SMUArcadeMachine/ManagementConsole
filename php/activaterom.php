@@ -19,15 +19,31 @@ $res = array();
 
 foreach($roms as $rom){
     // Get the file location and name
-    $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name = ?");
-    $stmt->execute(array($rom['title']));
-    $romRecord = $stmt->fetch(PDO::FETCH_ASSOC);
-    $fileName = $romRecord["file_name"];
+    $fileName = "unset";
+    $gameName = $rom['title'];
+    try {
+        $stmt = $db->prepare("SELECT file_name FROM roms WHERE game_name = ?");
+        $stmt->execute(array($rom['title']));
+        $romRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+        $fileName = $romRecord["file_name"];
+    } catch (PDOException $e) {
+        echo "Error getting the file name for $gameName: " . $e->getMessage();
+    }
 
-    // Unhide the file
+    // Move the file
     $res[0] = rename("/home/pi/gamestorage/$fileName", "/home/pi/RetroPie/roms/mame-mame4all/$fileName");
-    $stmt = $db->prepare("UPDATE roms SET rom_active = 1 WHERE game_name = ?");
-    $res[1] = $stmt->execute(array($rom['title']));
+    if($res[0] == FALSE){
+        echo "Error moving the $fileName file, please check permissions.";
+    }
+
+    //Update the DB
+    try {
+        $stmt = $db->prepare("UPDATE roms SET rom_active = 1 WHERE game_name = ?");
+        $res[1] = $stmt->execute(array($rom['title']));
+    } catch (PDOException $e) {
+        echo 'Error updating the database for $gameName: ' . $e->getMessage();
+    }
+
 }
 
 $res = json_encode($res);
