@@ -1,0 +1,8 @@
+<ul>
+    {{#each roms as |rom|}}
+        <li class="rom {{if rom.rom_active "active" "inactive"}}" {{action "update_rom" rom}}>
+            <p class="title">{{rom.game_name}}</p>
+            <div class="rom-image-wrapper"><img class="rom-cover" title={{if rom.rom_active "Deactivate" "Activate"}} src={{rom-cover-img rom}}></div>
+        </li>
+    {{/each}}
+</ul>

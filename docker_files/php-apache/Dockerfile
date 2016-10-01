@@ -44,6 +44,9 @@ RUN touch /var/log/xdebug.log
 RUN chown www-data:www-data /var/log/xdebug.log
 RUN chmod 777 /var/log/xdebug.log
 
+# PHP email templates
+RUN chmod 777 /var/www/html/application/resources/EmailTemplates/compile
+
 EXPOSE 9000
 
 WORKDIR /var/www/html

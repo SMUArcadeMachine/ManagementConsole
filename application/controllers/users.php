@@ -17,14 +17,14 @@ class Users extends REST_Controller {
         q('COMMIT');
         $this->response($return_data,200);
     }
-//    public function index_get(){
-//        $uid = $this->uid();
-//        if(empty($uid)) throw new Exception('UID empty.');
-//
-//        $this->load->model('users_model');
-//        $return_data = $this->users_model->load($uid,FALSE);
-//        $this->response($return_data,200);
-//    }
+    public function index_get(){
+        $uid = $this->rest->user_id;
+        if(empty($uid)) throw new Exception('UID empty.');
+
+        $this->load->model('users_model');
+        $return_data = $this->users_model->load($uid,FALSE);
+        $this->response($return_data,200);
+    }
 //    public function index_put(){
 //        $account = $this->put('account')?:array();
 //        $uid = $this->uid();

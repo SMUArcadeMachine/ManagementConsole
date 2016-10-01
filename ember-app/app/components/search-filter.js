@@ -1,5 +1,5 @@
 import Ember from 'ember';
-//from the Ember.JS tutorial
+
 export default Ember.Component.extend({
   classNames: ['search-filter'],
   value: '',

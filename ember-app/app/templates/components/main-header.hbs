@@ -1,0 +1,13 @@
+<div class="navbar">
+    <div class="navbar-left">
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" id='reset' {{action 'resetSystem'}}><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-large" data-toggle='modal' data-target='#sshmodal'><i class="fa fa-terminal" aria-hidden="true" ></i></button>
+    </div>
+    <div class="navbar-center">
+        <h1> {{ route_title }} - Management Console </h1>
+    </div>
+    <div class="navbar-right">
+        <div class="user-text"> Admin: {{currentUser.username}} </div>
+        <div class="logout-button-wrapper"><button class="btn btn-block btn-lg btn-primary dashboard-button-small" {{action "logout"}}><i class="fa fa-sign-out" aria-hidden="true"></i></button></div>
+    </div>
+</div>

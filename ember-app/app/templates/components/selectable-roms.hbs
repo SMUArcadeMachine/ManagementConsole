@@ -1,0 +1,12 @@
+<ul class='rom-list'>
+	{{#each roms as |rom|}}
+		
+		<label for='{{rom.title}}'>
+		<li class='rom' id='{{rom.title}}selectable'> 
+		<input type='checkbox' id='{{rom.title}}' class='rom-select'>
+        	<span class='title'>{{rom.prettytitle}}</span>
+        	<img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
+       	</li>
+       	</label>
+	{{/each}}
+</ul>

@@ -1,0 +1,20 @@
+<form>
+    {{input placeholder="Email" value=changeset.username}}
+    {{input placeholder="Password" type="password" value=changeset.password}}
+    <input type="submit" name="login" class="login loginmodal-submit" value="Login" {{action submit changeset}}>
+</form>
+
+<div class="login-help">
+    {{#link-to 'register' classNames="pointer"}}Register{{/link-to}} - {{#link-to 'forgot.password' classNames="pointer"}}Forgot Password{{/link-to}}
+</div>
+
+{{#if changeset.isInvalid}}
+    {{#unless changeset.isPrestine}}
+        <p>Login errors:</p>
+        <ul>
+            {{#each changeset.errors as |error|}}
+                <li>{{error.key}}: {{error.validation}}</li>
+            {{/each}}
+        </ul>
+    {{/unless}}
+{{/if}}

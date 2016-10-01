@@ -21,7 +21,16 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+
+    "hideLoader",
+    "isLoading",
+    "createConfirm",
+    "createError",
+    "createAlert",
+    "showLoader",
+    "createError"
+
   ],
   "node": false,
   "browser": false,

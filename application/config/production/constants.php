@@ -12,7 +12,7 @@ define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
 
 //Global
-define('NOTIFICATIONS',false);
+define('NOTIFICATIONS',true);
 define('MB_RATIO',1048576);
 define('FAILED_LOGIN_ATTEMPTS',5);
 define('IP_HEADER','REMOTE_ADDR');
@@ -21,13 +21,11 @@ define('LOGIN_SESSION_DAYS',7);
 define('BASE_URL','http://localhost:4200/');
 define('BASE_URL_NO_SCHEME','localhost/');
 define('HASH','#/');
-define('BASE_NAME','SMU Admin Management Console');
+define('BASE_NAME','Arcade Machine Management Console');
+define('BASE_NAME_ABBR','AMMC');
 
-//SendGrid
-define('SENDGRID_API_KEY',"blank");
-define('SENDGRID_EMAIL',"blank");
-define('SENDGRID_REPLY_EMAIL',"blank");
-define('SENDGRID_NAME',BASE_NAME);
+define('GOOGLE_USER',"smu.ammc@gmail.com");
+define('GOOGLE_PASSWORD',MYSQL_PASSWORD);
 
 /*
 |--------------------------------------------------------------------------
