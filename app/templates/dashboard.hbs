@@ -1,4 +1,4 @@
-    <div class="navbar">
+<div class="navbar">
       <div class="navbar-left">
         {{#if machineReset}}
         <button class="btn btn-block btn-lg btn-warning dashboard-button-large" id='reset' {{action 'submitReset'}}><i class="fa fa-refresh" aria-hidden="true"></i></button>
@@ -15,8 +15,6 @@
         <div class="user-text"> {{!-- {{usertype}}: {{fullName}}  --}} Admin : Katie Krummeck</div>
       </div>
     </div>
-
-    {{!-- Main Container --}}
     <div style="height:100%; width:100%">
       {{!-- Game list --}}
       <div class="col-md-9">
@@ -30,34 +28,11 @@
         <h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
         {{active-roms roms=model.roms}}
       {{/if}}
-
-    <div class="col-md-9">
-    	<h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
-		<ul class='rom-list'>
-			{{#each model.active as |rom|}}
-				<li class='rom' data-toggle='modal' data-target='{{rom.title}}modal' id='{{rom.title}}'>
-        {{rom.prettytitle}}
-        <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
-        </li>
-			{{/each}}
-
-          {{!-- Adding Game Details Modal --}}
-          {{!-- IN PROGRESS - Bryce --}}
-          {{outlet 'modal'}}
-			    {{#each model as |rom|}}
-				      <li class='rom' {{action 'showModal' 'rom-detail' model.roms}} id='{{rom.title}}'>
-                {{rom.prettytitle}}
-                <img class='rom-cover' src='{{rom.image}}' alt=''> {{rom-coverimg rom.title rom.console}}
-              </li>
-			    {{/each}}
-		    </ul>
       </div>
-    </div>
 
       {{!-- Sidebar --}}
       <div class="col-md-3 sidebar-container">
         <div class="sidebar">
-
           <div class="button-wrapper" {{action "toggleDeactivate"}} >
             {{#if deactivate}}
               <button class="btn btn-block btn-lg btn-danger dashboard-button-large sidebar-button" >
@@ -71,7 +46,6 @@
               <span class="popup-text">Deactivate Games</span>
             {{/if}}
           </div>
-
           <div class="button-wrapper" data-toggle="modal" data-target="#addgame">
               <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
                   <i class="fa fa-plus" aria-hidden="true"></i>
@@ -96,30 +70,56 @@
 
     {{#each model.active as |rom|}}
       <div class="modal fade" id="{{rom.title}}modal" tabindex="-1" role="dialog" aria-labelledby="{{rom.title}}label">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h3 class="modal-title" id="{{rom.title}}label">{{rom.prettytitle}}</h3>
-              {{!-- TODO: Display ROM content --}}
-  {{!--
-            </div>
-            <div class="modal-body">
-              <div class="user-container">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="{{rom.title}}label">{{rom.prettytitle}}</h3>
+                {{!-- TODO: Display ROM content --}}
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <div class="modal-body">
+                <div class="user-container">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     {{/each}}
-  --}}
 
     {{rom-modal model=model.inactive}}
 
     {{!-- SSH Instructions --}}
+    <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid ssh">
+              <h4> To access the Arcade Machine's terminal: </h4>
+              <ol>
+                <li> Open an SSH capable terminal (For Windows, use <a href='http://www.putty.org/'>PuTTY</a> or something similar) </li>
+                <li> Connect to the pi with the user "pi" using it's IP Address like so: <br> <code>ssh pi@192.168.1.7</code></li>
+                <li> Use the default raspberry pi password as the password </li>
+                <li> ...? </li>
+                <li> Profit </li>
+              </ol>
+              If you're confused on this process, <a href='http://www.wikihow.com/Use-SSH'>read up on how to SSH into a server </a>. <br>Or you can spam your questions to the email <a href='mailto:mfonten@smu.edu'> mfonten@smu.edu </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Reboot --}}
     <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -153,45 +153,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
-          </div>
-          <div class="modal-body">
-            <div class="container-fluid ssh">
-              <h4> To access the Arcade Machine's terminal: </h4>
-              <ol>
-                <li> Open an SSH capable terminal (For Windows, use <a href='http://www.putty.org/'>PuTTY</a> or something similar) </li>
-                <li> Connect to the pi with the user "pi" using it's IP Address like so: <br> <code>ssh pi@192.168.1.7</code></li>
-                <li> Use the default raspberry pi password as the password </li>
-                <li> ...? </li>
-                <li> Profit </li>
-              </ol>
-              If you're confused on this process, <a href='http://www.wikihow.com/Use-SSH'>read up on how to SSH into a server </a>. <br>Or you can spam your questions to the email <a href='mailto:mfonten@smu.edu'> mfonten@smu.edu </a>
             <h3 class="modal-title" id="manageuserslabel">Manage Users</h3>
-          </div>
-          <div class="modal-body">
-            <div class="user-container">
-              <div class="user admin"> Rickey <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
-              <div class="user tech"> Parker <br> <i class="fa fa-user" aria-hidden="true"></i> </div>
-              <div class="user tech"> Edward <br> <i class="fa fa-user" aria-hidden="true"></i></div>
-              <div class="user tech"> Sam  <br><i class="fa fa-user" aria-hidden="true"></i></div>
-              <div class="user tech adduser" id='adduserbtn' data-dismiss='modal' data-toggle='modal' data-target='adduser'><i class="fa fa-plus" aria-hidden="true"></i></div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary adduser" data-dismiss='modal' data-toggle='modal' data-target='adduser'>Add New Users</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- View User Modal --}}
-    <div class="modal fade" id="manageusers" tabindex="-1" role="dialog" aria-labelledby="manageuserslabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="manageuserslabel">View User</h3>
           </div>
           <div class="modal-body">
             <div class="user-container">
@@ -263,3 +225,8 @@
         </div>
       </div>
     </div>
+
+    {{!-- {{rom-component roms=model}} --}}
+
+{{outlet}}
+{{outlet 'modal'}}
