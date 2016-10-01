@@ -77,24 +77,24 @@ CREATE TABLE user_login_history (
 );
 #__________________________________________________________________________________
 CREATE TABLE roms (
-	id		INT NOT NULL AUTO_INCREMENT,
-	game_name		TEXT NOT NULL,
-	file_name		TEXT NOT NULL,
-	rom_loc		TEXT,
-	rom_active		BOOLEAN NOT NULL DEFAULT 0,
-	game_time_played		INTEGER,
-	game_last_active		DATETIME,
-	last_edit_id		INTEGER,
-	image_loc			TEXT,
-	game_desc			TEXT,
+	id		            INT NOT NULL AUTO_INCREMENT,
+	game_name		      TEXT NOT NULL,
+	file_name		      TEXT NOT NULL,
+	rom_loc		        TEXT,
+	rom_active		    BOOLEAN NOT NULL DEFAULT 0,
+	game_time_played	INTEGER,
+	game_last_active	DATETIME,
+	last_edit_id		  INTEGER,
+	image_loc			    TEXT,
+	game_desc			    TEXT,
 	PRIMARY KEY				(id),
 	FOREIGN KEY 			(last_edit_id) REFERENCES users(uid)
 );
 #__________________________________________________________________________________
 CREATE TABLE game_data(
-	time_start TIME,
-	time_end TIME,
-	time_played TIME,
-	game_name VARCHAR(50),
-	counts int(3000)
+	time_start        TIME,
+	time_end          TIME,
+	time_played       TIME,
+	game_name         VARCHAR(50),
+	counts            int(3000)
 );
