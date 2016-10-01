@@ -15,11 +15,13 @@ export default Ember.Controller.extend({
             this.set('machineReset', false);
         },
         submitDeactivateForm() {
-            var games = [];
+            var gamesObject = [];
             Ember.$('.rom').each(function () {
                 var activated = Ember.$(this).find('input[type="checkbox"]').is(':checked');
                 if (activated) {
-                    games.push(Ember.$(this).find('.title').text());
+                    var games = new Object;
+                    games.title = Ember.$(this).find('.title').text();
+                    gamesObject.push(games);
                 }
             });
             var json = {'deactivate':games};

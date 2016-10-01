@@ -4,12 +4,6 @@ export default Ember.Component.extend({
   actions: {
     updateRoms(model) {
       var json = new Object();
-      var test = {
-        "games":[
-          {"title":"1942", "console":"Arcade"}
-        ]
-      };
-      console.log(test);
       json.games = [];
       Ember.$('.inactiveinput').each(function() {
         var activated = Ember.$(this).is(':checked');
