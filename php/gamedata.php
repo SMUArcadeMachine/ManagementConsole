@@ -28,10 +28,12 @@ $reg = array(
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $line = $_POST['log'];
-    echo $line;
-    if (preg_match($reg['start'], $line, $matches)) {
-        $time_start = preg_match($reg['time_played'], $line, $matches);
 
+    if (preg_match($reg['start'], $line, $matches)) {
+        
+        if(sem_acquire($sem_id)){ //Set the semaphore here so we can't restart the Pi until the game is closed
+        $time_start = preg_match($reg['time_played'], $line, $matches);
+        }
     } else if (preg_match($reg['time_end'], $line, $matches)) {
         $time_end = preg_match($reg['time_end'], $line, $matches);
         $game_name = preg_match($reg['game_name'], $line, $matches);
@@ -78,9 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
             }
             echo json_encode(array('success' => 'yes'));
+            sem_release($sem_id); //release the semaphore so we can restart the pi, if needed
 
         } catch (PDOException $e) {
             echo $sqlquery . "<br>" . $e->getMessage();
+            sem_release($sem_id)l //release the semaphore, so we can restart the pi if needed
         }
     } else {
         echo "Error with parsing game data";
