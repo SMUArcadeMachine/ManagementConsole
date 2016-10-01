@@ -14,14 +14,20 @@ $servername = "localhost";
 $dbname = "SMUAdminConsole";
 $username = "admin";
 $password = "8043v36m807c3084m6m03v";
-
+//Semaphore definitions to prevent restarting while a game runs
+    //Reference to semaphore http://www.re-cycledair.com/php-dark-arts-semaphores
+//$MEMSIZE = 512;
+//$SEMKEY = 1;
+//$SHMKEY = 2;
+//$sem_id = sem_get(SEM_KEY, 1, 0666, 1);
 
 $reg = array(
     'start' => "/(START)/i",
     'end' => "/(END)/i",
     'time_end' => "/(?:(END)\_)(\d+)/i",
     'game_name' => "/(?:(END)\_(\d+)\_).+/i",         //(?:(\_{1}\d+\_{1}))(\w+\s)+/",
-    'time_start' => "/(?:(START)\_)(\d+)/i"
+    'time_start' => "/(?:(START)\_)(\d+)/i"//,
+    //'restart' => "/?:(RESTART)"
 );
 
 
@@ -40,7 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $time_endSQL = toDateTime($time_end);
         $time_playedSQL = $time_startSQL - $time_endSQL;
 
-
+   /* else if($_POST['restart']) { //If we see the restart value in the POST data, we will restart
+   // else if(preg_match($reg['restart'],$line,$matches)) { //This looks for for restart pushed from the machine software side, to better integrate with gamedata.php current functionality.
+	if( sem_acquire($sem_id)){
+	shell_exec("sudo /sbin/shutdown -r +1");
+	
+	sem_release($sem_id);
+	echo "Releasing semaphore";
+	}*/
        //$sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
         //store in db
         try {
@@ -82,7 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } catch (PDOException $e) {
             echo $sqlquery . "<br>" . $e->getMessage();
         }
-    } else {
+    } 
+    else {
         echo "Error with parsing game data";
     }
 
