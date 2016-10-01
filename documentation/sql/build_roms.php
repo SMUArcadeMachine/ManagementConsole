@@ -57,7 +57,7 @@ if(count($activeDir) > 1) {
             copy($info[1], "../images/$info[0].jpeg");
 
             // Create img path for the folder
-            $imgPath = "/var/www/html/documentation/images/$info[0].jpeg";
+            $imgPath = "/var/www/html/documentation/images/$info[0].jpg";
 
             $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active, image_loc, game_desc) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
@@ -78,16 +78,17 @@ if(count($inactiveDir) > 1) {
             $info = getInfo($gName);
 
             // Put the image in the images folder
-            copy($info[1], "../images/$info[0].jpeg");
+            copy($info[1], "../images/$info[0].jpg");
 
             // Create img path for the folder
-            $imgPath = "/var/www/html/documentation/images/$info[0].jpeg";
 
-            $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
+            $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active, image_loc, game_desc) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bindParam(1, $gName);
             $stmt->bindParam(2, $inactiveDir[$x]);
             $stmt->bindParam(3, $uDir);
             $stmt->bindParam(4, $u);
+            $stmt->bindParam(5, $imgPath);
+            $stmt->bindParam(6, $info[2]);
             $stmt->execute();
 
         }

@@ -96,6 +96,8 @@ CREATE TABLE possible_roms (
 	pgid		INT NOT NULL AUTO_INCREMENT,
 	file_name		TEXT NOT NULL,
 	game_name		TEXT NOT NULL,
+  image_loc			TEXT,
+  game_desc			TEXT,
 	PRIMARY KEY				(pgid)
 );
 
