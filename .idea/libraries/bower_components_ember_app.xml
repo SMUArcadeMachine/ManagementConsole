@@ -1,13 +1,6 @@
 <component name="libraryTable">
   <library name="bower_components ember-app" type="javaScript">
-    <properties>
-      <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/ember-app/bower_components" />
-      </sourceFilesUrls>
-    </properties>
-    <CLASSES>
-      <root url="file://$PROJECT_DIR$/ember-app/bower_components" />
-    </CLASSES>
+    <CLASSES />
     <SOURCES />
   </library>
 </component>

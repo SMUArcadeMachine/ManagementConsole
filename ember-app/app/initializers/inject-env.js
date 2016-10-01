@@ -19,6 +19,10 @@ export function initialize(application) {
   //Utils service
   application.inject('component', 'utils', 'service:utils');
   application.inject('route', 'utils', 'service:utils');
+
+  //Router in navigation components (might not be the right way)
+  application.inject('component:main-sidebar', 'router', 'router:main');
+  application.inject('component:main-header', 'router', 'router:main');
 }
 
 export default {

@@ -14,6 +14,8 @@ Router.map(function() {
   this.route('forgot', { path: '/forgot' });
   this.route('forgot.password', { path: '/forgot/password' });
   this.route('forgot.password.reset', { path: '/forgot/password/reset' });
+  this.route('logout');
+  this.route('usage');
 });
 
 export default Router;

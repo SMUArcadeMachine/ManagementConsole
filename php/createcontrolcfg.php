@@ -36,6 +36,4 @@ catch (Exception $e)
     echo $e->getMessage() . "\n";
 }
 
-delete($cfgFile)
-
-?>
+delete($cfgFile);

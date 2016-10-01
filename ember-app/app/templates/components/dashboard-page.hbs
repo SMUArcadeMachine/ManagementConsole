@@ -1,5 +1,7 @@
-{{#if session.isAuthenticated}}
-    <a {{action 'invalidateSession'}} class="pointer">Logout</a>
-    <p>Signed in as {{currentUser.username}}</p>
-{{/if}}
-<p>Dashboard page</p>
+<div class="rom-list">
+    <h2>Active ROMs</h2>
+    {{rom-list roms=active_roms}}
+
+    <h2>Inactive ROMs</h2>
+    {{rom-list roms=inactive_roms}}
+</div>

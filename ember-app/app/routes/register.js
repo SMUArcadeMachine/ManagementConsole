@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
+/*globals createError */
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     model() {

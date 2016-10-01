@@ -72,7 +72,7 @@ $config['rest_status_field_name'] = 'status';
 | The field name for the message inside the response
 |
 */
-$config['rest_message_field_name'] = 'error';
+$config['rest_message_field_name'] = 'errors';
 
 /*
 |--------------------------------------------------------------------------

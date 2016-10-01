@@ -13,8 +13,20 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
         return this.get('currentUser').load();
     },
     actions: {
-        logout(){
-            this.get("session").invalidate();
+        addUsers() {
+            Ember.Logger.debug('Going to add users...TODO');
+            // var emails = [];
+            // var url = 'https://private-50f0c-digarcademachine1.apiary-mock.com/addusers';
+            // Ember.$('.input__field').each(function() {
+            //     var email = Ember.$(this).val();
+            //     if (email.endsWith('@smu.edu') && email.length > 8) {
+            //         emails.push(email);
+            //     }
+            // });
+            // var json = {'emails':emails};
+            // Ember.$.post(url, json, function(response) {
+            //     console.log("Server responded with: "+  response.status);
+            // });
         }
     }
 });

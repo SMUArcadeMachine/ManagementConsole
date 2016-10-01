@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    actions: {
-        invalidateSession() {
-            this.get('session').invalidate();
-        }
-    }
+    active_roms: Ember.computed.filterBy('model', 'rom_active', true),
+    inactive_roms: Ember.computed.filterBy('model', 'rom_active', false)
 });

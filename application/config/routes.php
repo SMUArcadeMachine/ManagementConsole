@@ -53,6 +53,7 @@ $route = array(
     '404_override' => '',
     'default_controller' => 'welcome',
     'users/(:num)' => 'users',
+    'roms/(:num)' => 'roms',
 );
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
