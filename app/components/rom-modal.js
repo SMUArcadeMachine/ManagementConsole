@@ -4,12 +4,6 @@ export default Ember.Component.extend({
   actions: {
     updateRoms(model) {
       var json = new Object();
-      var test = {
-        "games":[
-          {"title":"1942", "console":"Arcade"}
-        ]
-      };
-      console.log(test);
       json.games = [];
       Ember.$('.inactiveinput').each(function() {
         var activated = Ember.$(this).is(':checked');
@@ -24,11 +18,9 @@ export default Ember.Component.extend({
       });
 
   		let url = "http://192.168.1.7/php/activaterom.php";
-      console.log(json);
   		Ember.$.post(url, json, function(response){
         console.log(response);
-        location.reload();
-      });
+      }, 'json');
     }
   }
 });
