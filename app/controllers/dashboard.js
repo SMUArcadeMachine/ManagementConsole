@@ -4,9 +4,6 @@ export default Ember.Controller.extend({
   deactivate:false,
   machineReset:false,
   actions: {
-        toggleDeactivate() {
-          this.toggleProperty('deactivate');
-        },
         submitReset() {
             var url = 'http://192.168.1.7/php/reboot.php';
             var json = new Object();
