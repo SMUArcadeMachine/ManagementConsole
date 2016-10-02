@@ -50,11 +50,30 @@ class Roms_model extends CI_Model {
 
             if(!empty($update_data)){
                 $this->db->update('roms',$update_data,array('id' => $current_data['id']));
+
+                $updated_data = array_merge($current_data,$update_data);
+
+                $updated_datas[] = $updated_data;
             }
 
-            $updated_data = array_merge($current_data,$update_data);
+        }
 
-            $updated_datas[] = $updated_data;
+        foreach($updated_datas as $updated_data){
+
+            //Moving the ROMs to their respective folders
+            $storage_path = "/home/pi/gamestorage/" . $updated_data['file_name'];
+            $active_path = "/home/pi/RetroPie/roms/mame-mame4all/" . $updated_data['file_name'];
+            if (file_exists($storage_path) || file_exists($active_path)) {
+                $move_response = array();
+                if(!empty($updated_data['rom_active'])){//Activate
+                    $move_response[0] = rename($storage_path, $active_path); //storage -> active folder
+                }else{//Deactivate
+                    $move_response[0] = rename($active_path, $storage_path); //active -> storage folder
+                }
+                if($move_response[0] == FALSE){
+                    throw new Exception("Error moving the " . $updated_data['file_name'] . " file, please check permissions.");
+                }
+            }
         }
 
         //Format for response

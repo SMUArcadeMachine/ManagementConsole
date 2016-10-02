@@ -19,7 +19,7 @@ CREATE TABLE users (
 	date_banned_till	timestamp,
 	profile_picture_url		VARCHAR(400),
 	ip 								VARCHAR(40),
-active        			tinyint(1) DEFAULT 1,
+	active        		tinyint(1) DEFAULT 1,
 
 	PRIMARY KEY				(uid)
 );

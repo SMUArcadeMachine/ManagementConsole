@@ -1,5 +1,4 @@
 import Ember from 'ember';
-const { getOwner } = Ember;
 
 export default Ember.Mixin.create({
     route_title: Ember.computed('router.currentPath',function() {

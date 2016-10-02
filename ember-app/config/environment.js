@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'managementdashboard',
+    modulePrefix: 'ember-app',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

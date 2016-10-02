@@ -33,93 +33,51 @@ class Cron extends CI_Controller {
         echo 'build_all_roms done';
     }
     public function build_system_roms(){
-        $host = "localhost";
-        $dbname = "SMUAdminConsole";
-        $username = "admin";
-        $password = "8043v36m807c3084m6m03v";
+        $active_directory = '/home/pi/RetroPie/roms/mame-mame4all/';
+        $storage_directory = '/home/pi/gamestorage/';
+        $active_directory_scan = scandir($active_directory);
+        $inactive_directory_scan = scandir($storage_directory);
 
-        $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        if(count($active_directory_scan) > 1) {
+            for ($x = 2; $x < count($active_directory_scan); $x++) {
+                if(strpos($active_directory_scan[$x], '.zip') !== FALSE){
+                    $sql = $this->db->from('roms')->where(['file_name' => $active_directory_scan[$x]])->get_compiled_select();
 
-        function getName($file, $db){
-            $stmt = $db->prepare("SELECT game_name FROM possible_roms WHERE file_name = ?");
-            $stmt->bindParam(1, $file);
-            $stmt->execute();
-            $res = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $res['game_name'];
-        }
+                    $rom = q(array(
+                        'sql' => $sql,
+                        'flat' => true
+                    ));
 
-        function getInfo($name){
-            $url =  "http://thegamesdb.net/api/GetGame.php?name=$name";
-            $fileContents= file_get_contents($url);
-            $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
-            $fileContents = trim(str_replace('"', "'", $fileContents));
-            $simpleXml = simplexml_load_string($fileContents);
-            $json = json_encode($simpleXml);
-            $json = json_decode($json);
-            $baseUrl = $json->baseImgUrl;
-            $art = $json->Game;
-            $id = $art[0]->id;
-            $desc = $art[0]->Overview;
-            $theimg =  $art[0]->Images->boxart;
-            $imgUrl = $baseUrl.$theimg;
+                    if(empty($rom)) throw new Exception('Could not find ROM with filename' . $active_directory_scan[$x] . '.');
 
-            return array($id, $imgUrl, $desc);
-        }
-
-
-        $activeDir = scandir("/home/pi/RetroPie/roms/mame-mame4all/");
-        $aDir = "/home/pi/RetroPie/roms/mame-mame4all/";
-        $inactiveDir = scandir("/home/pi/gamestorage/");
-        $uDir = "/home/pi/gamestorage/";
-
-        $a = 1;
-        $u = 0;
-
-        if(count($activeDir) > 1) {
-            for ($x = 2; $x < count($activeDir); $x++) {
-                if(strpos($activeDir[$x], '.zip') !== FALSE){
-                    $gName = getName($activeDir[$x], $db);
-                    $info = getInfo($gName);
-
-                    // Put the image in the images folder
-                    copy($info[1], "../images/$info[0].jpeg");
-
-                    // Create img path for the folder
-                    $imgPath = "/var/www/html/documentation/images/$info[0].jpeg";
-
-                    $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active, image_loc, game_desc) VALUES (?, ?, ?, ?, ?, ?)");
-                    $stmt->bindParam(1, $gName);
-                    $stmt->bindParam(2, $activeDir[$x]);
-                    $stmt->bindParam(3, $aDir);
-                    $stmt->bindParam(4, $a);
-                    $stmt->bindParam(5, $imgPath);
-                    $stmt->bindParam(6, $info[2]);
-                    $stmt->execute();
+                    $this->db->update('roms',array(
+                        'file_name' => $active_directory_scan[$x],
+                        'rom_loc' => $active_directory,
+                        'image_loc' => '/images/' . $rom['game_name'],
+                        'rom_active' => 1
+                    ),array('id' => $rom['id']));
                 }
             }
         }
 
-        if(count($inactiveDir) > 1) {
-            for ($x = 2; $x < count($inactiveDir); $x++) {
-                if(strpos($inactiveDir[$x], '.zip') !== FALSE){
-                    $gName = getName($inactiveDir[$x], $db);
-                    $info = getInfo($gName);
+        if(count($inactive_directory_scan) > 1) {
+            for ($x = 2; $x < count($inactive_directory_scan); $x++) {
+                if(strpos($inactive_directory_scan[$x], '.zip') !== FALSE){
+                    $sql = $this->db->from('roms')->where(['file_name' => $inactive_directory_scan[$x]])->get_compiled_select();
 
-                    // Put the image in the images folder
-                    copy($info[1], "../images/$info[0].jpeg");
+                    $rom = q(array(
+                        'sql' => $sql,
+                        'flat' => true
+                    ));
 
-                    // Create img path for the folder
-                    $imgPath = "/var/www/html/documentation/images/$info[0].jpeg";
+                    if(empty($rom)) throw new Exception('Could not find ROM with filename' . $inactive_directory_scan[$x] . '.');
 
-                    $stmt = $db->prepare("INSERT INTO roms (game_name, file_name, rom_loc, rom_active) VALUES (?, ?, ?, ?)");
-                    $stmt->bindParam(1, $gName);
-                    $stmt->bindParam(2, $inactiveDir[$x]);
-                    $stmt->bindParam(3, $uDir);
-                    $stmt->bindParam(4, $u);
-                    $stmt->bindParam(5, $imgPath);
-                    $stmt->bindParam(6, $info[2]);
-                    $stmt->execute();
-
+                    $this->db->update('roms',array(
+                        'file_name' => $inactive_directory_scan[$x],
+                        'rom_loc' => $storage_directory,
+                        'image_loc' => '/images/' . $rom['game_name'],
+                        'rom_active' => 0
+                    ),array('id' => $rom['id']));
                 }
             }
         }
