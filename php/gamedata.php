@@ -37,12 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $line = $_POST['postVariable'];
     global $time_start;
     preg_match($reg['start'], $line, $matches);
-    echo $matches[0];
-    if ($matches[0] == "START") {
+    //echo $matches[0];
+    if ($matches[0] == "START" || $matches[0] == "start") {
         //  if(sem_acquire($sem_id)){ //set the semaphore here so we can't restart the Pi until the game is closed
         $time_start = preg_match($reg['time_start'], $line, $matches);
         $myfile = fopen("temp_buffer.txt", "w") or die("Unable to open buffer file!");
-        fwrite($myfile, $matches[0]);
+        fwrite($myfile, $matches[0][0]);
         fclose($myfile);
         /*try {
              $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -73,8 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //	}
     } else {
         preg_match($reg['end'], $line, $matches);
-        echo $matches;
-        if ($matches[0] == "END") {
+        //echo $matches;
+        if ($matches[0] == "END" || $matches == "end") {
             preg_match($reg['time_end'], $line, $matches);
             $time_end = $matches[0];
             preg_match($reg['game_name'], $line, $matches);
