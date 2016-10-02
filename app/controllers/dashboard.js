@@ -3,7 +3,11 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   deactivate:false,
   machineReset:false,
+  isShowingModal: false,
   actions: {
+        toggleModal: function() {
+          this.toggleProperty('isShowingModal');
+        },
         toggleDeactivate() {
           this.toggleProperty('deactivate');
         },

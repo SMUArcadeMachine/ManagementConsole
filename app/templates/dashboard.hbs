@@ -26,9 +26,17 @@
         </form>
       {{else}}
         <h2 style='text-align:center;color:#2d3b48;'> Active Games </h2>
-        {{active-roms showModal=(action "showModal") roms=model.roms}}
+        {{active-roms roms=model.roms}}
       {{/if}}
       </div>
+
+      {{#if isModalVisible}}
+        {{#modal-dialog}}
+          {{component modalDialogName modalContext=modalContext closeAction="closeModal"}}
+        {{/modal-dialog}}
+      {{/if}}
+
+      <button {{action "showModal" "my-component-name" contextForModal}}>Show the modal!</button>
 
       {{!-- Sidebar --}}
       <div class="col-md-3 sidebar-container">
