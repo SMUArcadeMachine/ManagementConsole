@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:dragdrop', 'Unit | Route | dragdrop', {
+moduleFor('route:roms', 'Unit | Route | roms', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

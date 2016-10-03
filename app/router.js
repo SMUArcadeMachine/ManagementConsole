@@ -8,7 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('dashboard');
-  this.route('dragdrop');
+  this.route('roms');
 });
 
 export default Router;

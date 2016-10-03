@@ -1,0 +1,28 @@
+<h1>Games</h1>
+<button {{action "test"}}>TEST</button>
+<table border="1">
+  <tr>
+    <td>
+      <div id="actives">
+        {{#draggable-object-target activeRoms=activeRoms sortingScope='a' action="addActiveRom"}}
+          {{#each activeRoms as |rom|}}
+            {{#draggable-object content=rom sortingScope='a' overrideClass='sortObject'}}
+              <div>{{rom.title}}</div>
+            {{/draggable-object}}
+          {{/each}}
+        {{/draggable-object-target}}
+      </div>
+    </td>
+    <td>
+      <div id="inactives">
+        {{#draggable-object-target inactiveRoms=inactiveRoms sortingScope='a' action="addInactiveRom"}}
+          {{#each inactiveRoms as |rom|}}
+            {{#draggable-object content=rom overrideClass='sortObject' sortingScope='a'}}
+              <div>{{rom.title}}</div>
+            {{/draggable-object}}
+          {{/each}}
+        {{/draggable-object-target}}
+      </div>
+    </td>
+  </tr>
+</table>
