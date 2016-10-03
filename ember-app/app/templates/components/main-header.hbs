@@ -11,3 +11,30 @@
         <div class="logout-button-wrapper"><button class="btn btn-block btn-lg btn-primary dashboard-button-small" {{action "logout"}}><i class="fa fa-sign-out" aria-hidden="true"></i></button></div>
     </div>
 </div>
+{{!-- SSH Instructions --}}
+<div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid ssh">
+                    <h4> To access the Arcade Machine's terminal: </h4>
+                    <ol>
+                        <li> Open an SSH capable terminal (For Windows, use <a href='http://www.putty.org/'>PuTTY</a> or something similar) </li>
+                        <li> Connect to the pi with the user "pi" using it's IP Address like so: <br> <code>ssh pi@192.168.1.7</code></li>
+                        <li> Use the default raspberry pi password as the password </li>
+                        <li> ...? </li>
+                        <li> Profit </li>
+                    </ol>
+                    If you're confused on this process, <a href='http://www.wikihow.com/Use-SSH'>read up on how to SSH into a server </a>. <br>Or you can spam your questions to the email <a href='mailto:mfonten@smu.edu'> mfonten@smu.edu </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

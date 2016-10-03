@@ -1,7 +1,9 @@
 TODO items
+Compare updated css styles
 Import users, usage (w/ real data & real backend calls)
 Logout if invalid API key
 Proxy to Ember frontend
+Ask Bryce another way to show ROM description (maybe don't even need)
 
 Change constants back to mysql on development/constants.php
 

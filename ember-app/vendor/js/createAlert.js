@@ -931,7 +931,7 @@ function createError(title,message){
 function showLoader(){
     $('.toast').remove();
     window["create-alert-loader"] = createAlert('<span style="margin-left: 56px">Loading&nbsp;<i style="color: white" class="fa fa-spin fa-refresh pageLoading"></i></span>','','loading',true,null,{html: true});
-    return window.loader;
+    return window["create-alert-loader"];
 }
 function isLoading(){
     return window["create-alert-loader"] != null;
