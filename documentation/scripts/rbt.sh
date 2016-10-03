@@ -6,4 +6,4 @@ echo "Waiting for process ID $PID to end..."
 while ps axg | grep -vw grep | grep -w $PID > /dev/null; do sleep 1; done
 
 echo "Rebooting Machine"
-shutdown -r +0 # shutdown --reboot in +0 minutes (+1 minute by default)
+sleep 5; shutdown -r +0 # shutdown --reboot in +0 minutes (+1 minute by default)
