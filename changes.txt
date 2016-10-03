@@ -1,5 +1,5 @@
 TODO items
-Import users, usage (test gamedata)
+Import users, usage (w/ real data & real backend calls)
 Logout if invalid API key
 Proxy to Ember frontend
 
