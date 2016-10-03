@@ -77,8 +77,56 @@ export default Ember.Controller.extend({
 
       let urlActive = "http://192.168.1.7/php/activaterom.php";
       let urlDeactive = "http://192.168.1.7/php/deactivaterom.php";
-      var responseActive = Ember.$.post(url, activeJson);
-      var responseDeactive = Ember.$.post(url, inactiveJson);
+      var responseActive = Ember.$.post(urlActive, activeJson);
+      var responseDeactive = Ember.$.post(urlDeactive, inactiveJson);
+    },
+    filterInactive() {
+      var inactiveBlocks = $('.inactive-div');
+      var inactives = $('span.inactive-title');
+      if(inactives.length > 0) {
+        var filterString = this.get('inactiveFilterValue').toLowerCase();
+        if(filterString.length > 0) {
+          for(var i = 0; i < inactives.length; i++) {
+            var inactiveName = inactives[i].innerText;
+            if(inactiveName.toLowerCase().includes(filterString)) {
+              inactiveBlocks[i].style.display = "block";
+            }
+            else {
+              inactiveBlocks[i].style.display = "none";
+            }
+          }
+        }
+        else {
+          for(var i = 0; i < inactives.length; i++) {
+            inactiveBlocks[i].style.display = "block";
+          }
+        }
+      }
+    },
+    filterActive() {
+      var activeBlocks = $('.active-div');
+      var actives = $('span.active-title');
+      if(actives.length > 0) {
+        var filterString = this.get('activeFilterValue').toLowerCase();
+        console.log(filterString.length);
+        if(filterString.length > 0) {
+          for(var i = 0; i < actives.length; i++) {
+            var activeName = actives[i].innerText;
+            if(activeName.toLowerCase().includes(filterString)) {
+              activeBlocks[i].style.display = "block";
+            }
+            else {
+              activeBlocks[i].style.display = "none";
+            }
+          }
+        }
+        else {
+          for(var i = 0; i < actives.length; i++) {
+            activeBlocks[i].style.display = "block";
+          }
+        }
+      }
     }
+
   }
 });
