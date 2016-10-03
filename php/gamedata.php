@@ -1,8 +1,11 @@
-reated by PhpStorm.
+<?php
+/**
+ * Created by PhpStorm.
  * User: Ziga
  * Date: 9/27/2016
  * Time: 8:23 AM
  */
+
 
 ini_set('display_errors',1);
 
