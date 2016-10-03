@@ -3,26 +3,30 @@
 <table border="1">
   <tr>
     <td>
-      <div id="actives">
-        {{#draggable-object-target activeRoms=activeRoms sortingScope='a' action="addActiveRom"}}
+      {{#draggable-object-target activeRoms=activeRoms sortingScope='a' action="addActiveRom"}}
+        <div id="actives" style="width:200px; height:150px">
           {{#each activeRoms as |rom|}}
             {{#draggable-object content=rom sortingScope='a' overrideClass='sortObject'}}
               <div>{{rom.title}}</div>
             {{/draggable-object}}
           {{/each}}
-        {{/draggable-object-target}}
-      </div>
+        </div>
+      {{/draggable-object-target}}
     </td>
     <td>
-      <div id="inactives">
-        {{#draggable-object-target inactiveRoms=inactiveRoms sortingScope='a' action="addInactiveRom"}}
+      {{#draggable-object-target inactiveRoms=inactiveRoms sortingScope='a' action="addInactiveRom"}}
+        <div id="inactives" style="width:200px; height: 150px">
           {{#each inactiveRoms as |rom|}}
             {{#draggable-object content=rom overrideClass='sortObject' sortingScope='a'}}
               <div>{{rom.title}}</div>
             {{/draggable-object}}
           {{/each}}
-        {{/draggable-object-target}}
-      </div>
+        </div>
+      {{/draggable-object-target}}
     </td>
   </tr>
 </table>
+{{#each changes as |change|}}
+  <div>{{change}}</div>
+{{/each}}
+<button {{action "pushChanges"}}>PUSH CHANGES</button>
