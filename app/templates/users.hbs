@@ -1,0 +1,9 @@
+{{navbar-component}}
+<div class="user-container">
+              <div class="user admin" {{action 'openUserModal' 'viewuser'}}> Rickey <br> <i class="fa fa-user" aria-hidden="true"></i> <br> <strong>Tech</strong> </div>
+              <div class="user tech" {{action 'openUserModal' 'viewuser'}} data-dismiss='modal' data-toggle='modal' data-target=>Parker <br> <i class="fa fa-user" aria-hidden="true"></i> <br> <strong>Tech</strong> </div>
+              <div class="user tech" {{action 'openUserModal' 'viewuser'}}> Edward <br> <i class="fa fa-user" aria-hidden="true"></i> <br> <strong>Tech</strong></div>
+              <div class="user tech" {{action 'openUserModal' 'viewuser'}}> Sam  <br><i class="fa fa-user" aria-hidden="true"></i> <br><strong>Tech</strong></div>
+              <div class="user tech adduser" id='adduserbtn' data-dismiss='modal' data-toggle='modal' data-target='adduser'><i class="fa fa-plus" aria-hidden="true"></i></div>
+            </div>
+{{outlet}}

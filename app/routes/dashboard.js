@@ -20,18 +20,11 @@ Ember.$(document).ready(function() {
 
 
 export default Ember.Route.extend({
-	model() {
-		// This returns undefined - console.log(this.get('private-9c66cc-managementconsole.apiary-mock.com/getroms'));
-		// var romurl = "http://192.168.1.7/php/actives.php";
-		var romurl = "https://private-50f0c-digarcademachine1.apiary-mock.com/actives";
-		let roms = Ember.$.getJSON(romurl).then(function(data) { return data.actives; });
-		// var inactiveurl = "http://192.168.1.7/php/getavailableroms.php";
-		var inactiveurl = "https://private-50f0c-digarcademachine1.apiary-mock.com/inactives";
-		let inactives = Ember.$.getJSON(inactiveurl).then(function(data) { return data.roms; });
-		return RSVP.hash({
-	           roms: roms,
-	           inactive: inactives
-	    });
+
+	actions: {
+		toggleDeactivate() {
+          	this.toggleProperty('deactivate');
+        },
 	},
 	setupController: function(controller, model) {
 	    controller.set('model', model);

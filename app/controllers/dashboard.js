@@ -5,12 +5,6 @@ export default Ember.Controller.extend({
   machineReset:false,
   isShowingModal: false,
   actions: {
-        toggleModal: function() {
-          this.toggleProperty('isShowingModal');
-        },
-        toggleDeactivate() {
-          this.toggleProperty('deactivate');
-        },
         submitReset() {
             var url = 'http://192.168.1.7/php/reboot.php';
             var json = new Object();
@@ -23,10 +17,10 @@ export default Ember.Controller.extend({
         },
         submitDeactivateForm() {
             var gamesObject = [];
-            var games = new Object;
             Ember.$('.rom').each(function () {
                 var activated = Ember.$(this).find('input[type="checkbox"]').is(':checked');
                 if (activated) {
+                    var games = new Object;
                     games.title = Ember.$(this).find('.title').text();
                     gamesObject.push(games);
                 }
