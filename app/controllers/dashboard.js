@@ -52,22 +52,6 @@ export default Ember.Controller.extend({
         openUserModal(target) {
             Ember.$('#'+target).modal('show');
             console.log("Opening modal");
-        },
-        showModal: function(modalName, model) {
-            console.log("In show Modal @ dashboard route.js");
-            this.render("components/"+modalName, {
-                into: 'dashboard',
-                outlet: 'modal',
-                model: model
-            });
-            console.log("End of showModal in dashboard route");
-            // Ember.$('#myModal').modal('show');
-        },
-        closeModal: function() {
-            return this.disconnectOutlet({
-                outlet: 'modal',
-                parentView: 'dashboard'
-            });
         }
     }
 });

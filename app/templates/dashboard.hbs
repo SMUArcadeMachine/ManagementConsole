@@ -6,6 +6,8 @@
       Not Deactivate
     {{/if}}
 
+    <button {{action 'showModal' 'test-modal'}}>Test Modal</button>
+
     {{#each model.active as |rom|}}
       <div class="modal fade" id="{{rom.title}}modal" tabindex="-1" role="dialog" aria-labelledby="{{rom.title}}label">
           <div class="modal-dialog" role="document">
@@ -29,5 +31,4 @@
     {{rom-modal model=model.inactive}}
     {{misc-modals}}
 
-{{outlet}}
 {{outlet 'modal'}}
