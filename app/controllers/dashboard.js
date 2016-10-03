@@ -4,9 +4,6 @@ export default Ember.Controller.extend({
   deactivate:false,
   machineReset:false,
   actions: {
-        toggleDeactivate() {
-          this.toggleProperty('deactivate');
-        },
         submitReset() {
             var url = 'https://private-50f0c-digarcademachine1.apiary-mock.com/reset';
             Ember.$.get(url, function() {

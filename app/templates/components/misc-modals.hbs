@@ -1,0 +1,130 @@
+{{yield}}
+{{!-- SSH Instructions --}}
+    <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid ssh">
+              <h4> To access the Arcade Machine's terminal: </h4>
+              <ol>
+                <li> Open an SSH capable terminal (For Windows, use <a href='http://www.putty.org/'>PuTTY</a> or something similar) </li>
+                <li> Connect to the pi with the user "pi" using it's IP Address like so: <br> <code>ssh pi@192.168.1.7</code></li>
+                <li> Use the default raspberry pi password as the password </li>
+                <li> ...? </li>
+                <li> Profit </li>
+              </ol>
+              If you're confused on this process, <a href='http://www.wikihow.com/Use-SSH'>read up on how to SSH into a server </a>. <br>Or you can spam your questions to the email <a href='mailto:mfonten@smu.edu'> mfonten@smu.edu </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Reboot --}}
+    <div class="modal fade" id="sshmodal" tabindex="-1" role="dialog" aria-labelledby="sshlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="sshlabel">SSH Instructions</h3>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid ssh">
+              <h4> To access the Arcade Machine's terminal: </h4>
+              <ol>
+                <li> Open an SSH capable terminal (For Windows, use <a href='http://www.putty.org/'>PuTTY</a> or something similar) </li>
+                <li> Connect to the pi with the user "pi" using it's IP Address like so: <br> <code>ssh pi@192.168.1.7</code></li>
+                <li> Use the default raspberry pi password as the password </li>
+                <li> ...? </li>
+                <li> Profit </li>
+              </ol>
+              If you're confused on this process, <a href='http://www.wikihow.com/Use-SSH'>read up on how to SSH into a server </a>. <br>Or you can spam your questions to the email <a href='mailto:mfonten@smu.edu'> mfonten@smu.edu </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Management Modal -->
+    <div class="modal fade" id="manageusers" tabindex="-1" role="dialog" aria-labelledby="manageuserslabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="manageuserslabel">Manage Users</h3>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary adduser" data-dismiss='modal' data-toggle='modal' data-target='adduser'>Add New Users</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- View User Modal --}}
+    <div class="modal fade" id="viewuser" tabindex="-1" role="dialog" aria-labelledby="viewuserlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="viewuserlabel">User Details</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container view-user-container">
+              <div class='big-user-icon'> <i class="fa fa-user" aria-hidden="true"></i> </div>
+              <h2> Parker Holloway </h2>
+              <h3> Email: pholloway@smu.edu </h3>
+              <h3> Authority: Technician </h3>
+              <button class="btn btn-block btn-lg btn-danger dashboard-button-large" >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Adding User Modal --}}
+    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduserlabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="adduserlabel">Add New User</h3>
+          </div>
+          <div class="modal-body">
+            <div class="user-container add-user-container">
+              <form id='adduserform'>
+                <span class="input input--kaede">
+                  <input class="input__field input__field--kaede" type="text" id="input-0" />
+                  <label class="input__label input__label--kaede" for="input-0">
+                    <span class="input__label-content input__label-content--kaede">Enter an SMU Email</span>
+                  </label>
+                </span>
+              </form>
+              <button type='button' id='addinputbtn' class='btn btn-primary'><i class="fa fa-plus" aria-hidden="true"></i> </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" {{action 'submitEmailForm'}}>Add Users</button>
+          </div>
+        </div>
+      </div>
+    </div>
