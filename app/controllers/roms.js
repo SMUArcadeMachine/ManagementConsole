@@ -15,10 +15,6 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    test() {
-      console.log(this.get('activeRoms'));
-      console.log(this.get('originals'));
-    },
     addActiveRom(rom) {
       var activeRoms = this.get('activeRoms');
       var inactiveRoms = this.get('inactiveRoms');
@@ -80,6 +76,7 @@ export default Ember.Controller.extend({
       var responseActive = Ember.$.post(urlActive, activeJson);
       var responseDeactive = Ember.$.post(urlDeactive, inactiveJson);
     },
+
     filterInactive() {
       var inactiveBlocks = $('.inactive-div');
       var inactives = $('span.inactive-title');
@@ -108,7 +105,6 @@ export default Ember.Controller.extend({
       var actives = $('span.active-title');
       if(actives.length > 0) {
         var filterString = this.get('activeFilterValue').toLowerCase();
-        console.log(filterString.length);
         if(filterString.length > 0) {
           for(var i = 0; i < actives.length; i++) {
             var activeName = actives[i].innerText;

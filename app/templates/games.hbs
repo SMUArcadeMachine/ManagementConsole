@@ -1,3 +1,39 @@
 {{navbar-component}}
-{{active-roms roms=model.roms}}
+<h1>Games</h1>
+<table border="1">
+  <tr>
+    <td>{{input id="activeFilter" key-up="filterActive" valueBinding="activeFilterValue" placeholder="Active Filter"}}</td>
+    <td>{{input id="inactiveFilter" key-up="filterInactive" valueBinding="inactiveFilterValue" placeholder="Inactive Filter"}}</td>
+  </tr>
+  <tr>
+    <td>
+      {{#draggable-object-target activeRoms=activeRoms sortingScope='a' action="addActiveRom"}}
+        <div id="actives" style="width:200px; height:150px">
+          {{#each activeRoms as |rom|}}
+            {{#draggable-object content=rom sortingScope='a' overrideClass='sortObject'}}
+              <div class="active-div"><span class="active-title">{{rom.title}}</span></div>
+            {{/draggable-object}}
+          {{/each}}
+        </div>
+      {{/draggable-object-target}}
+    </td>
+    <td>
+      {{#draggable-object-target inactiveRoms=inactiveRoms sortingScope='a' action="addInactiveRom"}}
+        <div id="inactives" style="width:200px; height: 150px">
+          {{#each inactiveRoms as |rom|}}
+            {{#draggable-object content=rom overrideClass='sortObject' sortingScope='a'}}
+              <div class="inactive-div"><span class="inactive-title">{{rom.title}}</span></div>
+            {{/draggable-object}}
+          {{/each}}
+        </div>
+      {{/draggable-object-target}}
+    </td>
+  </tr>
+</table>
+{{#each changes as |change|}}
+  <div>{{change}}</div>
+{{/each}}
+<button {{action "pushChanges"}}>PUSH CHANGES</button>
+
+
 {{outlet}}
