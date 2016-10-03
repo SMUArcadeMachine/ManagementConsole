@@ -33,3 +33,7 @@ AddType application/font-woff .woff
 <IfModule !mod_rewrite.c>
   ErrorDocument 404 /index.php
 </IfModule>
+
+# Change CodeIgniter environment
+#SetEnv CI_ENV development
+SetEnv CI_ENV production

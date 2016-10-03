@@ -23,6 +23,8 @@ export function initialize(application) {
   //Router in navigation components (might not be the right way)
   application.inject('component:main-sidebar', 'router', 'router:main');
   application.inject('component:main-header', 'router', 'router:main');
+  application.inject('route:application', 'router', 'router:main');
+  application.inject('controller:application', 'router', 'router:main');
 }
 
 export default {

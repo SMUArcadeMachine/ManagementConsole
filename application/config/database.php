@@ -74,12 +74,13 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	=> 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DATABASE,
 	'hostname' => MYSQL_HOST,
 	'username' => MYSQL_USERNAME,
 	'password' => MYSQL_PASSWORD,
 	'database' => MYSQL_DATABASE,
-	'dbdriver' => 'mysqli',
+	'port'     => MYSQL_PORT,
+	'dbdriver' => MYSQL_DRIVER,
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

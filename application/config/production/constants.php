@@ -6,10 +6,12 @@
 */
 
 //Database
-define('MYSQL_HOST',    'mysql');
+define('MYSQL_HOST',    'localhost');
 define('MYSQL_USERNAME','admin');
 define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
+define('MYSQL_PORT',3306);
+define('MYSQL_DRIVER','mysqli');
 
 //Global
 define('NOTIFICATIONS',true);
@@ -18,8 +20,8 @@ define('FAILED_LOGIN_ATTEMPTS',5);
 define('IP_HEADER','REMOTE_ADDR');
 define('LOGIN_SESSION_DAYS',7);
 
-define('BASE_URL','http://localhost:4200/');
-define('BASE_URL_NO_SCHEME','localhost/');
+define('BASE_URL','http://10.0.0.100/');
+define('BASE_URL_NO_SCHEME','10.0.0.100/');
 define('HASH','#/');
 define('BASE_NAME','Arcade Machine Management Console');
 define('BASE_NAME_ABBR','AMMC');

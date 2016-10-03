@@ -10,6 +10,8 @@ define('MYSQL_HOST',    'mysql');
 define('MYSQL_USERNAME','admin');
 define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
+define('MYSQL_PORT',3306);
+define('MYSQL_DRIVER','mysqli');
 
 //Global
 define('NOTIFICATIONS',true);

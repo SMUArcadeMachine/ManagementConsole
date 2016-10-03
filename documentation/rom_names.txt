@@ -1,4 +1,3 @@
-5	5
 1941	1941 - Counter Attack (World)
 1941j	1941 - Counter Attack (Japan)
 1942	1942 (set 1)
