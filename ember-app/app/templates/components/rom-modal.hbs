@@ -1,0 +1,20 @@
+<div class="modal fade" id="addgame" tabindex="-1" role="dialog" aria-labelledby="addgamelabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="addgamelabel">Upload a new game</h3>
+      </div>
+      <div class="modal-body">
+        <!-- <input type="text" placeholder="Search for a game to add"><button class='btn-primary'>Filter</button> -->
+        {{#each model as |roms|}}
+          {{inactive-roms inactive-roms=roms}}
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" {{action 'updateRoms' model}}>Add game</button>
+      </div>
+    </div>
+  </div>
+</div>

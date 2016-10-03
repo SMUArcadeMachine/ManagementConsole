@@ -70,6 +70,7 @@
 ## Ember Guide
 * Where to start learning: [Ember Tutorial](https://guides.emberjs.com/v2.8.0/tutorial/ember-cli/#toc_directory-structure)
 * Make sure you are looking at guides/Stack Overflow questions for Ember 2.8.0 and up as Ember has changed a lot from 1.* -> 2.*. 
+* Do not use Ember Controllers anymore (almost deprecated). Use routes, templates, and components most of the time.
 * **AJAX/Talking with the backend** - 2 ways
     1. [Ember Data](https://guides.emberjs.com/v2.8.0/tutorial/ember-data/)
         1. Used most of the time
@@ -111,4 +112,3 @@
 3. Add a breakpoint anywhere in your PHP file and PHPStorm will break when you access this file
 
 # TODO/Bugs
-* Codeigniter Rewrite

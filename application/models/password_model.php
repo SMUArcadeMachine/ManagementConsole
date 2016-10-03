@@ -1,12 +1,12 @@
 <?php
 class Password_model extends CI_Model {
-    function create_password_reset($email){
-        $sql = $this->db->from('users')->where(array('email' => $email))->get_compiled_select();
+    function create_password_reset($username){
+        $sql = $this->db->from('users')->where(array('username' => $username))->get_compiled_select();
         $user = q(array(
             'sql' => $sql,
             'flat' => true
         ));
-        if(!$user) throw new Exception('There are no accounts with that email on ' . BASE_NAME);
+        if(!$user) throw new Exception('There are no accounts with that username on ' . BASE_NAME);
         $reset_token = uniq_hash();
         $data = array(
             'token' => $reset_token,
@@ -15,7 +15,7 @@ class Password_model extends CI_Model {
         $this->db->insert('password_resets', $data);
 
         $this->queue->notification('password_reset',array(
-            'url' => BASE_URL . HASH . "password/reset?t=" . $reset_token
+            'url' => BASE_URL . "forgot/password/reset?t=" . $reset_token
         ),$user);
         return true;
     }

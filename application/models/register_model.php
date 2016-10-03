@@ -14,11 +14,11 @@ class Register_model extends CI_Model {
         valid_username($user['username']);
 
         //Password check
-        if($user['password'] != $user['password2'] ) throw new Data_error(array('error' => 'Password miss match.','type' => 'password'));
+        if($user['password'] != $user['password2'] ) throw new Data_error(array('message' => 'Password miss match.','type' => 'password'));
 
         //Username Check
         if($user['username'] != $user['username2']){
-            throw new Data_error(array('error' => 'Username miss match.','type' => 'email'));
+            throw new Data_error(array('message' => 'Username miss match.','type' => 'email'));
         }
     }
 }

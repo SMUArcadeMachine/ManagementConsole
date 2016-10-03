@@ -1,9 +1,16 @@
 {
-  "predef": [
-    "document",
-    "window",
-    "-Promise"
-  ],
+  "globals": {
+    "document": false,
+    "window": false,
+    "-Promise": false,
+    "createAlert": true,
+    "createError": true,
+    "createConfirm": true,
+    "isLoading": true,
+    "hideLoader": true,
+    "showLoader": true
+  },
+
   "browser": true,
   "boss": true,
   "curly": true,

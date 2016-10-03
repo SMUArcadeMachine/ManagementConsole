@@ -1,4 +1,4 @@
-FROM toozick/smu-arcade-machine-management-console-ember:v1
+FROM toozick/smu-arcade-machine-management-console-ember:v2
 
 WORKDIR /tmp
 

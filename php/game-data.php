@@ -40,39 +40,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $time_endSQL = toDateTime($time_end);
         $time_playedSQL = $time_startSQL - $time_endSQL;
 
-
-       //$sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
-        //store in db
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
+            $sqlquery = 'SELECT * FROM game_data WHERE game_name="' . $game_name . '";';
             $temp = $conn->prepare($sqlquery);
             $temp->execute();
-
-            if(empty($temp)){
-                $query = "CREATE TABLE gameData(
-                          timeStart TIME,
-                          timeEnd TIME,
-                          timePlayed TIME,
-                          gameName VARCHAR(50),
-                          counts int(3000)
-                )";
-                $temp = $conn->prepare($query);
-                $temp->execute();
-
-                $temp = $conn->prepare($sqlquery);
-                $temp->execute();
-            }
             $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
 
             if (count($temp) > 0) {
-                $sqlquery = 'INSERT INTO gameData (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_startSQL . '","' . $time_endSQL . '","' . $time_playedSQL . '","' . $game_name . '", 1;';
+                $sqlquery = 'INSERT INTO game_data (time_start,time_end,time_played,game_name,counts) VALUES ("' . $time_startSQL . '","' . $time_endSQL . '","' . $time_playedSQL . '","' . $game_name . '", 1;';
                 $temp = $conn->prepare($sqlquery);
                 $temp->execute();
                 $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
             } else {
-                $sqlquery = 'UPDATE gameData SET timeStart ="' . $time_startSQL . '", AND timeEnd="' . $time_endSQL . '", AND timePlayed = timePlayed+"' . $time_playedSQL . '", AND counts = counts+1 WHERE gameName ="' . $game_name . '";';
+                $sqlquery = 'UPDATE game_data SET time_start ="' . $time_startSQL . '", AND time_end="' . $time_endSQL . '", AND time_played = time_played+"' . $time_playedSQL . '", AND counts = counts+1 WHERE game_name ="' . $game_name . '";';
                 $temp = $conn->prepare($sqlquery);
                 $temp->execute();
                 $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
@@ -90,19 +72,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-   $getGameName = $_GET['gameName'];
+   $getgame_name = $_GET['game_name'];
 
     try {
 
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
+        $sqlquery = 'SELECT * FROM game_data WHERE game_name="' . $game_name . '";';
         $temp = $conn->prepare($sqlquery);
         $temp->execute();
         $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
 
         if($temp > 0){
-            echo json_encode(array('gameName' => $temp['gameName'], 'timePlayed' => $temp['timePlayed']));
+            echo json_encode(array('game_name' => $temp['game_name'], 'time_played' => $temp['time_played']));
         }else{
             echo json_encode(array('success' => 'no'));
         }
