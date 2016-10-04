@@ -15,6 +15,9 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
+    testReload() {
+      window.location.href = 'reload';
+    },
     addActiveRom(rom) {
       var activeRoms = this.get('activeRoms');
       var inactiveRoms = this.get('inactiveRoms');

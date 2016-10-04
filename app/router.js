@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('users');
   this.route('games');
   this.route('usage');
+  this.route('reload');
 });
 
 export default Router;
