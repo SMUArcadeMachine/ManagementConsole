@@ -74,15 +74,16 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'admin',
-	'password' => '8043v36m807c3084m6m03v',
-	'database' => 'SMUAdminConsole',
-	'dbdriver' => 'mysqli',
+	'dsn'	=> 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DATABASE,
+	'hostname' => MYSQL_HOST,
+	'username' => MYSQL_USERNAME,
+	'password' => MYSQL_PASSWORD,
+	'database' => MYSQL_DATABASE,
+	'port'     => MYSQL_PORT,
+	'dbdriver' => MYSQL_DRIVER,
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => TRUE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

@@ -125,7 +125,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 		}
 		else
 		{
-			// Persistent connection support was added in PHP 5.3.0
+			// Persistent connection support was added in PHP 5.3.0F
 			$hostname = ($persistent === TRUE && is_php('5.3'))
 				? 'p:'.$this->hostname : $this->hostname;
 			$port = empty($this->port) ? NULL : $this->port;

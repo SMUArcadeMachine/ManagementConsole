@@ -19,9 +19,13 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-  app.import('vendor/bootstrap.min.css');
-  app.import('vendor/bootstrap.min.js');
+  app.import('vendor/js/createAlert.js');
+  app.import('vendor/js/bootstrap.min.js');
+
+  app.import('vendor/css/toastr.css');
+  app.import('vendor/css/font-awesome.css');
+  app.import('vendor/css/packery-docs.css');
+  app.import('vendor/css/bootstrap.min.css');
 
   return app.toTree();
 };
-

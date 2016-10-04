@@ -6,103 +6,120 @@
  * Time: 8:23 AM
  */
 
-/*public function toDateTime($unixTimestamp){
-    return date("Y-m-d H:m:s", $unixTimestamp);
-}*/
+
+ini_set('display_errors',1);
 
 $servername = "localhost";
 $dbname = "SMUAdminConsole";
 $username = "admin";
 $password = "8043v36m807c3084m6m03v";
 
-
+//regex for scraping Software Team's data
 $reg = array(
     'start' => "/(START)/i",
     'end' => "/(END)/i",
-    'time_end' => "/(?:(END)\_)(\d+)/i",
-    'game_name' => "/(?:(END)\_(\d+)\_).+/i",         //(?:(\_{1}\d+\_{1}))(\w+\s)+/",
-    'time_start' => "/(?:(START)\_)(\d+)/i"
+    'time_end' => "/(\d){11}/", //"/(?:((END)\_))(\d+)/i",
+    'game_name' => "/(\d){11}(\_)(\w+)/",// "/(?=(END\_(\d+)(\_)))(\w)+/",         //(?:(\_{1}\d+\_{1}))(\w+\s)+/",
+    'time_start' => "/(?:(START)\_)(\d+)/i"//,
+    // 'restart' => "/?:(RESTART)"
 );
+$time_start;
+$matches=array();
 
-
+//Data coming from software
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $line = $_POST['log'];
-    echo $line;
-    if (preg_match($reg['start'], $line, $matches)) {
-        $time_start = preg_match($reg['time_played'], $line, $matches);
+    $line = $_POST['postVariable'];
+    global $time_start;
+    preg_match($reg['start'], $line, $matches);
 
-    } else if (preg_match($reg['time_end'], $line, $matches)) {
-        $time_end = preg_match($reg['time_end'], $line, $matches);
-        $game_name = preg_match($reg['game_name'], $line, $matches);
+    //checks for regex hits
+    if (!empty($matches)){
+        //"START" case
+        if( $matches[0] == "START" || $matches[0] == "start") {
+            preg_match($reg['time_start'], $line, $matches);
+            $time_start = $matches[2];
 
-        $time_startSQL = toDateTime($time_start);
-        $time_endSQL = toDateTime($time_end);
-        $time_playedSQL = $time_startSQL - $time_endSQL;
-
-
-       //$sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
-        //store in db
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
-            $temp = $conn->prepare($sqlquery);
-            $temp->execute();
-
-            if(empty($temp)){
-                $query = "CREATE TABLE gameData(
-                          timeStart TIME,
-                          timeEnd TIME,
-                          timePlayed TIME,
-                          gameName VARCHAR(50),
-                          counts int(3000)
-                )";
-                $temp = $conn->prepare($query);
-                $temp->execute();
-
-                $temp = $conn->prepare($sqlquery);
-                $temp->execute();
-            }
-            $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
-
-            if (count($temp) > 0) {
-                $sqlquery = 'INSERT INTO gameData (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_startSQL . '","' . $time_endSQL . '","' . $time_playedSQL . '","' . $game_name . '", 1;';
-                $temp = $conn->prepare($sqlquery);
-                $temp->execute();
-                $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
-            } else {
-                $sqlquery = 'UPDATE gameData SET timeStart ="' . $time_startSQL . '", AND timeEnd="' . $time_endSQL . '", AND timePlayed = timePlayed+"' . $time_playedSQL . '", AND counts = counts+1 WHERE gameName ="' . $game_name . '";';
-                $temp = $conn->prepare($sqlquery);
-                $temp->execute();
-                $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
-            }
-            echo json_encode(array('success' => 'yes'));
-
-        } catch (PDOException $e) {
-            echo $sqlquery . "<br>" . $e->getMessage();
+            //make a temp file to store start time
+            $myfile = fopen("temp_buffer.txt", "w") or die("Unable to open buffer file!");
+            fwrite($myfile, $matches[2]);
+            fclose($myfile);
         }
+        //"END" case
     } else {
-        echo "Error with parsing game data";
-    }
+        preg_match($reg['end'], $line, $matches);
+        if ($matches[0] == "END" || $matches == "end") {
+            preg_match($reg['time_end'], $line, $matches);
+            $time_end = $matches[0];
+            preg_match($reg['game_name'], $line, $matches);
+            $game_name = $matches[3];
 
+            //get start time from temp file
+            $myfile = fopen("temp_buffer.txt", "r") or die ("Can't open buffer file");
+            $time_start = fgets($myfile);
+            fclose($myfile);
+            $pathtofile = "/var/www/html/php/temp_buffer.txt";
+            unlink($pathtofile);
+            $time_played = $time_end - $time_start;
+
+            //connect DB
+            try {
+                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
+                $temp = $conn->prepare($sqlquery);
+                $temp->execute();
+                $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
+
+                //if the game is not in the DB yet, new entry
+                if (!(count($temp) > 0)) {
+                    $sqlquery = 'INSERT INTO gameData (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_start . '","' . $time_end . '","' . $time_played . '","' . $game_name . '", 1);';
+                    $temp = $conn->prepare($sqlquery);
+                    $temp->execute();
+
+                    //if the game is already in the DB, update fields
+                } else if(count($temp)>0){
+		            $tplayed = $temp[0]['timePlayed'];
+		            $tplayed = $tplayed + $time_played;
+		            $cnt = $temp[0]['counts'] + 1;
+                    $sqlquery = 'UPDATE gameData SET timeStart="' . $time_start . '", timeEnd="' . $time_end . '", timePlayed ="'. $tplayed.'", counts ="'.$cnt.'"  WHERE gameName ="' . $game_name . '";';
+                    $temp = $conn->prepare($sqlquery);
+                    $temp->execute();
+                }
+                //report success
+                echo json_encode(array('success' => 'yes'));
+            } catch (PDOException $e) {
+                echo $sqlquery . "<br>" . $e->getMessage();
+            }
+        } else {
+            echo "Error with parsing game data";
+        }
+
+
+    }
 }
 
+//process GET request from frontend
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-   $getGameName = $_GET['gameName'];
+    //checks ig gameName parameter is set
+   if(!isset($_GET['gameName'])) {
+	echo "gameName NOT SET";
+
+       //if it is, query database
+    }else{
+    $getGameName = $_GET['gameName'];
 
     try {
-
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
+        $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $getGameName . '";';
         $temp = $conn->prepare($sqlquery);
         $temp->execute();
         $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
 
         if($temp > 0){
-            echo json_encode(array('gameName' => $temp['gameName'], 'timePlayed' => $temp['timePlayed'], 'timesPlayed' => $temp['counts']));
+            echo json_encode(array('gameName' => $temp[0]['gameName'], 'timePlayed' => $temp[0]['timePlayed'], 'timesPlayed' => $temp[0]['counts']));
         }else{
             echo json_encode(array('success' => 'no'));
         }
@@ -110,5 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }catch (PDOException $e) {
         echo $sqlquery . "<br>" . $e->getMessage();
     }
-
 }
+}
+

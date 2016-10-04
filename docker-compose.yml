@@ -14,7 +14,7 @@ services:
       - /var/www/html/ember-app/bower_components
   php-apache:
     container_name: php-apache
-    image: toozick/smu-arcade-machine-management-console-php-apache:v1
+    image: toozick/smu-arcade-machine-management-console-php-apache:v2
     links:
       - mysql
     ports:

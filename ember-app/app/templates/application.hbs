@@ -1,0 +1,19 @@
+{{#if is_full_page}}
+    {{outlet}}
+{{else}}
+    {{main-header}}
+    <div>
+        {{!-- Outlet for any routes --}}
+        <div class="col-md-10">
+            {{outlet}}
+        </div>
+
+        {{!-- Sidebar --}}
+        <div class="col-md-2 sidebar-container">
+            {{main-sidebar}}
+        </div>
+    </div>
+{{/if}}
+
+
+
