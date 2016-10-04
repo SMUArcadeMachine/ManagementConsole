@@ -22,27 +22,18 @@ Ember.$(document).ready(function() {
 export default Ember.Route.extend({
 
 	actions: {
-		toggleDeactivate() {
-          	this.toggleProperty('deactivate');
-        },
-		},
-		setupController: function(controller, model) {
-	    controller.set('model', model);
-		},
 		showModal: function(modalName, model) {
-			console.log("In show Modal @ dashboard route.js");
-			this.render(modalName, {
-					into: 'dashboard',
-					outlet: 'modal',
-					model: model
-			});
-			console.log("End of showModal in dashboard route");
-			// Ember.$('#myModal').modal('show');
-		},
-		closeModal: function() {
-			return this.disconnectOutlet({
-					outlet: 'modal',
-					parentView: 'dashboard'
-			});
-		}
+	    this.render("components/"+modalName, {
+	        into: 'dashboard',
+	        outlet: 'modal',
+	        model: model
+	    });
+    },
+    closeModal: function() {
+      return this.disconnectOutlet({
+          outlet: 'modal',
+          parentView: 'dashboard'
+      });
+    }
+	}
 });
