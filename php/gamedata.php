@@ -104,7 +104,33 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     //checks ig gameName parameter is set
    if(!isset($_GET['gameName'])) {
-	echo "gameName NOT SET";
+       try {
+           $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           $sqlquery = 'SELECT * FROM gameData;';
+           $temp = $conn->prepare($sqlquery);
+           $temp->execute();
+           $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
+
+           if($temp > 0){
+               $tempArray = array('usage'=>array());
+               $usage = array();
+               $ar = array();
+               $count =0;
+               //$tempArray[] = 'usage'array();
+               for($t = 0; $t<sizeof($temp); $t++) {
+                    array_push($tempArray,array( 'title'=>$temp[$t]['gameName'], 'plays'=>$temp[$t]['counts']));
+
+               }
+               echo json_encode($tempArray);//array('gameName' => $temp[0]['gameName'], 'timePlayed' => $temp[0]['timePlayed'], 'timesPlayed' => $temp[0]['counts']));
+           }else{
+               echo json_encode(array('success' => 'no'));
+           }
+
+       }catch (PDOException $e) {
+           echo $sqlquery . "<br>" . $e->getMessage();
+       }
+
 
        //if it is, query database
     }else{
@@ -129,4 +155,3 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 }
 }
-
