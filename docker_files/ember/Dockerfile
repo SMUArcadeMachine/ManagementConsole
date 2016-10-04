@@ -6,7 +6,7 @@ MAINTAINER Preston Tighe
 RUN apt-get update
 
 # Vim
-RUN apt-get -y install vim wget git curl make bzip2 fontconfig autoconf automake clang g++ python-dev
+RUN apt-get -y install vim wget git curl make bzip2 fontconfig autoconf automake clang g++ python-dev php5-mysqlnd php5-curl
 COPY docker_files/php-apache/vimrc.local /etc/vim/vimrc.local
 
 # -----------------------------------------------------------------------NODE--------------------------------------------------------------------------------

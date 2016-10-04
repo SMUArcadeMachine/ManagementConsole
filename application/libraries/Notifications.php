@@ -18,7 +18,7 @@ class Notifications {
     function __construct(){
         $this->ci =& get_instance();
         require_once __DIR__ . '/../resources/SendGrid/Smarty/libs/Smarty.class.php';
-        require_once __DIR__ . '/../resources/PHPMailer/PHPMailerAutoload.php';
+        require_once __DIR__ . '/../resources/SendGrid/sendgrid-php.php';
     }
     function send($types,$params,$users,$subjects = array()){
         if(!NOTIFICATIONS) return $this;
@@ -132,32 +132,14 @@ class Notifications {
             $subject = '[' . BASE_NAME_ABBR  .'] ' . $subject;
             $content = $this->smarty->fetch('main_template.tpl');
 
-            $mail = new PHPMailer;
-
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = GOOGLE_USER;
-            $mail->Password = GOOGLE_PASSWORD;
-            $mail->SMTPSecure = 'ssl';
-            $mail->SMTPDebug = 0;
-            $mail->Port = 465;
-
-            $mail->setFrom(GOOGLE_USER, BASE_NAME_ABBR);
-            $mail->addAddress($username);
-            $mail->addReplyTo(GOOGLE_USER, BASE_NAME_ABBR);
-            $mail->isHTML(true);
-
-            $mail->Subject = $subject;
-            $mail->Body    = $content;
-
-            $response = $mail->send();
-            if(!$response) {
-                throw new Exception('Email could not be sent.');
-            }
+            //Send email
+            $mail = new SendGrid\Email();
+            $mail->setFrom(SENDGRID_EMAIL)->setFromName(SENDGRID_NAME)->setReplyTo(SENDGRID_REPLY_EMAIL)->addTo($username)->setHtml($content)->setSubject($subject);
+            $response = $this->sendGrid->send($mail);
         }
     }
     private function _setup(){
+        $this->sendGrid = new SendGrid(SENDGRID_API_KEY);
         $this->smarty = new Smarty;
         $root = __DIR__.'/../resources/EmailTemplates';
         $this->smarty->setTemplateDir($root);

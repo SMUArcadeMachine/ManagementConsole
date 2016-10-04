@@ -14,7 +14,7 @@ define('MYSQL_PORT',3306);
 define('MYSQL_DRIVER','mysqli');
 
 //Global
-define('NOTIFICATIONS',false);
+define('NOTIFICATIONS',true);
 define('MB_RATIO',1048576);
 define('FAILED_LOGIN_ATTEMPTS',5);
 define('IP_HEADER','REMOTE_ADDR');
@@ -29,6 +29,11 @@ define('BASE_NAME_ABBR','AMMC');
 
 define('GOOGLE_USER',"smu.ammc@gmail.com");
 define('GOOGLE_PASSWORD',MYSQL_PASSWORD);
+
+define('SENDGRID_API_KEY','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');
+define('SENDGRID_EMAIL',"rcrum@smu.edu");
+define('SENDGRID_REPLY_EMAIL',"rcrum@smu.edu");
+define('SENDGRID_NAME','Rickey Crum');
 
 /*
 |--------------------------------------------------------------------------

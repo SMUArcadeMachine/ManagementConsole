@@ -4,9 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
     model() {
-        var dataUrl = 'https://private-50f0c-digarcademachine1.apiary-mock.com/gamedata';
-
-        let usageData = Ember.$.getJSON(dataUrl).then(function(data) {
+        let usageData = this.get('ajax').request('/php/gamedata.php').then(function(data) {
             var json = {};
             var titles = [];
             var usage = [];

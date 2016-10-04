@@ -1,0 +1,9 @@
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-01 22:35:28');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-02 00:24:08');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-02 00:46:20');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-02 03:16:29');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-02 03:25:21');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-02 03:25:27');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 1, '2016-10-02 03:25:38');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 28, '2016-10-02 03:27:24');
+INSERT INTO SMUAdminConsole.user_login_history (ip, uid, date_logged) VALUES ('192.168.1.120', 2, '2016-10-02 03:29:33');

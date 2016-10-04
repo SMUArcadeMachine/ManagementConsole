@@ -6,7 +6,7 @@
 */
 
 //Database
-define('MYSQL_HOST',    'localhost');
+define('MYSQL_HOST',    'mysql');
 define('MYSQL_USERNAME','admin');
 define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
@@ -14,7 +14,7 @@ define('MYSQL_PORT',3306);
 define('MYSQL_DRIVER','mysqli');
 
 //Global
-define('NOTIFICATIONS',false);
+define('NOTIFICATIONS',true);
 define('MB_RATIO',1048576);
 define('FAILED_LOGIN_ATTEMPTS',5);
 define('IP_HEADER','REMOTE_ADDR');
@@ -25,10 +25,15 @@ define('BASE_URL','http://localhost:4200/');
 define('BASE_URL_NO_SCHEME','localhost/');
 define('HASH','#/');
 define('BASE_NAME','Arcade Machine Management Console');
-define('BASE_NAME_ABBR','AMMC');
+define('BASE_NAME_ABBR','SMU AMMC');
 
 define('GOOGLE_USER',"smu.ammc@gmail.com");
 define('GOOGLE_PASSWORD',MYSQL_PASSWORD);
+
+define('SENDGRID_API_KEY','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');
+define('SENDGRID_EMAIL',"rcrum@smu.edu");
+define('SENDGRID_REPLY_EMAIL',"rcrum@smu.edu");
+define('SENDGRID_NAME','Rickey Crum');
 
 /*
 |--------------------------------------------------------------------------

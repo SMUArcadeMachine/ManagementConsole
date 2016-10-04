@@ -330,16 +330,16 @@
       <columns>uid</columns>
       <primary>1</primary>
     </key>
-    <column id="91" parent="11" name="time_start">
-      <data-type>time|0</data-type>
+    <column id="91" parent="11" name="timeStart">
+      <data-type>varchar(11)|0</data-type>
     </column>
-    <column id="92" parent="11" name="time_end">
-      <data-type>time|0</data-type>
+    <column id="92" parent="11" name="timeEnd">
+      <data-type>varchar(11)|0</data-type>
     </column>
-    <column id="93" parent="11" name="time_played">
-      <data-type>time|0</data-type>
+    <column id="93" parent="11" name="timePlayed">
+      <data-type>varchar(11)|0</data-type>
     </column>
-    <column id="94" parent="11" name="game_name">
+    <column id="94" parent="11" name="gameName">
       <data-type>varchar(50)|0</data-type>
     </column>
     <column id="95" parent="11" name="counts">

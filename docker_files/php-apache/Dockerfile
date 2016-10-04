@@ -10,7 +10,7 @@ RUN apt-get update
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Vim
-RUN apt-get -y install vim wget git php5-mysqlnd
+RUN apt-get -y install vim wget git php5-mysqlnd php5-curl
 COPY docker_files/php-apache/vimrc.local /etc/vim/vimrc.local
 
 # Apache mods

@@ -1,17 +1,4 @@
-TODO items
-SMTP connect errors
-Insert a default admin user when creating database
-Import users, usage (w/ real data & real backend calls)
-
-
-Real Pi notes
-Removed all node stuff
- sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C962022012520A0
- https://docs.npmjs.com/misc/removing-npm
- https://blog.wia.io/installing-node-js-on-a-raspberry-pi-3
-
 TODO PRODUCTIONS items
-Reupload changes files
 /cron/build_roms
 
 ENV.apiURL = 'http://localhost:8080'; -> ENV.apiURL = 'http://10.0.0.100';
@@ -24,14 +11,14 @@ sudo service apache2 restart && sudo systemctl daemon-reload
 sudo a2enmod rewrite
 sudo a2enmod headers
 sudo cp /var/www/html/docker_files/php-apache/apache_default /etc/apache2/sites-available/000-default.conf
-sudo cp /var/www/html/documentation/production-files/apache2.conf /etc/apache2/apache2.conf
+sudo cp /var/www/html/documentation/production/apache2.conf /etc/apache2/apache2.conf
 sudo chmod 777 /var/www/html/application/resources/EmailTemplates/compile
 sudo service apache2 restart && sudo systemctl daemon-reload
 
 
 XDEBUG
 sudo apt-get -y install php5-dev
-sudo cp /var/www/html/documentation/production-files/php-xdebug.ini /etc/php5/apache2/conf.d/php-xdebug.ini
+sudo cp /var/www/html/documentation/production/php-xdebug.ini /etc/php5/apache2/conf.d/php-xdebug.ini
 ---install xdebug steps---
 sudo service apache2 restart && sudo systemctl daemon-reload
 

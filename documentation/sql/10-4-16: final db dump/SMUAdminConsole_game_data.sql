@@ -1,0 +1,3 @@
+INSERT INTO SMUAdminConsole.game_data (timeStart, timeEnd, timePlayed, gameName, counts) VALUES ('1420000000', '1430000000', '20000000', 'mario', 2);
+INSERT INTO SMUAdminConsole.game_data (timeStart, timeEnd, timePlayed, gameName, counts) VALUES ('1320000000', '1430000000', '110000000', 'zelda', 1);
+INSERT INTO SMUAdminConsole.game_data (timeStart, timeEnd, timePlayed, gameName, counts) VALUES ('1320200000', '1430000000', '109800000', 'tetris', 1);

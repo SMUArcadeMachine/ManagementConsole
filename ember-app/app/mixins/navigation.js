@@ -10,6 +10,7 @@ export default Ember.Mixin.create({
             dashboard: 'ROMs',
             usage: 'Usage',
             users: 'Users',
+            password: 'Password',
         };
         return route_name_hash[this.get('router.currentPath')];
     }),

@@ -23,12 +23,11 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="word-wrap: break-word;">
                 <tr>
                     <td align="center">
-                        <div class="container email-template" style="width: 400px;
-                            border: 1px solid #e7e6e6;
+                        <div class="container email-template" style="border: 1px solid #e7e6e6;
                             box-shadow: 0 0 4px rgba(0, 0, 0, .1);
                             background: #fff;
                             border-radius: 5px;
-                            margin-top: 20px;
+                            margin: 5px;
                             text-align: left">
                             <div class="container-content" style="padding: 23px 30px 30px 30px;">
                                 <h2 style="font: 300 22px 'Open Sans', Arial, Helvetica, sans-serif;
