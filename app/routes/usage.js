@@ -3,13 +3,12 @@ import RSVP from 'rsvp';
 
 export default Ember.Route.extend({
   model() {
-    var dataUrl = 'https://private-50f0c-digarcademachine1.apiary-mock.com/usage';
+    var dataUrl = 'https://private-50f0c-digarcademachine1.apiary-mock.com/gamedata';
 
     let usageData = Ember.$.getJSON(dataUrl).then(function(data) {
       var json = new Object;
       var titles = [];
       var usage = [];
-      console.log("Finished call");
         Ember.$.each(data.usage, function(key, value) {
           titles.push(value.title);
           usage.push(value.plays);

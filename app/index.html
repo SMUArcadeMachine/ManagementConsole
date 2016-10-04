@@ -9,22 +9,25 @@
 
     {{content-for "head"}}
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/managementdashboard.css"> 
-    
+    <link rel="stylesheet" href="{{rootURL}}assets/managementdashboard.css">
+    <link href='/hamburgers.min.css' rel='stylesheet'>
+
 
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
-    
-    <script src="classie.js"></script>
+
+
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/managementdashboard.js"></script>
-    
+    <script src="/classie.js"></script>
+    <script src="/jquery.smoothState.min.js"></script>
+
 
     {{content-for "body-footer"}}
   </body>

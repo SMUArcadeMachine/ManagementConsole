@@ -1,14 +1,18 @@
 <div class="navbar">
     <div class='navbar-left'>
-      <a href='/home'><h1> Arcade Machine Logo Here </h1></a>
+      <a href='/home'><img src='/logo.jpg' alt='logo' style='width:100%;'></a>
     </div>
     <div class="navbar-center">
     </div>
     <div class="navbar-right">
       <div class="user-text"> {{!-- {{usertype}}: {{fullName}} --}} Admin : Katie Krummeck </div>
         <button class="btn btn-block btn-lg btn-primary dashboard-button-small"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
-        <button class="btn btn-block btn-lg btn-primary dashboard-button-small" {{action 'toggleNavbar'}}><i class="fa fa-bars" aria-hidden="true"></i></button>
-    </div>
+        <button class="btn btn-block btn-lg btn-primary dashboard-button-small hamburger hamburger--spin is-active" style="padding:2px" type="button" {{action 'toggleNavbar'}}>
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
 </div>
 {{!-- Sidebar --}}
 {{#if navbarShow}}
@@ -31,7 +35,7 @@
             <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
             </button>
-            <span class="popup-text">Game Usage</span>
+            <span class="popup-text">Game Activity</span>
         </a>
         <div class="button-wrapper" href="/games">
             <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" {{action 'submitReset'}}>

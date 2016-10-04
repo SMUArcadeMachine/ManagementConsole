@@ -8,6 +8,90 @@ html, body {
     font-weight:300;
 }
 
+@font-face {
+    font-family: press-start;
+    src: url(/ARCADECLASSIC.ttf);
+}
+
+.hamburger--spin {
+	outline:none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#main {
+	animation: fadeIn;
+}
+
+.btn-block {
+	margin:2px !important;
+}
+
+.dashboard-button-large {
+	width:50px;
+	height:50px;
+	font-size:25pt;
+	display:inline-block;
+	padding:0;
+	margin:0 !important;
+	transition: all 0.3s ease;
+}
+.dashboard-button-small {
+	display:inline-block;
+	padding:0;
+	width:40px;
+	height:40px;
+	font-size:20pt;
+	transition: all 0.3s ease;
+}
+
+.welcome-container {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height:calc(100vh - 120px);
+}
+.welcome {
+	font-family:press-start, "Lato", sans-serif;
+	color:#131c25;
+}
+
+.welcome-navigation {
+	display:flex;
+	flex-direction: row;
+	width:100%;
+	justify-content: center;
+	padding: 0 35px;
+}
+
+.welcome-button {
+	border:none;
+	width:125px !important;
+	height:125px !important;
+	font-size:34pt !important;
+	margin: 15px !important;
+}
+.welcome-button-wrapper {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	width:30%;
+	text-decoration: none !important;
+	color:black;
+	font-size:16pt;
+	text-align:center;
+	margin-bottom:25px;
+}
+
 #ember341 {
 	height:100%;
 	width: 100%;
@@ -30,22 +114,12 @@ html, body {
 	background-color:#1ed8b3 !important;
 	border-color:#1ed8b3 !important;
 }
-.dashboard-button-large {
-	width:50px;
-	height:50px;
-	font-size:25pt;
-	display:inline-block;
-	padding:0;
-	margin:0 !important;
-	transition: all 0.3s ease;
+
+.purple {
+	background-color:rebeccapurple;
 }
-.dashboard-button-small {
-	display:inline-block;
-	padding:0;
-	width:40px;
-	height:40px;
-	font-size:20pt;
-	transition: all 0.3s ease;
+.purple:hover {
+	background-color:#8144bf !important;
 }
 
 .navbar {
@@ -90,12 +164,11 @@ html, body {
 	text-align: right;
 	margin-right:10px;
 }
-.btn-block {
-	margin:2px !important;
-}
+
 .sidebar-container {
 	height:100%;
 	padding:0;
+	overflow:hidden;
 }
 .sidebar {
 	width:100%;
@@ -104,6 +177,7 @@ html, body {
 	display:flex;
 	flex-direction:column;
 	align-items:center;
+	transition:all 0.3s ease;
     justify-content: center;
 }
 .sidebar-button {
