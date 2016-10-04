@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     actions: {
-        startAddingUser(target){
-            Ember.$('#'+target).modal('show');
+        startAddingUser(){
+            Ember.$('#adduser').modal('show');
         },
         addUser(){
             var id = "emailinput" + Ember.$('.input--kaede').length;
@@ -12,23 +12,27 @@ export default Ember.Component.extend({
             Ember.$('#adduserform').append(inputhtml);
         },
         saveUsers() {
-            Ember.Logger.debug('Going to add users...TODO');
-            // var emails = [];
-            // var url = 'https://private-50f0c-digarcademachine1.apiary-mock.com/addusers';
-            // Ember.$('.input__field').each(function() {
-            //     var email = Ember.$(this).val();
-            //     if (email.endsWith('@smu.edu') && email.length > 8) {
-            //         emails.push(email);
-            //     }
-            // });
-            // var json = {'emails':emails};
-            // Ember.$.post(url, json, function(response) {
-            //     console.log("Server responded with: "+  response.status);
-            // });
-        },
-        openUserModal(target) {
-            Ember.$('#'+target).modal('show');
-            Ember.Logger.debug("Opening modal");
+            var emails = [];
+            Ember.$('.input__field').each(function() {
+                var email = Ember.$(this).val();
+                if (email.length > 8) {
+                    emails.push(email);
+                }
+            });
+            showLoader();
+            this.get('ajax').post('/admin/users', {
+                data: {
+                    'emails': emails
+                }
+            }).then(() => {
+                createAlert('Users successfully created.','','success');
+                Ember.$('#adduser').modal('hide');
+                this.attrs.created_user();
+            }, (error) => {
+                createError('Error creating users.', this.get('utils').parse_error(error));
+            }).finally(function(){
+                hideLoader();
+            });
         }
     }
 });

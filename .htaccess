@@ -35,5 +35,5 @@ AddType application/font-woff .woff
 </IfModule>
 
 # Change CodeIgniter environment
-#SetEnv CI_ENV development
-SetEnv CI_ENV production
+SetEnv CI_ENV development
+#SetEnv CI_ENV production

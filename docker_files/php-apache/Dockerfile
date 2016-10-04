@@ -38,7 +38,7 @@ WORKDIR xdebug-2.4.1
 RUN phpize
 RUN ./configure
 RUN make
-RUN cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226
+RUN cp modules/xdebug.so /usr/lib/php5/20131226/xdebug.so
 COPY docker_files/php-apache/php.ini /usr/local/etc/php/php.ini
 RUN touch /var/log/xdebug.log
 RUN chown www-data:www-data /var/log/xdebug.log

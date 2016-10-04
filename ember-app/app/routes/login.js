@@ -9,10 +9,13 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     actions: {
         login_user(user){
             var self = this;
+            showLoader();
             self.get('session').authenticate('authenticator:oauth2', user.get('username'), user.get('password')).then(() => {
                 Ember.Logger.debug('Ember login success');
             }, (error) => {
                 createError('Error logging in', self.get('utils').parse_error(error));
+            }).finally(function(){
+                hideLoader();
             });
         }
     }

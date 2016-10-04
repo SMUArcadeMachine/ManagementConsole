@@ -14,14 +14,15 @@ define('MYSQL_PORT',3306);
 define('MYSQL_DRIVER','mysqli');
 
 //Global
-define('NOTIFICATIONS',true);
+define('NOTIFICATIONS',false);
 define('MB_RATIO',1048576);
 define('FAILED_LOGIN_ATTEMPTS',5);
 define('IP_HEADER','REMOTE_ADDR');
 define('LOGIN_SESSION_DAYS',7);
+define('MAX_ACTIVE_ROMS',9);
 
-define('BASE_URL','http://10.0.0.100/');
-define('BASE_URL_NO_SCHEME','10.0.0.100/');
+define('BASE_URL','http://192.168.1.7:4200/');
+define('BASE_URL_NO_SCHEME','192.168.1.7:4200/');
 define('HASH','#/');
 define('BASE_NAME','Arcade Machine Management Console');
 define('BASE_NAME_ABBR','AMMC');

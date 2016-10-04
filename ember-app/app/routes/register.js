@@ -10,6 +10,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         create_user(user){
             var self = this;
             const {username, password} = user.getProperties('username','password');
+            showLoader();
             user.save().then(function() {
                 self.get('session').authenticate('authenticator:oauth2', username, password).then(() => {
                     Ember.Logger.debug('Ember login success');
@@ -18,6 +19,8 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
                 });
             },function(error){
                 createError('Error Registering', self.get('utils').parse_error(error));
+            }).finally(function(){
+                hideLoader();
             });
         }
     }

@@ -189,6 +189,7 @@ $config['auth_override_class_method']['error']['index']['post'] = true;
 $config['auth_override_class_method']['test']['index']['get'] = true;
 $config['auth_override_class_method']['token']['all'] = true;
 $config['auth_override_class_method']['cron']['all'] = true;
+$config['auth_override_class_method']['welcome']['all'] = true;
 /*
 |--------------------------------------------------------------------------
 | Override auth types for specfic 'class/method/HTTP method'

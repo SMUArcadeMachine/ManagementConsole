@@ -1024,6 +1024,7 @@ abstract class REST_Controller extends CI_Controller {
             $api_key_exploded = explode('_',$key);
             $uid = $api_key_exploded[0];
 
+
             $this->rest->key = $key;
 
             //Checks if valid key
@@ -1045,7 +1046,7 @@ abstract class REST_Controller extends CI_Controller {
             if(!$valid_login) return false;
 
 
-
+            $this->_api_uid = $uid;
             isset($row->id) && $this->rest->user_id = $row->uid;
             isset($row->level) && $this->rest->level = $row->level;
             isset($row->ignore_limits) && $this->rest->ignore_limits = $row->ignore_limits;

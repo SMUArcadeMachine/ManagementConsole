@@ -2,7 +2,46 @@
 class Cron extends REST_Controller {
 
     public function test_get(){
-        echo 'cron test route';
+        require_once __DIR__ . '/../resources/PHPMailer/PHPMailerAutoload.php';
+//        $mailHeaders = array(
+//            'From'=>'affinitiinfiniti@gmail.com',
+//            'To'=>'preston_tighe@yahoo.com',
+//            'Subject'=>'Email Verification',
+//            'Content-type'=>'text/html;charset=iso-8859-1'
+//        );
+//        $smtp = @Mail::factory('smtp',array(
+//            'host'=>'ssl://smtp.gmail.com',
+//            'port'=>'465',
+//            'auth'=>true,
+//            'username'=>'affinitiinfiniti@gmail.com',
+//            'password'=>'guestguest'
+//        ));
+//        $mail = @$smtp->send($parsedReq['email'],$mailHeaders,'<html><a href="http://52.26.234.46/verify/'.$activationKey.'">Click here to verify!</a></html>');
+
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'ssl://smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = GOOGLE_USER;
+        $mail->Password = GOOGLE_PASSWORD;
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPDebug = 2;
+        $mail->Port = GOOGLE_PASSWORD;
+
+        $mail->setFrom(GOOGLE_USER, BASE_NAME_ABBR);
+        $mail->addAddress('preston_tighe@yahoo.com');
+        $mail->addReplyTo(GOOGLE_USER, BASE_NAME_ABBR);
+//        $mail->isHTML(true);
+
+        $mail->Subject = 'test subject';
+        $mail->Body    = 'test body';
+
+        $response = $mail->send();
+        if (!$mail->send()) {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+            echo "Message sent!";
+        }
     }
 
     public function build_roms_get(){

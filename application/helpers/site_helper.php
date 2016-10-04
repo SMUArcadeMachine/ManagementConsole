@@ -94,7 +94,7 @@ if(!function_exists('q')){
     }
 }
 if(!function_exists('lookup_user')){
-    function lookup_user($uid_or_username = null,$fail_message = 'User lookup failed.',$filter_enabled = true){
+    function lookup_user($uid_or_username = null,$fail_message = 'User lookup failed.',$throw_error = true){
         if(is_numeric($uid_or_username)){
             if(empty($uid_or_username)) throw new Exception('UID is empty.');
             $where = array('uid' => $uid_or_username);
@@ -107,10 +107,13 @@ if(!function_exists('lookup_user')){
         $sql = $CI->db->from('users')->where($where)->get_compiled_select();
         $user = q(array(
             'sql' => $sql,
-            'flat' => true,
-            'filter' => $filter_enabled
+            'flat' => true
         ));
-        if(!$user) throw new Exception($fail_message);
+        if($throw_error && !$user) throw new Exception($fail_message);
+
+        if(!empty($user)){
+            $user['id'] = $user['uid'];
+        }
 
         return $user;
     }

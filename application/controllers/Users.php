@@ -25,17 +25,5 @@ class Users extends REST_Controller {
         $return_data = $this->users_model->load($uid,FALSE);
         $this->response($return_data,200);
     }
-//    public function index_put(){
-//        $account = $this->put('account')?:array();
-//        $uid = $this->uid();
-//        $email = $this->email();
-//        if(empty($account)) throw new Exception('Account parameters empty.');
-//
-//        q('BEGIN');
-//        $this->load->model('users_model');
-//        $return_data = $this->users_model->update($uid,$account,$email);
-//        q('COMMIT');
-//        $this->response($return_data,$return_data ? 200 : 204);
-//    }
 }
 

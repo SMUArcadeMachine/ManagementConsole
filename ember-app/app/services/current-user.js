@@ -12,6 +12,9 @@ export default PseudoServiceWithPromiseProxyMixin.extend({
     session: service(),
     store: service(),
 
+    isAdmin: Ember.computed('type',function(){
+        return this.get('content.type') === 1;
+    }),
     load() {
         var self = this;
         return new RSVP.Promise((resolve, reject) => {

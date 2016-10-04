@@ -7,14 +7,16 @@
             <span class="popup-text" style="text-decoration: none">Dashboard</span>
         </div>
     {{/link-to}}
-    {{#link-to "users" classNames="no-decoration"}}
-        <div class="button-wrapper">
-            <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
-                <i class="fa fa-users" aria-hidden="true"></i>
-            </button>
-            <span class="popup-text">Manage Users</span>
-        </div>
-    {{/link-to}}
+    {{#if currentUser.isAdmin}}
+        {{#link-to "users" classNames="no-decoration"}}
+            <div class="button-wrapper">
+                <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </button>
+                <span class="popup-text">Manage Users</span>
+            </div>
+        {{/link-to}}
+    {{/if}}
     {{#link-to "usage" classNames="no-decoration"}}
         <div class="button-wrapper">
             <button class="btn btn-block btn-lg btn-primary dashboard-button-large sidebar-button" >
