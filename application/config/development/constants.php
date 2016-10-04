@@ -6,7 +6,7 @@
 */
 
 //Database
-define('MYSQL_HOST',    'mysql');
+define('MYSQL_HOST',    'localhost');
 define('MYSQL_USERNAME','admin');
 define('MYSQL_PASSWORD','8043v36m807c3084m6m03v');
 define('MYSQL_DATABASE','SMUAdminConsole');
@@ -14,11 +14,12 @@ define('MYSQL_PORT',3306);
 define('MYSQL_DRIVER','mysqli');
 
 //Global
-define('NOTIFICATIONS',true);
+define('NOTIFICATIONS',false);
 define('MB_RATIO',1048576);
 define('FAILED_LOGIN_ATTEMPTS',5);
 define('IP_HEADER','REMOTE_ADDR');
 define('LOGIN_SESSION_DAYS',7);
+define('MAX_ACTIVE_ROMS',9);
 
 define('BASE_URL','http://localhost:4200/');
 define('BASE_URL_NO_SCHEME','localhost/');

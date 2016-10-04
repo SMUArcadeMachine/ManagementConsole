@@ -11,6 +11,10 @@ class Login_model extends CI_Model {
         //Username lookup
         $user = lookup_user($username,'Username or password incorrect.');
 
+        if(empty($user['active'])){
+            throw new Exception('This user has been created but the password has not been set. Register with the email ' . $user['username'] . ' and set your password.');
+        }
+
         //Check password
         $password_verify = password_verify($password, $user['password']);
 
@@ -29,17 +33,10 @@ class Login_model extends CI_Model {
     /* ------------------------Final login check-----------------------*/
     function _finalize_login($user,$failed_history = null){
         try{
-            $meta = array();
-
             //Check failed logins
             $failed_history = $this->_check_failed_logins($user,$failed_history);
 
             if($user){
-                //Check if banned
-                if($user['date_banned_till'] != null){
-                    $banned = strtotime($user['date_banned_till']);
-                    if (time() < $banned) throw new Exception('This account has been suspended until ' . date('M j, Y H:i:s', $banned) . '. Please contact support for more help.');
-                }
 
                 //Log user login history
                 $data = array(
@@ -53,10 +50,8 @@ class Login_model extends CI_Model {
                 $this->load->model('users_model');
 
                 $return_data = array(
-//                    'meta' => $meta,
                     'access_token' => $this->_create_api_key($user),
                     'uid' => $user['uid'],
-//                    'message' => $this->users_model->load($user['uid'],FALSE)
                 );
 
                 //Return data with newly created API key
@@ -151,9 +146,14 @@ class Login_model extends CI_Model {
     }
 
 
-    /* ------------------------Creating User---------------------------*/
+    /* ------------------------Creating User from admin created user---------------------------*/
     function create_user($user_info){
-        return $this->_insert_user($user_info);
+        $user = lookup_user($user_info['username']);
+        if(!empty($user) && empty($user['active'])){
+            return $this->_update_user(array_merge($user,$user_info));
+        }else{
+            throw new Exception('Please ask an IG staff member in the IG at SMU to register as a Management Console user.');
+        }
     }
     function create_user_info($user){
         //Check if valid registration one last time
@@ -167,30 +167,17 @@ class Login_model extends CI_Model {
         );
 
     }
-    private function _insert_user($user_info){
-        $date = date('Y-m-d H:i:s');
-        $password = !empty($user_info['password']) ? password_hash($user_info['password'], PASSWORD_DEFAULT) : null;
-        $data = array(
-            //Required
-            'username' => $user_info['username'],
+    private function _update_user($user){
+        $password = !empty($user['password']) ? password_hash($user['password'], PASSWORD_DEFAULT) : null;
 
-            //Optional
-            'profile_picture_url' => get_gravatar($user_info['username'],80,'identicon'),
+        $update_data = [
             'password' => $password,
-
-            //Defaults
-            'type' => "1" ,
-            'date_banned_till' => $date ,
-            'ip' => $_SERVER[IP_HEADER] ,
-            'date_start' => $date,
             'active' => 1
-        );
+        ];
+        update_user($update_data,$user['uid']);
 
-        if(!$this->db->insert('users',$data)) throw new Exception('Error creating user.');
-
-        $data['id'] = $data['uid'] = $this->db->insert_id();
         return array(
-            'user' => $data
+            'user' => array_merge($user,$update_data)
         );
     }
 

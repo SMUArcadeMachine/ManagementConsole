@@ -5,7 +5,7 @@ class Notifications {
     var $smarty = null;
     var $directory = '/../resources/EmailTemplates/';
     var $subject_map = array(
-        'account_created' => 'Your account has been created',
+        'account_created' => 'Your account has been added',
         'password_reset' => 'Password reset link'
     );
     var $type_column_map = array(
@@ -14,7 +14,7 @@ class Notifications {
     );
     var $type_map = array(
     );
-    var $force_notifications = array('password_reset');
+    var $force_notifications = array('password_reset','account_created');
     function __construct(){
         $this->ci =& get_instance();
         require_once __DIR__ . '/../resources/SendGrid/Smarty/libs/Smarty.class.php';
@@ -151,7 +151,8 @@ class Notifications {
             $mail->Subject = $subject;
             $mail->Body    = $content;
 
-            if(!$mail->send()) {
+            $response = $mail->send();
+            if(!$response) {
                 throw new Exception('Email could not be sent.');
             }
         }

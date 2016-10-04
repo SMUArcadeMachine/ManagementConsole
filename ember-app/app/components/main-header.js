@@ -12,7 +12,7 @@ export default Ember.Component.extend(NavigationMixin,{
                 'Are you sure you want to reboot the Arcade Machine?',
                 () => {
                     showLoader();
-                    this.get('ajax').post('/reboot').then(function(){
+                    this.get('ajax').post('/admin/reboot').then(function(){
                         createAlert('Rebooting Arcade Machine...','','success');
                     }, (error) => {
                         createError('Error rebooting Arcade Machine', this.get('utils').parse_error(error));

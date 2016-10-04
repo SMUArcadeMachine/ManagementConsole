@@ -113,3 +113,6 @@ CREATE TABLE game_data(
 	game_name         VARCHAR(50),
 	counts            int
 );
+
+INSERT INTO SMUAdminConsole.users (first_name, last_name, username, password, type, date_start, date_banned_till, profile_picture_url, ip, active) VALUES (null, null, 'test@yahoo.com', '$2y$10$nqQQal7HpSNrXkomAJOR0uJRlWMEQCLA.sQbTZXccEwxsX0YOU9B6', 1, '2016-10-03 02:41:49', '2016-10-03 02:41:49', 'https://www.gravatar.com/avatar/88e478531ab3bc303f1b5da82c2e9bbb?s=80&d=identicon&r=g', '10.0.0.39', 1);
+INSERT INTO SMUAdminConsole.users (first_name, last_name, username, password, type, date_start, date_banned_till, profile_picture_url, ip, active) VALUES (null, null, 'test2@yahoo.com', '$2y$10$h.8/kX26bI8kpEE4pgRPCu8iXuqccY9Tv8l8ssxPvo.AzKhboiFJ6', 1, '2016-10-03 02:46:29', '2016-10-03 02:46:29', 'https://www.gravatar.com/avatar/428907f641fa53ea2d3e4e9d2944d54c?s=80&d=identicon&r=g', '10.0.0.39', 1);

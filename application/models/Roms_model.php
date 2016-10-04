@@ -58,6 +58,16 @@ class Roms_model extends CI_Model {
 
         }
 
+        //Check max active games
+        $sql = $this->db->from('roms')->where(['rom_active' => 1])->get_compiled_select();
+        $active_roms = q(array(
+            'sql' => $sql
+        ));
+        if(count($active_roms) > MAX_ACTIVE_ROMS){
+            throw new Exception('The maximum amount of ROMs that be active is ' . MAX_ACTIVE_ROMS . '.');
+        }
+
+        //Move physical rom files
         foreach($updated_datas as $updated_data){
 
             //Moving the ROMs to their respective folders
@@ -75,6 +85,8 @@ class Roms_model extends CI_Model {
                 }
             }
         }
+
+        //Check max active games
 
         //Format for response
         return array(

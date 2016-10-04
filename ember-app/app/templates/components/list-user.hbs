@@ -1,0 +1,11 @@
+<div class="user {{if isAdmin "admin" "tech"}}" data-user-id="{{user.uid}}">
+    <span title="{{user.username}}">{{user.username}}</span>
+    <br>
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <br>
+    <strong>{{if isAdmin "Admin" "Tech"}}</strong>
+    <br>
+    <button class="btn btn-block btn-lg btn-danger dashboard-button-large" style="margin-top: 5px!important" {{action 'deleteUser' user.uid}}>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+</div>

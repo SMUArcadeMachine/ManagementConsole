@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
-//        echo 'test123';
+//	    echo 'codeigniter home page';
+        header('Location: ' . 'http://' . str_replace('/','',BASE_URL_NO_SCHEME));
 	}
 }
