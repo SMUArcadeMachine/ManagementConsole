@@ -25,15 +25,17 @@ class Cron extends REST_Controller {
             return $name;
         }
 
-        $file = fopen(getcwd() . '/documentation/rom_names.csv', "r");
+        $file = fopen(getcwd() . '/documentation/rom_names_desc.csv', "r");
 
         $roms = array();
         while(($line = fgetcsv($file)) !== FALSE) {
 
             $game_name = cleanName($line[1]);
+            $desc = $line[2];
             $roms[] = array(
                 'file_name' => $line[0].".zip",
-                'game_name' => $game_name
+                'game_name' => $game_name,
+                'game_desc' => $desc
             );
         }
         $this->db->insert_batch('possible_roms',$roms);
@@ -65,7 +67,8 @@ class Cron extends REST_Controller {
                         'file_name' => $active_directory_scan[$x],
                         'rom_loc' => $active_directory,
                         'image_loc' => '/images/' . str_replace('zip','jpeg',$rom['file_name']),
-                        'rom_active' => 1
+                        'rom_active' => 1,
+                        'game_desc' => $rom['game_desc']
                     ),array('id' => $rom['id']));
                 }
             }
@@ -92,7 +95,8 @@ class Cron extends REST_Controller {
                         'file_name' => $inactive_directory_scan[$x],
                         'rom_loc' => $storage_directory,
                         'image_loc' => '/images/' . str_replace('zip','jpeg',$rom['file_name']),
-                        'rom_active' => 0
+                        'rom_active' => 0,
+                        'game_desc' => $rom['game_desc']
                     ),array('id' => $rom['id']));
                 }
             }
