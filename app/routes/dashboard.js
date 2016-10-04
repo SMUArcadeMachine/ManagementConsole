@@ -20,12 +20,20 @@ Ember.$(document).ready(function() {
 
 
 export default Ember.Route.extend({
+
 	actions: {
-		toggleDeactivate() {
-          	this.toggleProperty('deactivate');
-        },
-	},
-	setupController: function(controller, model) {
-	    controller.set('model', model);
+		showModal: function(modalName, model) {
+	    this.render("components/"+modalName, {
+	        into: 'dashboard',
+	        outlet: 'modal',
+	        model: model
+	    });
+    },
+    closeModal: function() {
+      return this.disconnectOutlet({
+          outlet: 'modal',
+          parentView: 'dashboard'
+      });
+    }
 	}
 });

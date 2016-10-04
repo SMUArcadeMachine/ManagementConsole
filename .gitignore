@@ -3,10 +3,14 @@
 # compiled output
 /dist
 /tmp
+ember-app/dist
+ember-app/tmp
 
 # dependencies
 /node_modules
 /bower_components
+/ember-app/node_modules
+/ember-app/bower_components
 
 # misc
 /.sass-cache

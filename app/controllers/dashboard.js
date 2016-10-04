@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   deactivate:false,
   machineReset:false,
+  isShowingModal: false,
   actions: {
         submitReset() {
             var url = 'http://192.168.1.7/php/reboot.php';
