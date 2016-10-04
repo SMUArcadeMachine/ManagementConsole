@@ -18,8 +18,8 @@ $password = "8043v36m807c3084m6m03v";
 $reg = array(
     'start' => "/(START)/i",
     'end' => "/(END)/i",
-    'time_end' => "/(\d){11}/", //"/(?:((END)\_))(\d+)/i",
-    'game_name' => "/(\d){11}(\_)(\w+)/",// "/(?=(END\_(\d+)(\_)))(\w)+/",         //(?:(\_{1}\d+\_{1}))(\w+\s)+/",
+    'time_end' => "/(\d){10}/", //"/(?:((END)\_))(\d+)/i",
+    'game_name' => "/(\d){10}(\_)(\w+)/",// "/(?=(END\_(\d+)(\_)))(\w)+/",         //(?:(\_{1}\d+\_{1}))(\w+\s)+/",
     'time_start' => "/(?:(START)\_)(\d+)/i"//,
     // 'restart' => "/?:(RESTART)"
 );
@@ -66,14 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $game_name . '";';
+                $sqlquery = 'SELECT * FROM game_data WHERE gameName="' . $game_name . '";';
                 $temp = $conn->prepare($sqlquery);
                 $temp->execute();
                 $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
 
                 //if the game is not in the DB yet, new entry
                 if (!(count($temp) > 0)) {
-                    $sqlquery = 'INSERT INTO gameData (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_start . '","' . $time_end . '","' . $time_played . '","' . $game_name . '", 1);';
+                    $sqlquery = 'INSERT INTO game_data (timeStart,timeEnd,timePlayed,gameName,counts) VALUES ("' . $time_start . '","' . $time_end . '","' . $time_played . '","' . $game_name . '", 1);';
                     $temp = $conn->prepare($sqlquery);
                     $temp->execute();
 
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		            $tplayed = $temp[0]['timePlayed'];
 		            $tplayed = $tplayed + $time_played;
 		            $cnt = $temp[0]['counts'] + 1;
-                    $sqlquery = 'UPDATE gameData SET timeStart="' . $time_start . '", timeEnd="' . $time_end . '", timePlayed ="'. $tplayed.'", counts ="'.$cnt.'"  WHERE gameName ="' . $game_name . '";';
+                    $sqlquery = 'UPDATE game_data SET timeStart="' . $time_start . '", timeEnd="' . $time_end . '", timePlayed ="'. $tplayed.'", counts ="'.$cnt.'"  WHERE gameName ="' . $game_name . '";';
                     $temp = $conn->prepare($sqlquery);
                     $temp->execute();
                 }
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
        try {
            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           $sqlquery = 'SELECT * FROM gameData;';
+           $sqlquery = 'SELECT * FROM game_data;';
            $temp = $conn->prepare($sqlquery);
            $temp->execute();
            $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sqlquery = 'SELECT * FROM gameData WHERE gameName="' . $getGameName . '";';
+        $sqlquery = 'SELECT * FROM game_data WHERE gameName="' . $getGameName . '";';
         $temp = $conn->prepare($sqlquery);
         $temp->execute();
         $temp = $temp->fetchAll(PDO::FETCH_ASSOC);
