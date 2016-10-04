@@ -29,7 +29,7 @@ $matches = array();
 //Data coming from software
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $line = $_POST['postVariable'];
+    $line = $_POST['log'];
     global $time_start;
     preg_match($reg['start'], $line, $matches);
 
