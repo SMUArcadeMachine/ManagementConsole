@@ -37,3 +37,9 @@ sudo service apache2 restart && sudo systemctl daemon-reload
 #sudo service apache2 restart && sudo systemctl daemon-reload
 
 #Run 192.168.1.7/cron/build_roms on the the backend to build all the ROMs from the system and put them in the DB
+
+#Database
+mysql -u root -praspberry SMUAdminConsole < /var/www/html/documentation/sql/database_setup.sql
+
+#Build ROMs
+sudo php index.php cron build_roms
